@@ -46,7 +46,7 @@
 
       <!-- Main header: logo, search bar, cart -->
       <div class="main-header">
-        <div class="container main-header-inner">
+        <div class="main-header-inner">
           <a href="#" class="logo-link">
             <img src="assets/logo.png" alt="Daraz Logo" class="logo-img" />
           </a>
@@ -63,12 +63,14 @@
           </a>
         </div>
       </div>
+      <!-- only for extra height -->
+      <div class="homepage-only-height"></div>
     </header>
     <!-- Main Section -->
     <main>
       <!-- Hero: carousel + app download card -->
       <section class="hero-section">
-        <div class="container hero-inner">
+        <div class="hero-inner">
           <!-- Carousel -->
           <div class="carousel-wrapper">
             <div class="carousel-track" id="carousel-track">
@@ -206,14 +208,20 @@
               <div class="app-features">
                 <div class="app-feature">
                   <img src="assets/free-shipping.png" alt="Free Shipping" />
-                  <span>Free Shipping</span>
+                  <span
+                    >Free <br />
+                    Shipping</span
+                  >
                 </div>
                 <div class="app-feature">
                   <img
                     src="assets/exclusive-voucher.png"
                     alt="Exclusive Vouchers"
                   />
-                  <span>Exclusive Vouchers</span>
+                  <span
+                    >Exclusive <br />
+                    Vouchers</span
+                  >
                 </div>
               </div>
             </div>
@@ -239,6 +247,7 @@
         </div>
       </section>
 
+      <!-- Banner Image -->
       <a
         class="d-flex justify-content-center align-content-center p-3"
         href="#"
@@ -249,7 +258,7 @@
       <!-- Flash Sale -->
       <section class="flash-sale">
         <h2 class="section-title">Flash Sale</h2>
-        <div class="container">
+        <div class="flash-sale-container">
           <div class="flash-sale-subrow">
             <span class="flash-sale-tab">On Sale Now</span>
             <button class="flash-sale-btn">SHOP ALL PRODUCTS</button>
@@ -359,11 +368,9 @@
       <!-- Categories -->
       <section class="categories">
         <h2 class="section-title">Categories</h2>
-        <div class="container">
-          <div
-            class="row categories-grid row categories-grid row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 row-cols-xl-8 g-0"
-          >
-            <div class="col">
+        <div class="categories-container">
+          <div class="categories-grid">
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/3d-printers.png"
@@ -371,7 +378,7 @@
                 /><span>3D Printers</span></a
               >
             </div>
-            <div class="col">
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/tools.png"
@@ -379,7 +386,8 @@
                 /><span>Pasta, Noodle & Pizza Tools</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/sim-tools.png"
@@ -387,7 +395,8 @@
                 /><span>SIM Tools</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/protector.png"
@@ -395,7 +404,8 @@
                 /><span>Screen Protectors</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/pots.png"
@@ -403,7 +413,8 @@
                 /><span>Casserole Pots</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/table-lamps.png"
@@ -411,7 +422,8 @@
                 /><span>Table Lamps</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/garments.png"
@@ -419,7 +431,8 @@
                 /><span>Hoodies & Sweatshirts</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/toy-box.png"
@@ -427,7 +440,8 @@
                 /><span>Toy Boxes & Organisers</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/clippers.png"
@@ -435,7 +449,8 @@
                 /><span>Dog & Cat Electric Clippers</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/sneakers.png"
@@ -443,7 +458,8 @@
                 /><span>Sneakers</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/education.png"
@@ -451,7 +467,8 @@
                 /><span>Education</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/microphones.png"
@@ -459,7 +476,8 @@
                 /><span>Microphones</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/leashes.png"
@@ -467,7 +485,8 @@
                 /><span>Leashes & Harnesses</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/scooters.png"
@@ -475,7 +494,8 @@
                 /><span>Scooters</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/donate.png"
@@ -483,7 +503,8 @@
                 /><span>Donate to Educate</span></a
               >
             </div>
-            <div class="col">
+
+            <div class="category-col">
               <a href="#" class="category-item"
                 ><img
                   src="assets/products/categories/colors.png"
@@ -498,8 +519,8 @@
       <!-- Just For You -->
       <section class="just-for-you">
         <h2 class="section-title">Just For You</h2>
-        <div class="container p-0">
-          <div class="row jfy-grid g-2">
+        <div class="jfy-container">
+          <div class="row g-2">
             <div class="col-6 col-sm-4 col-md-3 col-lg-2">
               <a href="#" class="jfy-card">
                 <img
@@ -887,6 +908,10 @@
             </div>
           </div>
         </div>
+
+        <div class="load-more-container">
+          <button class="jfy-load-btn">LOAD MORE</button>
+        </div>
       </section>
     </main>
 
@@ -965,46 +990,38 @@
 
       <!-- Row 2: Payment methods + Verified by -->
       <div class="footer-payments">
-        <div class="container">
-          <div class="row g-4">
-            <div class="col-12 col-md-9">
-              <h3 class="footer-heading">Payment Methods</h3>
-              <div class="footer-pay-icons">
-                <img
-                  src="assets/footer/payment/cash-on-delivery.png"
-                  alt="Cash on Delivery"
-                />
-                <img src="assets/footer/payment/visa.png" alt="Visa" />
-                <img
-                  src="assets/footer/payment/master-card.png"
-                  alt="Mastercard"
-                />
-                <img
-                  src="assets/footer/payment/easy-paisa.png"
-                  alt="Easypaisa"
-                />
-                <img
-                  src="assets/footer/payment/daraz-wallet.png"
-                  alt="Daraz Wallet"
-                />
-                <img src="assets/footer/payment/jazz-cash.png" alt="JazzCash" />
-                <img src="assets/footer/payment/union-pay.png" alt="UnionPay" />
-                <img src="assets/footer/payment/hbl.png" alt="HBL" />
-                <img
-                  src="assets/footer/payment/monthly-installments.png"
-                  alt="Easy Monthly Installments"
-                />
-              </div>
+        <div class="payment-container">
+          <div class="footer-width-32">
+            <h3 class="footer-heading">Payment Methods</h3>
+            <div class="footer-pay-icons">
+              <img
+                src="assets/footer/payment/cash-on-delivery.png"
+                alt="Cash on Delivery"
+              />
+              <img src="assets/footer/payment/visa.png" alt="Visa" />
+              <img
+                src="assets/footer/payment/master-card.png"
+                alt="Mastercard"
+              />
+              <img src="assets/footer/payment/easy-paisa.png" alt="Easypaisa" />
+              <img
+                src="assets/footer/payment/daraz-wallet.png"
+                alt="Daraz Wallet"
+              />
+              <img src="assets/footer/payment/jazz-cash.png" alt="JazzCash" />
+              <img src="assets/footer/payment/union-pay.png" alt="UnionPay" />
+              <img src="assets/footer/payment/hbl.png" alt="HBL" />
+              <img
+                src="assets/footer/payment/monthly-installments.png"
+                alt="Easy Monthly Installments"
+              />
             </div>
+          </div>
 
-            <div class="col-12 col-md-3">
-              <h3 class="footer-heading">Verified by</h3>
-              <div class="footer-verified-icons">
-                <img
-                  src="assets/footer/payment/pci-verified.png"
-                  alt="PCI DSS"
-                />
-              </div>
+          <div class="footer-width-32">
+            <h3 class="footer-heading">Verified by</h3>
+            <div class="footer-verified-icons">
+              <img src="assets/footer/payment/pci-verified.png" alt="PCI DSS" />
             </div>
           </div>
         </div>
