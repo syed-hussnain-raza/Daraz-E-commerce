@@ -3,6 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   initCarousel();
   initStickyHeader();
   initSideNav();
+  initThumbs();
+  initZoom();
+  initQty();
+  initColorSelect();
+  initFlashTimer();
+  initViewMore();
 });
 
 // Carousel
@@ -154,4 +160,180 @@ function initSideNav() {
   document
     .querySelectorAll(".flash-sale, .categories, .just-for-you")
     .forEach((sec) => activeObserver.observe(sec));
+}
+
+// Product
+// ── 1. Thumbnail hover preview + click lock ──────────────────
+function initThumbs() {
+  const thumbs = document.querySelectorAll(".pd-thumb");
+  const mainImg = document.getElementById("pd-main-img");
+  if (!thumbs.length || !mainImg) return;
+
+  let lockedSrc = mainImg.src;
+
+  thumbs.forEach((thumb) => {
+    const src = thumb.dataset.src;
+
+    // Hover: preview image in main frame
+    thumb.addEventListener("mouseenter", () => {
+      mainImg.style.opacity = "0";
+      setTimeout(() => {
+        mainImg.src = src;
+        mainImg.style.opacity = "1";
+        if (window.updateZoomBg) window.updateZoomBg(src);
+      }, 120);
+    });
+
+    // Mouse leave: restore locked image
+    thumb.addEventListener("mouseleave", () => {
+      mainImg.style.opacity = "0";
+      setTimeout(() => {
+        mainImg.src = lockedSrc;
+        mainImg.style.opacity = "1";
+        if (window.updateZoomBg) window.updateZoomBg(lockedSrc);
+      }, 120);
+    });
+
+    // Click: lock the image permanently
+    thumb.addEventListener("click", () => {
+      lockedSrc = src;
+      thumbs.forEach((t) => t.classList.remove("active"));
+      thumb.classList.add("active");
+      mainImg.style.opacity = "0";
+      setTimeout(() => {
+        mainImg.src = src;
+        mainImg.style.opacity = "1";
+        if (window.updateZoomBg) window.updateZoomBg(src);
+      }, 120);
+    });
+  });
+
+  // Thumbnail strip prev/next scroll
+  const strip = document.getElementById("pd-thumbs");
+  document.getElementById("pd-thumb-prev")?.addEventListener("click", () => {
+    strip.scrollBy({ left: -80, behavior: "smooth" });
+  });
+  document.getElementById("pd-thumb-next")?.addEventListener("click", () => {
+    strip.scrollBy({ left: 80, behavior: "smooth" });
+  });
+}
+
+// ── 2. Glass magnifier zoom ───────────────────────────────────
+function initZoom() {
+  const wrap = document.getElementById("pd-zoom-wrap");
+  const lens = document.getElementById("pd-zoom-lens");
+  const result = document.getElementById("pd-zoom-result");
+  const mainImg = document.getElementById("pd-main-img");
+  if (!wrap || !lens || !result || !mainImg) return;
+
+  const ZOOM = 3;
+
+  function updateZoomBg(src) {
+    result.style.backgroundImage = `url('${src}')`;
+  }
+  // Expose so initThumbs can call it on hover/click
+  window.updateZoomBg = updateZoomBg;
+
+  wrap.addEventListener("mouseenter", () => {
+    lens.style.display = "block";
+    result.style.display = "block";
+    updateZoomBg(mainImg.src);
+  });
+
+  wrap.addEventListener("mouseleave", () => {
+    lens.style.display = "none";
+    result.style.display = "none";
+  });
+
+  wrap.addEventListener("mousemove", (e) => {
+    const rect = wrap.getBoundingClientRect();
+
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
+
+    const lensW = lens.offsetWidth;
+    const lensH = lens.offsetHeight;
+
+    // Clamp so lens stays inside the wrap
+    x = Math.max(lensW / 2, Math.min(x, rect.width - lensW / 2));
+    y = Math.max(lensH / 2, Math.min(y, rect.height - lensH / 2));
+
+    // Position lens centred on cursor
+    lens.style.left = `${x - lensW / 2}px`;
+    lens.style.top = `${y - lensH / 2}px`;
+
+    // Compute zoomed background
+    const bgW = rect.width * ZOOM;
+    const bgH = rect.height * ZOOM;
+    const bgX = ((x - lensW / 2) / rect.width) * bgW;
+    const bgY = ((y - lensH / 2) / rect.height) * bgH;
+
+    result.style.backgroundSize = `${bgW}px ${bgH}px`;
+    result.style.backgroundPosition = `-${bgX}px -${bgY}px`;
+  });
+}
+
+// ── 3. Quantity +/- ──────────────────────────────────────────
+function initQty() {
+  const minus = document.getElementById("qty-minus");
+  const plus = document.getElementById("qty-plus");
+  const val = document.getElementById("qty-val");
+  if (!minus || !plus || !val) return;
+
+  minus.addEventListener("click", () => {
+    const n = parseInt(val.textContent);
+    if (n > 1) val.textContent = n - 1;
+  });
+
+  plus.addEventListener("click", () => {
+    val.textContent = parseInt(val.textContent) + 1;
+  });
+}
+
+// ── 4. Color selector ────────────────────────────────────────
+function initColorSelect() {
+  const btns = document.querySelectorAll(".pd-color-btn");
+  if (!btns.length) return;
+
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+    });
+  });
+}
+
+// ── 5. Flash sale countdown ──────────────────────────────────
+function initFlashTimer() {
+  const el = document.getElementById("flash-timer");
+  if (!el) return;
+
+  let total = 10 * 3600 + 1 * 60 + 55;
+
+  setInterval(() => {
+    if (total <= 0) {
+      el.textContent = "00:00:00";
+      return;
+    }
+    total--;
+    const h = String(Math.floor(total / 3600)).padStart(2, "0");
+    const m = String(Math.floor((total % 3600) / 60)).padStart(2, "0");
+    const s = String(total % 60).padStart(2, "0");
+    el.textContent = `${h}:${m}:${s}`;
+  }, 1000);
+}
+
+// ── 6. View More — expand product description ─────────────────
+function initViewMore() {
+  const btn = document.getElementById("pd-view-more-btn");
+  const content = document.getElementById("pd-desc-content");
+  const fade = document.getElementById("pd-desc-fade");
+  const wrap = document.getElementById("pd-view-more-wrap");
+  if (!btn || !content || !fade || !wrap) return;
+
+  btn.addEventListener("click", () => {
+    content.classList.add("pd-desc-expanded");
+    fade.classList.add("pd-desc-fade-hidden");
+    wrap.classList.add("pd-hidden");
+  });
 }
