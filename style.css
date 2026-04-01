@@ -1,13 +1,17 @@
 :root {
   --color-primary: #f85606;
+  --text-primary: #f57224;
   --peach: #ffe1d2;
   --white: #ffffff;
   --text-dark: #333333;
   --text-muted: #888888;
   --border: #d5d5d5;
   --font:
-    "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
+    NotoSans-Regular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue,
+    Helvetica, Tahoma, Arial, PingFang SC, Microsoft YaHei, sans-serif;
+  /* --font:
+    "Noto Sans", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue",
+    Helvetica, Tahoma, Arial, "PingFang SC", "Microsoft YaHei", sans-serif; */
 }
 
 *,
@@ -77,6 +81,12 @@ header {
   opacity: 0;
   overflow: hidden;
   padding: 0;
+}
+
+.only-height--hidden {
+  height: 0 !important;
+  overflow: hidden;
+  transition: height 0.3s ease;
 }
 
 .top-bar-inner {
@@ -180,8 +190,11 @@ header {
   Hero Section
  */
 main {
-  flex: 1;
-  padding-top: 119px;
+  flex-shrink: 0;
+  margin-top: 118px;
+  padding-top: 0;
+  overflow-y: scroll;
+  height: 2320px;
 }
 
 .hero-section {
@@ -233,6 +246,12 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.carousel-wrapper:hover .carousel-btn {
+  opacity: 1;
 }
 
 .carousel-btn--prev {
@@ -249,7 +268,6 @@ main {
   width: 28px;
   height: 28px;
   object-fit: contain;
-  filter: brightness(0) invert(1) drop-shadow(0 1px 4px rgba(0, 0, 0, 0.6));
 }
 
 .chevron--left {
@@ -263,7 +281,7 @@ main {
 /* dot indicators along the bottom of the carousel */
 .carousel-dots {
   position: absolute;
-  bottom: 14px;
+  bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -275,7 +293,7 @@ main {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #c0bfbf;
+  background-color: rgba(221, 221, 221, 0.3);
   cursor: pointer;
 }
 
@@ -308,8 +326,10 @@ main {
 }
 
 .app-title {
+  font-family: var(--font);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: -0.1px;
   color: #6c1d00;
   line-height: 1.2;
 }
@@ -329,15 +349,15 @@ main {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   color: var(--white);
   margin: 8px 0 4px 8px;
 }
 
 .app-rating img {
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 11px;
   object-fit: contain;
 }
 
@@ -454,7 +474,7 @@ main {
 }
 
 .flash-sale-tab {
-  color: var(--color-primary);
+  color: var(--text-primary);
   font-size: 13px;
   font-weight: 600;
   margin-left: 20px;
@@ -462,9 +482,9 @@ main {
 
 .flash-sale-btn {
   background-color: transparent;
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--text-primary);
   border-radius: 2px;
-  color: var(--color-primary);
+  color: var(--text-primary);
   font-size: 14px;
   font-weight: 550;
   height: 35px;
@@ -485,9 +505,7 @@ main {
 }
 
 .product-card:hover {
-  box-shadow:
-    -1px 1px 4px rgba(0, 0, 0, 0.13),
-    1px 1px 4px rgba(0, 0, 0, 0.13);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
 }
 
 .product-card img {
@@ -511,7 +529,7 @@ main {
 .product-card-price {
   font-size: 15px;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--text-primary);
 }
 
 .product-card-meta {
@@ -598,17 +616,12 @@ main {
   background: #fff;
   border-radius: 2px;
   overflow: hidden;
-  box-shadow:
-    -2px 2px 6px rgba(0, 0, 0, 0.07),
-    2px 2px 6px rgba(0, 0, 0, 0.07);
   transition: box-shadow 0.15s;
   height: 100%;
 }
 
 .jfy-card:hover {
-  box-shadow:
-    -2px 4px 14px rgba(0, 0, 0, 0.14),
-    2px 4px 14px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .jfy-card img {
@@ -644,7 +657,7 @@ main {
 .jfy-card-price {
   font-size: 18px;
   font-weight: 400;
-  color: #f57224;
+  color: var(--text-primary);
   line-height: 22px;
 }
 
@@ -673,8 +686,8 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding-bottom: 18px;
   padding-top: 56px;
+  padding-bottom: 24px;
 }
 
 .jfy-load-btn {
@@ -725,7 +738,7 @@ main {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0;
 }
 
 .footer-list li {
@@ -751,7 +764,7 @@ main {
 .footer-list li a,
 .footer-list li span {
   color: #0f136d;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .footer-list li a:hover {
@@ -761,7 +774,7 @@ main {
 /* app download column: logo+tagline, then store buttons stacked below */
 .footer-app-col {
   display: flex;
-  flex-direction: column;
+  align-items: flex-start;
   gap: 16px;
 }
 
@@ -779,20 +792,22 @@ main {
 }
 
 .footer-app-tagline {
+  width: 180px;
   font-size: 15px;
-  font-weight: 700;
-  color: var(--color-primary);
+  font-weight: 400;
+  color: var(--text-primary);
   margin-bottom: 2px;
 }
 
 .footer-app-sub {
   font-size: 12px;
-  color: #777;
+  color: #0f136d;
 }
 
 .footer-store-btns {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -1033,11 +1048,11 @@ main {
 
 .side-nav-item:hover {
   width: 140px;
-  color: var(--color-primary);
+  color: var(--text-primary);
 }
 
 .side-nav-item.nav--active {
-  color: var(--color-primary);
+  color: var(--text-primary);
 }
 
 .side-nav-item.nav--active:hover {
@@ -1051,7 +1066,7 @@ main {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease 0.15s;
-  color: var(--color-primary);
+  color: var(--text-primary);
 }
 
 .side-nav-item:hover .side-nav-label,

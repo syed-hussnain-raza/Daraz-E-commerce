@@ -89,20 +89,29 @@ function resetAutoPlay() {
 // Sticky header: hide top-bar after scrolling past hero section
 function initStickyHeader() {
   const topBar = document.querySelector(".top-bar");
+  const onlyHeight = document.querySelector(".homepage-only-height");
+  const mainHeader = document.querySelector(".main-header");
   const flashSale = document.querySelector(".flash-sale");
+  const heroSection = document.querySelector(".hero-section");
 
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      // Hide top-bar only when flash-sale has scrolled fully above the viewport top
-      topBar.classList.toggle(
-        "top-bar--hidden",
-        entry.boundingClientRect.top < 0,
-      );
-    },
-    { threshold: 0 },
-  );
+  function update() {
+    // only-height: hide as soon as user scrolls even 1px
+    if (onlyHeight) {
+      onlyHeight.classList.toggle("only-height--hidden", window.scrollY > 0);
+    }
 
-  if (flashSale) observer.observe(flashSale);
+    // top-bar: hide when flash-sale top reaches bottom of full header
+    if (flashSale) {
+      const headerBottom = document
+        .querySelector("header")
+        .getBoundingClientRect().bottom;
+      const flashTop = flashSale.getBoundingClientRect().top;
+      topBar.classList.toggle("top-bar--hidden", flashTop <= headerBottom);
+    }
+  }
+
+  window.addEventListener("scroll", update, { passive: true });
+  update();
 }
 
 // Side navigator: scroll-to and active state
