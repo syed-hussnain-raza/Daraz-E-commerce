@@ -9,9 +9,13 @@
   --font:
     NotoSans-Regular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue,
     Helvetica, Tahoma, Arial, PingFang SC, Microsoft YaHei, sans-serif;
-  /* --font:
-    "Noto Sans", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue",
-    Helvetica, Tahoma, Arial, "PingFang SC", "Microsoft YaHei", sans-serif; */
+}
+
+@font-face {
+  font-family: "NotoSans-Regular";
+  src: url(//g.lazcdn.com/g/lzd/assets/1.2.13/font/EuclidCircularA-Regular.woff2)
+    format("woff2");
+  font-display: fallback;
 }
 
 *,
@@ -773,6 +777,7 @@ main {
 
 /* app download column: logo+tagline, then store buttons stacked below */
 .footer-app-col {
+  padding-top: 20px;
   display: flex;
   align-items: flex-start;
   gap: 16px;
@@ -819,6 +824,7 @@ main {
 
 /* Row 2 — Payment methods + Verified by */
 .footer-payments {
+  background: var(--white);
   padding: 24px 0;
 }
 
@@ -854,7 +860,7 @@ main {
 
 .footer-pay-icons img {
   height: 28px;
-  width: auto;
+  width: 50px;
   object-fit: contain;
   border: 1px solid #e0e0e0;
   border-radius: 3px;
@@ -904,7 +910,7 @@ main {
 /* sub-headings like "MOBILE PHONES IN PAKISTAN" */
 .footer-tags-sub {
   color: #606060;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
   list-style: 15px;
   margin: 0;
@@ -921,7 +927,7 @@ main {
 
 .footer-tags a {
   font-size: 11px;
-  color: #555;
+  color: #888;
 }
 
 .footer-tags a:hover {
@@ -1143,4 +1149,8 @@ main {
   .footer-copyright {
     text-align: left;
   }
+}
+
+.footer-about-row .pe-5 {
+  padding-right: 60px !important;
 }
