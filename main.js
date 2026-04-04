@@ -328,27 +328,56 @@ function initZoom() {
 
   const ZOOM = 3;
 
+  // Cached panel dimensions — read once on mouseenter, not every mousemove.
+  // Reading offsetWidth/offsetHeight inside mousemove forces a layout reflow
+  // on every frame, which is the source of the lag.
+  let resultW = 0;
+  let resultH = 0;
+  let lensW = 0;
+  let lensH = 0;
+
   function updateZoomBg(src) {
     result.style.backgroundImage = `url('${src}')`;
   }
   window.updateZoomBg = updateZoomBg;
 
-  // Size the result panel dynamically
+  // ── Size the result panel ────────────────────────────────────────────────
+  // Width  = space between gallery's right edge and layout's right edge.
+  // Height = exact pixel height of the main image wrap (the square frame),
+  //          measured from the wrap's own bounding rect — not the layout or
+  //          gallery, which include the thumb strip below and cause mismatch.
+  // Top    = clamped so the panel never goes above the sticky header.
+  //          We read the header's bottom edge and offset from the layout's top.
   function sizeResultPanel() {
     const layout = document.querySelector(".pd-layout");
     const gallery = document.querySelector(".pd-gallery");
+    const header = document.querySelector("header");
     if (!layout || !gallery) return;
 
     const layoutRect = layout.getBoundingClientRect();
     const galleryRect = gallery.getBoundingClientRect();
+    const wrapRect = wrap.getBoundingClientRect(); // just the square image frame
 
-    const availableWidth = layoutRect.right - galleryRect.right - 16;
-    const availableHeight = wrap.getBoundingClientRect().height;
+    // Width: from gallery right to layout right, minus the gap
+    const panelW = Math.max(layoutRect.right - galleryRect.right - 20, 200);
 
-    result.style.width = Math.max(availableWidth, 200) + "px";
-    result.style.height = Math.max(availableHeight, 300) + "px";
-    result.style.left = galleryRect.width + 16 + "px";
-    result.style.top = "0";
+    // Height: match the image frame exactly (square, padding-inclusive)
+    const panelH = Math.max(wrapRect.width * 1.5, 300);
+
+    // Top offset relative to .pd-layout (which is position:relative)
+    // Normally 0 (aligned with the top of the gallery), but we clamp it so
+    // the panel never visually overlaps the sticky header.
+
+    result.style.width = panelW + "px";
+    result.style.height = panelH + "px";
+    result.style.left = galleryRect.width + 20 + "px";
+    result.style.top = wrapRect.top - layoutRect.top + "px";
+
+    // Cache after sizing so mousemove never triggers a reflow
+    resultW = panelW;
+    resultH = panelH;
+    lensW = lens.offsetWidth;
+    lensH = lens.offsetHeight;
   }
 
   wrap.addEventListener("mouseenter", () => {
@@ -366,25 +395,31 @@ function initZoom() {
   wrap.addEventListener("mousemove", (e) => {
     const rect = wrap.getBoundingClientRect();
 
+    // Raw cursor position inside the wrap
     let x = e.clientX - rect.left;
     let y = e.clientY - rect.top;
 
-    const lensW = lens.offsetWidth;
-    const lensH = lens.offsetHeight;
-
-    // Clamp so lens stays inside the wrap
+    // Clamp lens centre so it never exits the image frame
     x = Math.max(lensW / 2, Math.min(x, rect.width - lensW / 2));
     y = Math.max(lensH / 2, Math.min(y, rect.height - lensH / 2));
 
-    // Position lens centred on cursor
-    lens.style.left = `${x - lensW / 2}px`;
-    lens.style.top = `${y - lensH / 2}px`;
+    // Move the lens (centred on cursor)
+    lens.style.left = x - lensW / 2 + "px";
+    lens.style.top = y - lensH / 2 + "px";
 
-    // Compute zoomed background.
+    // ── Zoomed background position ───────────────────────────────────────
+    // bgW/bgH = how large the full image is when rendered at ZOOM scale.
     const bgW = rect.width * ZOOM;
-    const bgH = rect.height * ZOOM;
-    const bgX = (x / rect.width) * bgW - result.offsetWidth / 2;
-    const bgY = (y / rect.height) * bgH - result.offsetHeight / 2;
+    const bgH = (rect.height - 8) * ZOOM;
+
+    // The point in the scaled image that corresponds to the cursor:
+    const imgX = (x / rect.width) * bgW;
+    const imgY = (y / (rect.height - 8)) * bgH;
+    // We want imgX/imgY to appear at the centre of the result panel,
+    // so the background offset = -(imgX - resultW/2).
+    // Clamp so we never scroll past the image edges (no white space).
+    const bgX = Math.min(Math.max(imgX - resultW / 2, 0), bgW - resultW);
+    const bgY = Math.min(Math.max(imgY - resultH / 2, 0), bgH - resultH);
 
     result.style.backgroundSize = `${bgW}px ${bgH}px`;
     result.style.backgroundPosition = `-${bgX}px -${bgY}px`;
