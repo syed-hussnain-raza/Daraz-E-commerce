@@ -1,0 +1,357 @@
+{
+  "carousel": [
+    { "src": "../assets/hero-banner/1-beauty-drop.png", "alt": "Beauty Drop" },
+    { "src": "../assets/hero-banner/2-mega-saver.png", "alt": "Mega Saver" },
+    { "src": "../assets/hero-banner/3-furniture.png", "alt": "Furniture" },
+    {
+      "src": "../assets/hero-banner/4-cavity-sensitivity.png",
+      "alt": "Cavity Sensitivity"
+    },
+    { "src": "../assets/hero-banner/5-flash-sale.png", "alt": "Flash Sale" },
+    {
+      "src": "../assets/hero-banner/6-fitness-revolution.png",
+      "alt": "Fitness Revolution"
+    },
+    { "src": "../assets/hero-banner/7-best-price.png", "alt": "Best Price" },
+    { "src": "../assets/hero-banner/8-new-arrival.png", "alt": "New Arrival" },
+    {
+      "src": "../assets/hero-banner/9-smart-accessories.png",
+      "alt": "Smart Accessories"
+    },
+    {
+      "src": "../assets/hero-banner/10-premium-appliance.png",
+      "alt": "Premium Appliance"
+    },
+    { "src": "../assets/hero-banner/11-lowest-price.png", "alt": "Lowest Price" },
+    { "src": "../assets/hero-banner/12-must-buy.png", "alt": "Must Buy" },
+    {
+      "src": "../assets/hero-banner/13-unbeatable-deals.png",
+      "alt": "Unbeatable Deals"
+    },
+    { "src": "../assets/hero-banner/14-ramdan-bazar.png", "alt": "Ramzan Bazar" },
+    { "src": "../assets/hero-banner/15-home-decor.png", "alt": "Home Decor" }
+  ],
+
+  "flashSale": [
+    {
+      "href": "#",
+      "img": "../assets/products/flash-sale/ac.png",
+      "alt": "Dawlance Air Conditioner",
+      "name": "Dawlance Air Conditioner Mega T+ 10 DC Inverter...",
+      "price": "Rs.79,998",
+      "original": "Rs.101,000",
+      "discount": "-21%"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/flash-sale/fridge.png",
+      "alt": "Dawlance Refrigerator",
+      "name": "Dawlance Refrigerator 9178 M-Chrome/Metallic...",
+      "price": "Rs.74,998",
+      "original": "Rs.90,300",
+      "discount": "-17%"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/flash-sale/treadmill.png",
+      "alt": "ZTR-15 Treadmill",
+      "name": "ZTR-15 Treadmill",
+      "price": "Rs.94,999",
+      "original": "Rs.320,000",
+      "discount": "-70%"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/flash-sale/massage-chair.png",
+      "alt": "JC Buckman Massage Chair",
+      "name": "JC Buckman IndulgeUs Massage Chair with Hip...",
+      "price": "Rs.188,899",
+      "original": "Rs.349,000",
+      "discount": "-46%"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/flash-sale/baby-wipes.png",
+      "alt": "Bona Papa Baby Wipes",
+      "name": "Bona Papa Baby Wipes - 72 Pcs",
+      "price": "Rs.140",
+      "original": "Rs.288",
+      "discount": "-51%"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/flash-sale/noodles.png",
+      "alt": "Knorr Noodles",
+      "name": "Knorr Chatpatta Noodles 200G",
+      "price": "Rs.179",
+      "original": "Rs.185",
+      "discount": "-3%"
+    }
+  ],
+
+  "categories": [
+    {
+      "img": "../assets/products/categories/3d-printers.png",
+      "alt": "3D Printers",
+      "label": "3D Printers"
+    },
+    {
+      "img": "../assets/products/categories/tools.png",
+      "alt": "Pasta & Pizza Tools",
+      "label": "Pasta, Noodle & Pizza Tools"
+    },
+    {
+      "img": "../assets/products/categories/sim-tools.png",
+      "alt": "SIM Tools",
+      "label": "SIM Tools"
+    },
+    {
+      "img": "../assets/products/categories/protector.png",
+      "alt": "Screen Protectors",
+      "label": "Screen Protectors"
+    },
+    {
+      "img": "../assets/products/categories/pots.png",
+      "alt": "Casserole Pots",
+      "label": "Casserole Pots"
+    },
+    {
+      "img": "../assets/products/categories/table-lamps.png",
+      "alt": "Table Lamps",
+      "label": "Table Lamps"
+    },
+    {
+      "img": "../assets/products/categories/garments.png",
+      "alt": "Hoodies & Sweatshirts",
+      "label": "Hoodies & Sweatshirts"
+    },
+    {
+      "img": "../assets/products/categories/toy-box.png",
+      "alt": "Toy Boxes",
+      "label": "Toy Boxes & Organisers"
+    },
+    {
+      "img": "../assets/products/categories/clippers.png",
+      "alt": "Electric Clippers",
+      "label": "Dog & Cat Electric Clippers"
+    },
+    {
+      "img": "../assets/products/categories/sneakers.png",
+      "alt": "Sneakers",
+      "label": "Sneakers"
+    },
+    {
+      "img": "../assets/products/categories/education.png",
+      "alt": "Education",
+      "label": "Education"
+    },
+    {
+      "img": "../assets/products/categories/microphones.png",
+      "alt": "Microphones",
+      "label": "Microphones"
+    },
+    {
+      "img": "../assets/products/categories/leashes.png",
+      "alt": "Leashes & Harnesses",
+      "label": "Leashes & Harnesses"
+    },
+    {
+      "img": "../assets/products/categories/scooters.png",
+      "alt": "Scooters",
+      "label": "Scooters"
+    },
+    {
+      "img": "../assets/products/categories/donate.png",
+      "alt": "Donate to Educate",
+      "label": "Donate to Educate"
+    },
+    {
+      "img": "../assets/products/categories/colors.png",
+      "alt": "Coloring & Drawing",
+      "label": "Coloring & Drawing"
+    }
+  ],
+
+  "justForYou": [
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/trouser-shirt.png",
+      "alt": "Trouser Shirt",
+      "name": "Blue New trendy fired printed premium quality...",
+      "price": "Rs.837",
+      "discount": "-68%",
+      "stars": "★★★★½",
+      "reviews": "(206)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/stickers.png",
+      "alt": "Pearl Stickers",
+      "name": "Pearl Stickers, Self-Adhesive Synthetic...",
+      "price": "Rs.193",
+      "discount": "-35%",
+      "stars": "★★★★½",
+      "reviews": "(39)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/embroidered.png",
+      "alt": "Embroidered Suit",
+      "name": "Chaudhry Arts - Azeen Embroidered - 3 pieces...",
+      "price": "Rs.6,050",
+      "discount": "-45%",
+      "stars": "★★★★☆",
+      "reviews": "(3)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/trimers.png",
+      "alt": "Hair Trimmer",
+      "name": "T9 Vintage Hair Trimmer For Men | T9...",
+      "price": "Rs.829",
+      "discount": "-48%",
+      "stars": "★★★★½",
+      "reviews": "(4,553)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/bat.png",
+      "alt": "Cricket Bat",
+      "name": "JD (TM) EDITION COCONUT TABE BALL...",
+      "price": "Rs.813",
+      "discount": "-75%",
+      "stars": "★★★★☆",
+      "reviews": "(112)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/airbuds-case.png",
+      "alt": "AirPods Case",
+      "name": "AirPods Pro & Pro 2 Case - Soft Silicone Protectiv...",
+      "price": "Rs.199",
+      "discount": "-67%",
+      "stars": "★★★★½",
+      "reviews": "(426)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/pearlescent.png",
+      "alt": "Silver Pearlescent",
+      "name": "Silver Pearlescent...",
+      "price": "Rs.72",
+      "discount": "-52%",
+      "stars": "★★★★½",
+      "reviews": "(1,883)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/wallet.png",
+      "alt": "Slim Wallet",
+      "name": "Fashion Slim Wallet, Poma...",
+      "price": "Rs.995",
+      "discount": "-45%",
+      "stars": "★★★★½",
+      "reviews": "(1,294)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/fragrance.png",
+      "alt": "Perfume Pack",
+      "name": "Pack of 2 perfume Rich...",
+      "price": "Rs.169",
+      "discount": "-43%",
+      "stars": "★★★★½",
+      "reviews": "(145)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/teeth-cleaner.png",
+      "alt": "Teeth Cleaner",
+      "name": "HISMILE V34 Teeth...",
+      "price": "Rs.489",
+      "discount": "-31%",
+      "stars": "★★★★☆",
+      "reviews": "(3,672)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/clothe-storage.png",
+      "alt": "Storage Bags",
+      "name": "3Pcs Large Foldable...",
+      "price": "Rs.450",
+      "discount": "-73%",
+      "stars": "★★★★½",
+      "reviews": "(1,766)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/air-buds.png",
+      "alt": "M19 Airpods TWS",
+      "name": "M19 Airpods TWS (True Wireless Stereo) Bluetoo...",
+      "price": "Rs.688",
+      "discount": "-77%",
+      "stars": "★★★★½",
+      "reviews": "(1,085)"
+    },
+    {
+      "href": "product.html",
+      "img": "../assets/products/just-for-you/dustproof.png",
+      "alt": "Microwave Cover",
+      "name": "Protect Your Microwave: Dustproof Fabric...",
+      "price": "Rs.190",
+      "discount": "-59%",
+      "stars": "★★★★½",
+      "reviews": "(1,497)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/face-mask.png",
+      "alt": "Face Mask Set",
+      "name": "12 Face Mask Set Korean Beauty Essence Facial...",
+      "price": "Rs.223",
+      "discount": "-55%",
+      "stars": "★★★★☆",
+      "reviews": "(51)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/lipstick-pencil.png",
+      "alt": "Lipstick Pencil",
+      "name": "Matte Color Lipstick Pencil 12 Pcs",
+      "price": "Rs.275",
+      "discount": "-31%",
+      "stars": "★★★★½",
+      "reviews": "(1,883)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/posture-belt.png",
+      "alt": "Slim Belt",
+      "name": "Slimming Taping Hot Shaper Sweat Slim Belt...",
+      "price": "Rs.368",
+      "discount": "-63%",
+      "stars": "★★★★½",
+      "reviews": "(1,076)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/eyebrow-pen.png",
+      "alt": "Eyebrow Pen",
+      "name": "Eyebrow Pen Waterproof 4-Fork Tip Eyebrow Tatto...",
+      "price": "Rs.199",
+      "discount": "-72%",
+      "stars": "★★★★½",
+      "reviews": "(327)"
+    },
+    {
+      "href": "#",
+      "img": "../assets/products/just-for-you/juicer-blender.png",
+      "alt": "Juicer Blender",
+      "name": "Recargeable Juicer Blender 6 Blades 380ml -...",
+      "price": "Rs.995",
+      "discount": "-45%",
+      "stars": "★★★★½",
+      "reviews": "(1,294)"
+    }
+  ]
+}
