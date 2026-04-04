@@ -1,12 +1,10 @@
-/* ============================================================
-   MAIN — index page content styles only
-   Depends on: base.css
-   ============================================================ */
+/*
+  MAIN — index page content styles only
+*/
 
-
-/* ============================================================
-   MAIN CONTENT AREA
-   ============================================================ */
+/*
+  MAIN CONTENT AREA
+*/
 main {
   flex-shrink: 0;
   margin-top: 118px;
@@ -15,9 +13,9 @@ main {
   height: 2320px;
 }
 
-/* ============================================================
-   HERO SECTION
-   ============================================================ */
+/*
+  HERO SECTION
+*/
 .hero-section {
   margin: 0 auto;
   width: 1188px;
@@ -252,9 +250,9 @@ main {
   margin: 6px 0 0 4px;
 }
 
-/* ============================================================
-   SHARED SECTION STYLES
-   ============================================================ */
+/*
+  SHARED SECTION STYLES
+*/
 .flash-sale,
 .categories,
 .just-for-you {
@@ -277,9 +275,9 @@ main {
   margin-bottom: 14px;
 }
 
-/* ============================================================
-   FLASH SALE
-   ============================================================ */
+/*
+  FLASH SALE
+*/
 .flash-sale-container {
   background: #fff;
 }
@@ -366,9 +364,9 @@ main {
   font-weight: 300;
 }
 
-/* ============================================================
-   CATEGORIES
-   ============================================================ */
+/*
+  CATEGORIES
+*/
 .categories-container {
   background: #fff;
   margin: 0;
@@ -415,9 +413,9 @@ main {
   object-fit: contain;
 }
 
-/* ============================================================
-   JUST FOR YOU
-   ============================================================ */
+/*
+  JUST FOR YOU
+*/
 .jfy-container {
   margin: 0;
   padding: 0;
@@ -516,9 +514,9 @@ main {
   width: 388px;
 }
 
-/* ============================================================
-   RESPONSIVE OVERRIDES
-   ============================================================ */
+/*
+  RESPONSIVE OVERRIDES
+*/
 @media (max-width: 960px) {
   .app-card {
     display: none;
