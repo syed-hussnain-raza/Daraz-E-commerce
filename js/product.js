@@ -1,7 +1,4 @@
-// ============================================================
-//  product.js — product page (product.html)
-//  Depends on: js/utils.js (loaded before this script)
-// ============================================================
+//  product.js
 
 document.addEventListener("DOMContentLoaded", () => {
   initStickyHeader();
@@ -13,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initViewMore();
 });
 
-// ── Image thumbnails ─────────────────────────────────────────────────────────
+// Image thumbnails
 function initThumbs() {
   const thumbs = document.querySelectorAll(".pd-thumb");
   const mainImg = document.getElementById("pd-main-img");
@@ -68,7 +65,7 @@ function initThumbs() {
   });
 }
 
-// ── Glass magnifier zoom ─────────────────────────────────────────────────────
+// Glass magnifier zoom
 function initZoom() {
   const wrap = document.getElementById("pd-zoom-wrap");
   const lens = document.getElementById("pd-zoom-lens");
@@ -150,7 +147,7 @@ function initZoom() {
   });
 }
 
-// ── Quantity +/- ─────────────────────────────────────────────────────────────
+// Quantity +/-
 function initQty() {
   const minus = document.getElementById("qty-minus");
   const plus = document.getElementById("qty-plus");
@@ -167,7 +164,7 @@ function initQty() {
   });
 }
 
-// ── Color selector ───────────────────────────────────────────────────────────
+// Color selector
 function initColorSelect() {
   const btns = document.querySelectorAll(".pd-color-btn");
   if (!btns.length) return;
@@ -180,7 +177,7 @@ function initColorSelect() {
   });
 }
 
-// ── Flash sale countdown ─────────────────────────────────────────────────────
+// Flash sale countdown
 function initFlashTimer() {
   const el = document.getElementById("flash-timer");
   if (!el) return;
@@ -200,7 +197,7 @@ function initFlashTimer() {
   }, 1000);
 }
 
-// ── View More / View Less toggle ─────────────────────────────────────────────
+// View More / View Less toggle
 function initViewMore() {
   const btn = document.getElementById("pd-view-more-btn");
   const content = document.getElementById("pd-desc-content");
