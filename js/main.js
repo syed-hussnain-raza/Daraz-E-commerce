@@ -1,7 +1,4 @@
-// ============================================================
-//  main.js — index page (index.html)
-//  Depends on: js/utils.js (loaded before this script)
-// ============================================================
+//  main.js
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch("../data/main.json")
@@ -20,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// ── Render: Carousel slides ──────────────────────────────────────────────────
+// Render: Carousel slides
 function renderCarousel(slides) {
   const track = document.getElementById("carousel-track");
   if (!track || !slides) return;
@@ -32,7 +29,7 @@ function renderCarousel(slides) {
     .join("");
 }
 
-// ── Render: Flash Sale cards ─────────────────────────────────────────────────
+// Render: Flash Sale cards
 function renderFlashSale(products) {
   const container = document.getElementById("flash-sale-cards");
   if (!container || !products) return;
@@ -54,7 +51,7 @@ function renderFlashSale(products) {
     .join("");
 }
 
-// ── Render: Categories ───────────────────────────────────────────────────────
+// Render: Categories
 function renderCategories(categories) {
   const grid = document.getElementById("categories-grid");
   if (!grid || !categories) return;
@@ -70,7 +67,7 @@ function renderCategories(categories) {
     .join("");
 }
 
-// ── Render: Just For You cards ───────────────────────────────────────────────
+// Render: Just For You cards
 function renderJustForYou(products) {
   const container = document.getElementById("jfy-cards");
   if (!container || !products) return;
@@ -97,7 +94,7 @@ function renderJustForYou(products) {
     .join("");
 }
 
-// ── Carousel ─────────────────────────────────────────────────────────────────
+// Carousel
 let currentIndex = 0;
 let totalSlides = 0;
 let autoTimer = null;
@@ -163,7 +160,7 @@ function resetAutoPlay() {
   startAutoPlay();
 }
 
-// ── Side navigator ───────────────────────────────────────────────────────────
+// Side navigator
 function initSideNav() {
   const sideNav = document.getElementById("side-nav");
   if (!sideNav) return;
