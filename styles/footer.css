@@ -1,0 +1,412 @@
+/*
+  FOOTER
+*/
+.site-footer {
+  font-size: 12px;
+  font-weight: 200;
+  margin: 0px;
+  padding: 0px;
+  min-width: 1188px;
+  width: 100%;
+}
+
+.footer-inner {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 1188px;
+}
+
+.footer-width-25 {
+  float: left;
+  width: 25%;
+  overflow: hidden;
+}
+
+.footer-width-50 {
+  float: left;
+  width: 50%;
+  overflow: hidden;
+}
+
+.footer-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.footer-list li {
+  font-weight: 200;
+  line-height: 17px;
+  list-style: none;
+}
+
+/* Row 1 — Customer Care, Daraz links, App download */
+.footer-top {
+  background: #f4f4f6;
+  padding: 20px 0 25px;
+}
+
+.footer-top .footer-heading {
+  color: #0f136d;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 35px;
+  margin: 0;
+}
+
+.footer-list li a,
+.footer-list li span {
+  color: #0f136d;
+  font-size: 12px;
+}
+
+.footer-list li a:hover {
+  text-decoration: underline;
+}
+
+/* App download column */
+.footer-app-col {
+  padding-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.footer-app-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-app-logo {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.footer-app-tagline {
+  width: 180px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.footer-app-sub {
+  font-size: 12px;
+  color: #0f136d;
+}
+
+.footer-store-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer-store-img {
+  width: 130px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Row 2 — Payment methods + Verified by */
+.footer-payments {
+  background: var(--white);
+  padding: 24px 0;
+}
+
+.payment-container {
+  width: 1188px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 12px 0;
+  font-family: Arial;
+}
+
+.footer-width-32 {
+  float: left;
+  width: 32%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-payments .footer-heading {
+  color: #183544;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 15px;
+}
+
+.footer-pay-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.footer-pay-icons img {
+  height: 28px;
+  width: 50px;
+  object-fit: contain;
+  border-radius: 3px;
+  padding: 2px 4px;
+  background: #fff;
+}
+
+.footer-verified-icons img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Row 3 — About text + category tag clouds */
+.footer-about-row {
+  padding: 60px 0 40px;
+  color: #888;
+}
+
+.footer-about-row .footer-inner {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 1188px;
+}
+
+.footer-about-h1,
+.footer-tags-main-heading {
+  color: #606060;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 20px;
+  margin: 0 0 5px;
+}
+
+.footer-about-body {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+
+.footer-about-body strong {
+  font-weight: 700;
+  color: #888;
+}
+
+.footer-tags-sub {
+  color: #606060;
+  font-size: 12px;
+  font-weight: 400;
+  list-style: 15px;
+  margin: 0;
+  text-transform: uppercase;
+  margin-top: 12px;
+}
+
+.footer-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  line-height: 1.9;
+}
+
+.footer-tags a {
+  font-size: 11px;
+  color: #888;
+}
+
+.footer-tags a:hover {
+  text-decoration: underline;
+}
+
+.footer-tags a::after {
+  content: " , ";
+  color: #888;
+  white-space: pre;
+}
+
+.footer-tags a:last-child::after {
+  content: "";
+}
+
+/* Row 4 — International + Follow Us + Copyright */
+.footer-bottom {
+  background-color: var(--white);
+  color: #606060;
+  padding: 40px 0;
+}
+
+.footer-bottom .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.footer-bottom .footer-heading {
+  color: #2a2a2a;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 20px;
+  margin: 5px 10px 5px 0;
+}
+
+.footer-bottom .footer-inner {
+  margin: 0 auto;
+  max-width: 1188px;
+}
+
+.footer-countries {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.footer-countries a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #888888;
+}
+
+.footer-countries a:hover {
+  text-decoration: underline;
+}
+
+.footer-countries img {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.footer-social {
+  display: flex;
+  gap: 18px;
+}
+
+.social-link {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  float: right;
+  color: #606060;
+  font-weight: 200;
+  line-height: 30px;
+}
+
+.footer-about-row .pe-5 {
+  padding-right: 60px !important;
+}
+
+/* Side Navigator */
+.side-nav {
+  bottom: 40px;
+  left: 0px;
+  position: fixed;
+  overflow: visible;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.side-nav.side-nav--visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.side-nav-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--white);
+  padding: 10px;
+  color: var(--text-muted);
+  font-size: 16px;
+  overflow: hidden;
+  width: 40px;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #f5f5f5;
+  transition: width 0.3s ease;
+}
+
+.side-nav-item:hover {
+  width: 140px;
+  color: var(--text-primary);
+}
+
+.side-nav-item.nav--active {
+  color: var(--text-primary);
+}
+
+.side-nav-item.nav--active:hover {
+  width: 140px;
+}
+
+.side-nav-label {
+  font-size: 13px;
+  font-weight: 600;
+  padding-left: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease 0.15s;
+  color: var(--text-primary);
+}
+
+.side-nav-item:hover .side-nav-label,
+.side-nav-item.nav--active:hover .side-nav-label {
+  opacity: 1;
+}
+
+.side-nav-top {
+  width: 40px !important;
+}
+
+/* Floating Messages Button */
+.float-messages {
+  width: 160px;
+  height: 40px;
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 2px 4px;
+  bottom: 0px;
+  color: #003e52;
+  z-index: 10000;
+  cursor: pointer;
+  font-family: Roboto, sans-serif;
+  background: #fff;
+  border: none;
+  position: fixed;
+  right: 50px;
+  transform-origin: right bottom;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.float-messages i {
+  font-size: 18px;
+  color: #003e52;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer-copyright {
+    text-align: left;
+  }
+}
