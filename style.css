@@ -832,6 +832,9 @@ main {
   width: 1188px;
   margin: 0 auto;
   overflow: hidden;
+  padding: 12px 0;
+
+  font-family: Arial;
 }
 
 .footer-width-32 {
