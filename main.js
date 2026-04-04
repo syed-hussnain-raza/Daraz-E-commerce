@@ -1,15 +1,103 @@
 // Wait for the DOM Tree Creation Completition
 document.addEventListener("DOMContentLoaded", () => {
-  initCarousel();
-  initStickyHeader();
-  initSideNav();
-  initThumbs();
-  initZoom();
-  initQty();
-  initColorSelect();
-  initFlashTimer();
-  initViewMore();
+  fetch("data.json")
+    .then((res) => res.json())
+    .then((data) => {
+      renderCarousel(data.carousel);
+      renderFlashSale(data.flashSale);
+      renderCategories(data.categories);
+      renderJustForYou(data.justForYou);
+    })
+    .catch((err) => console.error("Failed to load data.json:", err))
+    .finally(() => {
+      initCarousel();
+      initStickyHeader();
+      initSideNav();
+      initThumbs();
+      initZoom();
+      initQty();
+      initColorSelect();
+      initFlashTimer();
+      initViewMore();
+    });
 });
+
+// Render: Carousel slides
+function renderCarousel(slides) {
+  const track = document.getElementById("carousel-track");
+  if (!track || !slides) return;
+  track.innerHTML = slides
+    .map(
+      (s) =>
+        `<div class="carousel-slide"><img src="${s.src}" alt="${s.alt}" /></div>`,
+    )
+    .join("");
+}
+
+// Render: Flash Sale cards
+function renderFlashSale(products) {
+  const container = document.getElementById("flash-sale-cards");
+  if (!container || !products) return;
+  container.innerHTML = products
+    .map(
+      (p) => `
+      <div class="col-6 col-sm-4 col-md-2">
+        <a href="${p.href}" class="product-card">
+          <img src="${p.img}" alt="${p.alt}" />
+          <p class="product-card-name">${p.name}</p>
+          <p class="product-card-price">${p.price}</p>
+          <div class="product-card-meta">
+            <span class="product-card-original">${p.original}</span>
+            <span class="product-card-discount">${p.discount}</span>
+          </div>
+        </a>
+      </div>`,
+    )
+    .join("");
+}
+
+// Render: Categories
+function renderCategories(categories) {
+  const grid = document.getElementById("categories-grid");
+  if (!grid || !categories) return;
+  grid.innerHTML = categories
+    .map(
+      (c) => `
+      <div class="category-col">
+        <a href="#" class="category-item">
+          <img src="${c.img}" alt="${c.alt}" /><span>${c.label}</span>
+        </a>
+      </div>`,
+    )
+    .join("");
+}
+
+// Render: Just For You cards
+function renderJustForYou(products) {
+  const container = document.getElementById("jfy-cards");
+  if (!container || !products) return;
+  container.innerHTML = products
+    .map(
+      (p) => `
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <a href="${p.href}" class="jfy-card">
+          <img src="${p.img}" alt="${p.alt}" />
+          <div class="jfy-card-info">
+            <p class="jfy-card-name">${p.name}</p>
+            <div class="jfy-card-price-row">
+              <span class="jfy-card-price">${p.price}</span>
+              <span class="jfy-card-discount">${p.discount}</span>
+            </div>
+            <div class="jfy-card-rating">
+              <span class="jfy-stars">${p.stars}</span>
+              <span>${p.reviews}</span>
+            </div>
+          </div>
+        </a>
+      </div>`,
+    )
+    .join("");
+}
 
 // Carousel
 let currentIndex = 0;
@@ -21,11 +109,11 @@ function initCarousel() {
   const dots = document.getElementById("carousel-dots");
   if (!track || !dots) return;
 
-  // Count how many slides are already in the HTML
+  // Count number of slides
   const slides = track.querySelectorAll(".carousel-slide");
   totalSlides = slides.length;
 
-  // Build one dot button per slide and inject them into the dots container
+  // Build one dot button per slide
   const dotsHTML = Array.from(slides)
     .map(
       (_, i) =>
@@ -38,7 +126,7 @@ function initCarousel() {
     .join("");
   dots.innerHTML = dotsHTML;
 
-  // Clicking a dot jumps straight to that slide
+  // dots mapping to related banners
   dots.querySelectorAll(".dot").forEach((dot) => {
     dot.addEventListener("click", () => {
       goTo(Number(dot.dataset.index));
@@ -62,7 +150,7 @@ function initCarousel() {
   startAutoPlay();
 }
 
-// Move the track to show the slide at `index` and sync the active dot
+// Move the track to show the slide
 function goTo(index) {
   currentIndex = index;
 
@@ -87,12 +175,6 @@ function resetAutoPlay() {
   startAutoPlay();
 }
 
-// ── FIX 1: Sticky header — works on BOTH index and product page ──────────────
-//
-// On index: the top-bar hides when the flash-sale section scrolls near the header.
-// On product page: there is no .flash-sale, so we fall back to hiding the top-bar
-//   as soon as the user scrolls past a small portion of .product-main (≈60px).
-//
 function initStickyHeader() {
   const topBar = document.querySelector(".top-bar");
   const onlyHeight = document.querySelector(".homepage-only-height");
@@ -106,7 +188,6 @@ function initStickyHeader() {
     }
 
     if (flashSale) {
-      // ── INDEX PAGE behaviour ──
       // Hide top-bar when flash-sale's top edge reaches the bottom of the header
       const headerBottom = document
         .querySelector("header")
@@ -114,7 +195,6 @@ function initStickyHeader() {
       const flashTop = flashSale.getBoundingClientRect().top;
       topBar.classList.toggle("top-bar--hidden", flashTop <= headerBottom);
     } else if (productMain && topBar) {
-      // ── PRODUCT PAGE behaviour ──
       // Hide top-bar once the user has scrolled ~60px into the product content
       topBar.classList.toggle("top-bar--hidden", window.scrollY > 60);
     }
@@ -183,14 +263,7 @@ function initSideNav() {
     .forEach((sec) => activeObserver.observe(sec));
 }
 
-// Product
-// ── FIX 2: Thumbnail hover preview + click lock ─────────────────────────────
-//
-// Hovering a thumb previews that image in the main frame (and updates zoom).
-// Mouse-leaving restores the locked/clicked image.
-// Clicking permanently locks the image until another thumb is clicked.
-// The active thumb gets a highlighted border.
-//
+// image and thumbs
 function initThumbs() {
   const thumbs = document.querySelectorAll(".pd-thumb");
   const mainImg = document.getElementById("pd-main-img");
@@ -245,13 +318,7 @@ function initThumbs() {
   });
 }
 
-// ── FIX 2 cont.: Glass magnifier zoom ───────────────────────────────────────
-//
-// On hover the lens square tracks the cursor.
-// The zoom-result panel now appears to the RIGHT of the gallery, takes the
-// FULL remaining width of the pd-layout, and has a fixed height of 460px
-// (tall enough to be useful while not overflowing on normal screens).
-//
+// Glass magnifier zoom
 function initZoom() {
   const wrap = document.getElementById("pd-zoom-wrap");
   const lens = document.getElementById("pd-zoom-lens");
@@ -266,9 +333,7 @@ function initZoom() {
   }
   window.updateZoomBg = updateZoomBg;
 
-  // ── Size the result panel dynamically ───────────────────────
-  // We want it to fill the space from (gallery right edge) to (layout right edge)
-  // with a fixed height that matches the main image wrap.
+  // Size the result panel dynamically
   function sizeResultPanel() {
     const layout = document.querySelector(".pd-layout");
     const gallery = document.querySelector(".pd-gallery");
@@ -277,14 +342,11 @@ function initZoom() {
     const layoutRect = layout.getBoundingClientRect();
     const galleryRect = gallery.getBoundingClientRect();
 
-    // Distance from gallery's right edge to layout's right edge
-    const availableWidth = layoutRect.right - galleryRect.right - 16; // 16px gap
-    // Match the height of the main image frame (square, so same as width)
+    const availableWidth = layoutRect.right - galleryRect.right - 16;
     const availableHeight = wrap.getBoundingClientRect().height;
 
     result.style.width = Math.max(availableWidth, 200) + "px";
     result.style.height = Math.max(availableHeight, 300) + "px";
-    // Position it: just right of the gallery column (gallery width + gap)
     result.style.left = galleryRect.width + 16 + "px";
     result.style.top = "0";
   }
@@ -319,9 +381,6 @@ function initZoom() {
     lens.style.top = `${y - lensH / 2}px`;
 
     // Compute zoomed background.
-    // bgX/bgY must be based on the raw cursor position (x, y) — the centre of
-    // what the user is looking at — NOT the lens corner. Using the lens corner
-    // caused the background to lag behind on the right/bottom edges.
     const bgW = rect.width * ZOOM;
     const bgH = rect.height * ZOOM;
     const bgX = (x / rect.width) * bgW - result.offsetWidth / 2;
@@ -332,7 +391,7 @@ function initZoom() {
   });
 }
 
-// ── 3. Quantity +/- ──────────────────────────────────────────
+// 3. Quantity +/-
 function initQty() {
   const minus = document.getElementById("qty-minus");
   const plus = document.getElementById("qty-plus");
@@ -349,7 +408,7 @@ function initQty() {
   });
 }
 
-// ── 4. Color selector ────────────────────────────────────────
+// ── 4. Color selector
 function initColorSelect() {
   const btns = document.querySelectorAll(".pd-color-btn");
   if (!btns.length) return;
@@ -362,7 +421,7 @@ function initColorSelect() {
   });
 }
 
-// ── 5. Flash sale countdown ──────────────────────────────────
+// 5. Flash sale countdown
 function initFlashTimer() {
   const el = document.getElementById("flash-timer");
   if (!el) return;
@@ -382,12 +441,7 @@ function initFlashTimer() {
   }, 1000);
 }
 
-// ── FIX 3: View More / View Less toggle ──────────────────────────────────────
-//
-// Clicking "VIEW MORE" expands the description, hides the fade gradient,
-// and changes the button text to "VIEW LESS".
-// Clicking "VIEW LESS" collapses back to the initial clipped state.
-//
+// View More / View Less toggle
 function initViewMore() {
   const btn = document.getElementById("pd-view-more-btn");
   const content = document.getElementById("pd-desc-content");
