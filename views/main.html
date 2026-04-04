@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png" />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Grid only (no JS, no full BS bloat) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles/base.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <title>
+      Online Shopping in Pakistan: Fashion, Electronics & Groceries - Daraz.pk
+    </title>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <!-- Top bar -->
+      <nav class="top-bar">
+        <div class="top-bar-inner">
+          <a href="#">SAVE MORE ON APP</a>
+          <a href="#">SELL ON DARAZ</a>
+          <a href="#">HELP & SUPPORT</a>
+          <a href="#">LOGIN</a>
+          <a href="#">SIGN UP</a>
+          <a href="#">زبان تبدیل کریں</a>
+        </div>
+      </nav>
+
+      <!-- Main header: logo, search bar, cart -->
+      <div class="main-header">
+        <div class="main-header-inner">
+          <a href="#" class="logo-link">
+            <img
+              src="../assets/images/logo.png"
+              alt="Daraz Logo"
+              class="logo-img"
+            />
+          </a>
+
+          <div class="search-bar">
+            <input type="text" placeholder="Search in Daraz" />
+            <button class="search-btn" aria-label="Search">
+              <img src="../assets/icons/search-icon.png" alt="Search icon" />
+            </button>
+          </div>
+
+          <a href="#" class="cart-link" title="Cart">
+            <i class="bi bi-cart3"></i>
+          </a>
+        </div>
+      </div>
+      <!-- only for extra height -->
+      <div class="homepage-only-height"></div>
+    </header>
+    <!-- Main Section -->
+    <main>
+      <!-- Hero: carousel + app download card -->
+      <section class="hero-section">
+        <div class="hero-inner">
+          <!-- Carousel -->
+          <div class="carousel-wrapper">
+            <div class="carousel-track" id="carousel-track"></div>
+
+            <!-- Prev / Next buttons -->
+            <button
+              class="carousel-btn carousel-btn--prev"
+              id="btn-prev"
+              aria-label="Previous slide"
+            >
+              <img
+                src="../assets/icons/chevron.png"
+                alt="Previous"
+                class="chevron chevron--left"
+              />
+            </button>
+            <button
+              class="carousel-btn carousel-btn--next"
+              id="btn-next"
+              aria-label="Next slide"
+            >
+              <img
+                src="../assets/icons/chevron.png"
+                alt="Next"
+                class="chevron chevron--right"
+              />
+            </button>
+
+            <!-- Dot indicators rendered by main.js -->
+            <div class="carousel-dots" id="carousel-dots"></div>
+          </div>
+
+          <!-- App download card -->
+          <div class="app-card">
+            <div class="app-card-top">
+              <img
+                src="../assets/icons/app-logo.png"
+                alt="Daraz App"
+                class="app-logo"
+              />
+              <span class="app-title">TRY DARAZ APP</span>
+            </div>
+
+            <div class="app-card-body">
+              <div class="app-rating">
+                <img src="../assets/images/star.png" alt="star" />
+                <span>4.8 Rated</span>
+              </div>
+              <p class="app-tagline">Download the App now</p>
+              <div class="app-features">
+                <div class="app-feature">
+                  <img
+                    src="../assets/images/free-shipping.png"
+                    alt="Free Shipping"
+                  />
+                  <span
+                    >Free <br />
+                    Shipping</span
+                  >
+                </div>
+                <div class="app-feature">
+                  <img
+                    src="../assets/images/exclusive-voucher.png"
+                    alt="Exclusive Vouchers"
+                  />
+                  <span
+                    >Exclusive <br />
+                    Vouchers</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="app-card-footer">
+              <img
+                src="../assets/images/qr-code.png"
+                alt="QR Code"
+                class="qr-code"
+              />
+              <div class="store-btns">
+                <img
+                  src="../assets/icons/appstore.png"
+                  alt="App Store"
+                  class="store-btn"
+                />
+                <img
+                  src="../assets/icons/playstore.png"
+                  alt="Google Play"
+                  class="store-btn"
+                />
+              </div>
+            </div>
+
+            <p class="app-footer-text">Download the App Now!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Banner Image -->
+      <a
+        class="d-flex justify-content-center align-content-center p-3"
+        href="#"
+      >
+        <img src="../assets/products/banner.gif" alt="" />
+      </a>
+
+      <!-- Flash Sale -->
+      <section class="flash-sale">
+        <h2 class="section-title">Flash Sale</h2>
+        <div class="flash-sale-container">
+          <div class="flash-sale-subrow">
+            <span class="flash-sale-tab">On Sale Now</span>
+            <button class="flash-sale-btn">SHOP ALL PRODUCTS</button>
+          </div>
+          <hr class="section-divider" />
+
+          <div
+            class="row flash-sale-cards pb-3 gx-2"
+            id="flash-sale-cards"
+          ></div>
+        </div>
+      </section>
+
+      <!-- Categories -->
+      <section class="categories">
+        <h2 class="section-title">Categories</h2>
+        <div class="categories-container">
+          <div class="categories-grid" id="categories-grid"></div>
+        </div>
+      </section>
+
+      <!-- Just For You -->
+      <section class="just-for-you">
+        <h2 class="section-title">Just For You</h2>
+        <div class="jfy-container">
+          <div class="row gx-2 gy-3" id="jfy-cards"></div>
+        </div>
+
+        <div class="load-more-container">
+          <button class="jfy-load-btn">LOAD MORE</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <!-- Row 1: Customer Care, Daraz links, App download -->
+      <div class="footer-top">
+        <div class="footer-inner">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-lg-3">
+              <h3 class="footer-heading">Customer Care</h3>
+              <ul class="footer-list">
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">How to Buy</a></li>
+                <li><a href="#">Corporate & Bulk Purchasing</a></li>
+                <li><a href="#">Returns & Refunds</a></li>
+                <li><a href="#">Daraz Shop</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Purchase Protection</a></li>
+                <li><a href="#">Daraz Pick up Points</a></li>
+              </ul>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+              <h3 class="footer-heading">Daraz</h3>
+              <ul class="footer-list">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Digital Payments</a></li>
+                <li><a href="#">Daraz Donates</a></li>
+                <li><a href="#">Daraz Blog</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><span>NTN Number : 4012118-6</span></li>
+                <li><span>STRN Number : 1700401211818</span></li>
+                <li><a href="#">Online Shopping App</a></li>
+                <li><a href="#">Online Grocery Shopping</a></li>
+                <li><a href="#">Daraz Exclusive</a></li>
+                <li><a href="#">Daraz University</a></li>
+                <li><a href="#">Sell on Daraz</a></li>
+                <li><a href="#">Join Daraz Affiliate Program</a></li>
+              </ul>
+            </div>
+
+            <div class="col-12 col-sm-12 col-lg-6">
+              <div class="footer-app-col">
+                <div class="footer-app-identity">
+                  <img
+                    src="../assets/footer/top-footer/daraz.png"
+                    alt="Daraz"
+                    class="footer-app-logo"
+                  />
+                  <div>
+                    <p class="footer-app-tagline">Happy Shopping</p>
+                    <p class="footer-app-sub">Download App</p>
+                  </div>
+                </div>
+                <div class="footer-store-btns">
+                  <a href="#"
+                    ><img
+                      src="../assets/footer/top-footer/available-on-store.png"
+                      alt="App Store"
+                      class="footer-store-img"
+                  /></a>
+                  <a href="#"
+                    ><img
+                      src="../assets/footer/top-footer/google-play.png"
+                      alt="Google Play"
+                      class="footer-store-img"
+                  /></a>
+                  <a href="#"
+                    ><img
+                      src="../assets/footer/top-footer/app-gallery.png"
+                      alt="Google Play"
+                      class="footer-store-img"
+                  /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: Payment methods + Verified by -->
+      <div class="footer-payments">
+        <div class="payment-container">
+          <div class="footer-width-32">
+            <h3 class="footer-heading">Payment Methods</h3>
+            <div class="footer-pay-icons">
+              <img
+                src="../assets/footer/payment/cash-on-delivery.png"
+                alt="Cash on Delivery"
+              />
+              <img src="../assets/footer/payment/visa.png" alt="Visa" />
+              <img
+                src="../assets/footer/payment/master-card.png"
+                alt="Mastercard"
+              />
+              <img
+                src="../assets/footer/payment/easy-paisa.png"
+                alt="Easypaisa"
+              />
+              <img
+                src="../assets/footer/payment/daraz-wallet.png"
+                alt="Daraz Wallet"
+              />
+              <img
+                src="../assets/footer/payment/jazz-cash.png"
+                alt="JazzCash"
+              />
+              <img
+                src="../assets/footer/payment/union-pay.png"
+                alt="UnionPay"
+              />
+              <img src="../assets/footer/payment/hbl.png" alt="HBL" />
+              <img
+                src="../assets/footer/payment/monthly-installments.png"
+                alt="Easy Monthly Installments"
+              />
+            </div>
+          </div>
+
+          <div class="footer-width-32">
+            <h3 class="footer-heading">Verified by</h3>
+            <div class="footer-verified-icons">
+              <img
+                src="../assets/footer/payment/pci-verified.png"
+                alt="PCI DSS"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3: About Daraz + Category tags -->
+      <div class="footer-about-row">
+        <div class="footer-inner">
+          <div class="row g-4">
+            <!-- About left -->
+            <div class="col-12 col-md-6 col-lg-3 pe-5">
+              <h1 class="footer-about-h1">
+                How Daraz Transformed Online Shopping in Pakistan
+              </h1>
+              <p class="footer-about-body">
+                How Daraz Transformed Online Shopping in Pakistan. <br />
+
+                Daraz first made waves in Pakistan’s e-commerce market after its
+                introduction in 2012. We have since grown to become Pakistan’s
+                largest platform for online shopping with a network spread
+                across Asia in Pakistan, Bangladesh, Sri Lanka, Myanmar, and
+                Daraz.com.np. Our vision was to provide a safe, efficient online
+                marketplace platform for vendors and customers across the
+                country to come together. We started off exclusively as an
+                online fashion retail platform and over the years expanded to
+                become a complete one-stop solution for all your buying needs.
+                Daraz prides itself on not being just another ecommerce venture
+                in Asia. We work tirelessly to make sure that we provide users
+                with the best online online shopping experience and value for
+                their purchases. Whether you shop online through our website or
+                our online shopping mobile App, you can expect easy navigation,
+                customized recommendations, and a smooth online shopping
+                experience guaranteed.
+              </p>
+              <h1 class="footer-about-h1">
+                What Makes Us Different from Other Online Shopping Platforms?
+              </h1>
+              <p class="footer-about-body">
+                <strong
+                  >Select from the Largest Online Marketplace in
+                  Pakistan</strong
+                ><br />
+                With over 15 million products to select from, Daraz offers its
+                customers the most comprehensive listing of products in the
+                country. Whether you’re looking for electronics, apparel,
+                appliances, or groceries – there is something for everyone.
+              </p>
+              <p class="footer-about-body">
+                <strong>Hassle Free Delivery</strong><br />Online shopping is
+                only as good as its execution and Daraz promises hassle free
+                delivery right from the moment you order to when your package is
+                dropped at your door. We cater to both major and smaller cities
+                alike, and give you the choice to track your package as it makes
+                its way to you so you always know your order status. If you are
+                unsatisfied with any aspect of your order, we have a simple
+                7-day return or exchange policy.
+              </p>
+              <p class="footer-about-body">
+                <strong>Payment Options to Suit Every Style</strong><br />
+                You can choose to pay through a credit/debit card, opt for cash
+                on delivery or even go for EMI (easy monthly instalments). You
+                can also
+              </p>
+            </div>
+
+            <!-- About right -->
+            <div class="col-12 col-md-6 col-lg-3 pe-5">
+              <p class="footer-about-body">
+                avail exclusive offers by downloading Daraz Wallet – a closed
+                loop digital wallet that offers you a secure, easy way to make
+                payments. We also have easypaisa & jazzcash payment method for
+                our customers' ease
+                <br />
+                <strong>Shop from Verified Vendors</strong><br />Daraz
+                understands that online shopping in Pakistan comes with its fair
+                share of risks. This is why with Daraz Marketplace and Daraz
+                Mall customers have the security of choosing from verified
+                vendors and brands from Karachi, Lahore, Islamabad and all
+                across Pakistan. Now you’ll never have to second guess
+                authenticity because Daraz makes sure to do it for you!
+              </p>
+              <p class="footer-about-body">
+                <strong
+                  >Shop Around the World with Daraz Global Collection</strong
+                >
+                <br />
+                International sellers and local convenience come together with
+                Daraz Global collection. Get the chance to shop online from
+                vendors around the world without leaving the Daraz website.
+                Featuring thousands of novelty gadgets and accessories, Daraz
+                Global Collection offers you a selection of products that you
+                won’t find anywhere else when you’re online shopping in
+                Pakistan.
+              </p>
+              <p class="footer-about-body">
+                <strong
+                  >Avail Exclusive Discounts, Offers, and Promotions</strong
+                ><br />
+                Online shopping with Daraz means you get the chance to avail
+                exclusive online-only promotional packages as well as discount
+                vouchers from our vendors when you shop from their pages. Our
+                flash sales give you customized product offers all curated with
+                the help of our advanced AI technology so you always have deals
+                you’ll actually be interested in!
+              </p>
+              <p class="footer-about-body">
+                <strong>Buy Value, not Just Goods with Daraz Care</strong
+                ><br />Daraz does not just cater online shopping in Pakistan but
+                also aims to simplify the way you give back to society. With
+                charities spanning across sectors of education, health care,
+                environmental preservation, and shelters, you can choose to make
+                a big difference with a few, simple clicks.
+              </p>
+              <p class="footer-about-body">
+                <strong>Simplify Corporate Purchases</strong><br />Who says
+                corporate purchases need to be a complicated affair? When you
+                opt for Daraz Corporate, you get an efficient and transparent
+                solution for your business’ bulk purchasing needs. We’re proud
+                to be working with some of the most prestigious organizations in
+                Pakistan across a number of different industries.
+              </p>
+            </div>
+
+            <!-- Tags left column -->
+            <div class="col-12 col-md-6 col-lg-3 pe-5">
+              <h3 class="footer-tags-main-heading">Top Categories & Brands</h3>
+
+              <h4 class="footer-tags-sub">MOBILE PHONES IN PAKISTAN</h4>
+              <div class="footer-tags">
+                <a href="#">Apple iPhones</a><a href="#">Honor Mobiles</a
+                ><a href="#">Huawei Mobiles</a> <a href="#">Tecno Mobiles</a
+                ><a href="#">Redmi Mobiles</a><a href="#">Xiaomi Mi Mobiles</a>
+                <a href="#">Nokia Mobiles</a><a href="#">OnePlus Mobiles</a
+                ><a href="#">Oppo Mobile Phones</a>
+                <a href="#">Realme Mobiles</a
+                ><a href="#">Samsung Mobile Phones</a
+                ><a href="#">Vivo Mobile Phones</a>
+                <a href="#">Mobile Accessories</a><a href="#">Smart Watches</a>
+              </div>
+
+              <h4 class="footer-tags-sub">LATEST LAPTOPS</h4>
+              <div class="footer-tags">
+                <a href="#">Dell Laptops</a><a href="#">HP Laptops</a
+                ><a href="#">Lenovo Laptops</a> <a href="#">Mouse</a
+                ><a href="#">Gaming Graphic Cards</a
+                ><a href="#">lenovo ideapad 3</a> <a href="#">Macbook Pro 13</a
+                ><a href="#">Hp Probook 650 G2</a>
+              </div>
+
+              <h4 class="footer-tags-sub">LED TV</h4>
+              <div class="footer-tags">
+                <a href="#">Changhong Led Tv</a><a href="#">LG Led Tv</a
+                ><a href="#">Samsung Led Tv</a> <a href="#">Sony Led Tv</a
+                ><a href="#">TCL LED TVs</a>
+              </div>
+
+              <h4 class="footer-tags-sub">HOME APPLIANCES</h4>
+              <div class="footer-tags">
+                <a href="#">Microwave oven</a><a href="#">Geyser</a
+                ><a href="#">Heater</a> <a href="#">Refrigerators</a
+                ><a href="#">Deep Freezers</a><a href="#">Generators</a>
+                <a href="#">Water Dispensers</a><a href="#">Fans</a
+                ><a href="#">Room Cooler</a> <a href="#">Table Fans</a
+                ><a href="#">Wall Fans</a><a href="#">Exhaust Fans</a>
+                <a href="#">Pedestal Fans</a><a href="#">Window Ac</a
+                ><a href="#">Solar Panel</a>
+                <a href="#">Washing Machine</a>
+              </div>
+
+              <h4 class="footer-tags-sub">DSLR CAMERAS</h4>
+              <div class="footer-tags">
+                <a href="#">Camera Tripods</a><a href="#">Drones</a
+                ><a href="#">IP & CCTV Cameras</a> <a href="#">Nikon D7000</a
+                ><a href="#">Nikon D5600</a><a href="#">Canon 200D</a>
+                <a href="#">Canon 1200D</a
+                ><a href="#">Fujifilm Instax Mini 11</a
+                ><a href="#">Canon M50</a>
+              </div>
+
+              <h4 class="footer-tags-sub">HEALTH & BEAUTY</h4>
+              <div class="footer-tags">
+                <a href="#">sunisa foundation</a><a href="#">Biofad</a
+                ><a href="#">janssen facial kit</a>
+                <a href="#">Glutathione Injection</a
+                ><a href="#">Glutathione Cream</a><a href="#">Sauvage</a>
+                <a href="#">Glutathione Tablets</a
+                ><a href="#">Glutathione Soap</a>
+                <a href="#">Infrared Thermometers</a><a href="#">N95 Mask</a>
+              </div>
+
+              <h4 class="footer-tags-sub">TRENDING</h4>
+              <div class="footer-tags">
+                <a href="#">Online Bills</a><a href="#">Core I5 Laptop</a
+                ><a href="#">Gtx 1060</a> <a href="#">Samsung A32</a
+                ><a href="#">Samsung A51</a><a href="#">Samsung A52</a>
+                <a href="#">Samsung A71</a><a href="#">Samsung A72</a
+                ><a href="#">Samsung M31</a> <a href="#">Samsung S20</a
+                ><a href="#">Samsung S20 Ultra 5G</a><a href="#">Samsung S21</a>
+                <a href="#">Samsung S21 Ultra</a><a href="#">Samsung Z Flip</a
+                ><a href="#">Tecno Camon 17</a> <a href="#">Vivo V20</a
+                ><a href="#">Poco X3 Pro</a><a href="#">Vivo V21</a>
+                <a href="#">Vivo V21E</a><a href="#">Vivo X70 Pro</a
+                ><a href="#">Vivo Y12</a> <a href="#">Vivo Y12S</a
+                ><a href="#">Vivo Y1S</a><a href="#">Vivo Y20</a>
+                <a href="#">Vivo Y51</a><a href="#">Vivo Y51S</a
+                ><a href="#">Oppo F19 Pro</a> <a href="#">Oppo Reno 6</a
+                ><a href="#">Xiaomi Poco F3</a><a href="#">Xiaomi Poco M3</a>
+                <a href="#">Xiaomi Poco X3</a><a href="#">Xiaomi Poco X3 Gt</a
+                ><a href="#">Xiaomi Redmi 9C</a>
+                <a href="#">Xiaomi Redmi Note 10 Pro</a
+                ><a href="#">Sharp Aquos R2</a>
+              </div>
+            </div>
+
+            <!-- Tags right column -->
+            <div class="col-12 col-md-6 col-lg-3 pe-5">
+              <h4 class="footer-tags-sub">WOMEN'S FASHION</h4>
+              <div class="footer-tags">
+                <a href="#">Al-Karam Studio</a><a href="#">Warda</a
+                ><a href="#">Salitex</a> <a href="#">Bonanza Satrangi</a
+                ><a href="#">Edenrobe</a><a href="#">Firdous</a>
+                <a href="#">Junaid Jamshed</a><a href="#">Limelight</a
+                ><a href="#">Sana Safinaz</a> <a href="#">Mahru</a
+                ><a href="#">Pushup Bra</a><a href="#">Women Undergarments</a>
+              </div>
+
+              <h4 class="footer-tags-sub">MEN'S FASHION</h4>
+              <div class="footer-tags">
+                <a href="#">Men's Shirts</a><a href="#">Men's T-Shirts</a>
+              </div>
+
+              <h4 class="footer-tags-sub">ONLINE GROCERY STORE</h4>
+              <div class="footer-tags">
+                <a href="#">Oil & Ghee</a><a href="#">Basmati Rice</a
+                ><a href="#">Dried Fruits</a> <a href="#">Chocolates</a
+                ><a href="#">Mattresses</a>
+              </div>
+
+              <h4 class="footer-tags-sub">ONLINE BOOK STORE</h4>
+              <div class="footer-tags">
+                <a href="#">English Books</a><a href="#">Islamic Books</a
+                ><a href="#">History Books</a>
+                <a href="#">English Literature Books</a
+                ><a href="#">Kids Urdu Stories</a>
+                <a href="#">Pride & Prejudice</a
+                ><a href="#">Harry Potter Story Books</a>
+                <a href="#">Namal Novel</a><a href="#">Nimra Ahmed Novels</a>
+              </div>
+
+              <h4 class="footer-tags-sub">AIR CONDITIONERS</h4>
+              <div class="footer-tags">
+                <a href="#">Kenwood Ac</a><a href="#">Haier Ac</a
+                ><a href="#">Gree Ac</a> <a href="#">Dawlance Ac</a
+                ><a href="#">Orient Ac</a><a href="#">Ecostar Ac</a>
+                <a href="#">Inverex Solar Ac</a><a href="#">Pel Ac</a>
+              </div>
+
+              <h4 class="footer-tags-sub">TOP MOBILE PHONES</h4>
+              <div class="footer-tags">
+                <a href="#">Nokia G20</a><a href="#">redmi 9</a
+                ><a href="#">realme 7 pro</a> <a href="#">realme c15</a
+                ><a href="#">realme c21</a><a href="#">vivo y20s</a>
+                <a href="#">realme c11 Price in Pakistan</a
+                ><a href="#">itel vision 1 pro price in pakistan</a>
+                <a href="#">samsung galaxy a02 price in pakistan</a
+                ><a href="#">Infinix Hot 10</a> <a href="#">Infinix Hot 8</a
+                ><a href="#">Infinix Hot 9</a
+                ><a href="#">Infinix Note 10 Pro</a>
+                <a href="#">Infinix Note 7</a><a href="#">Infinix Note 8</a
+                ><a href="#">Infinix Zero 8</a> <a href="#">Inifnix Smart 5</a
+                ><a href="#">iPhone 11</a><a href="#">iPhone 12</a>
+                <a href="#">iphone 12 Pro Max</a><a href="#">iPhone 12 Pro</a
+                ><a href="#">iPhone 6</a> <a href="#">Oppo A15</a
+                ><a href="#">Oppo A15S</a><a href="#">Oppo A53</a>
+                <a href="#">Oppo A54</a><a href="#">Infinix Zero X Pro</a
+                ><a href="#">Infinix Zero X Neo</a> <a href="#">Oppo F19</a
+                ><a href="#">Oppo Reno 5</a><a href="#">Oppo Reno 5 Pro</a>
+                <a href="#">Xiaomi Poco M3 Pro</a><a href="#">Realme 6 Pro</a
+                ><a href="#">Realme 8</a> <a href="#">Realme Narzo 30A</a
+                ><a href="#">Samsung A02S</a><a href="#">Samsung A11</a>
+                <a href="#">Samsung A12</a><a href="#">Samsung A31</a
+                ><a href="#">Vivo Y33s</a> <a href="#">Infinix Note 11</a
+                ><a href="#">Tecno Spark 6 Go</a><a href="#">Samsung A52s</a>
+                <a href="#">Samsung Tab A7 Lite</a>
+              </div>
+
+              <h4 class="footer-tags-sub">SHOP WORLDWIDE WITH LAZADA</h4>
+              <div class="footer-tags">
+                <a href="#">Singapore</a><a href="#">Malaysia</a
+                ><a href="#">Philippines</a> <a href="#">Indonesia</a
+                ><a href="#">Vietnam</a><a href="#">Thailand</a>
+              </div>
+
+              <h4 class="footer-tags-sub">SHOP WORLDWIDE WITH MIRAVIA</h4>
+              <div class="footer-tags">
+                <a href="#">Spain</a><a href="#">Portugal</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 4: International presence, social links, copyright -->
+      <div class="footer-bottom">
+        <div class="footer-inner">
+          <div class="row g-2">
+            <!-- International presence -->
+            <div class="col-6 px-0 mt-0">
+              <h3 class="footer-heading">Daraz International</h3>
+              <div class="footer-countries">
+                <a href="#"
+                  ><img
+                    src="../assets/footer/countries/pakistan.png"
+                    alt="Pakistan"
+                  /><span>Pakistan</span></a
+                >
+                <a href="#"
+                  ><img
+                    src="../assets/footer/countries/bengal.png"
+                    alt="Bangladesh"
+                  /><span>Bangladesh</span></a
+                >
+                <a href="#"
+                  ><img
+                    src="../assets/footer/countries/srilanka.png"
+                    alt="Sri Lanka"
+                  /><span>Sri Lanka</span></a
+                >
+                <a href="#"
+                  ><img
+                    src="../assets/footer/countries/myanmar.png"
+                    alt="Myanmar"
+                  /><span>Myanmar</span></a
+                >
+                <a href="#"
+                  ><img
+                    src="../assets/footer/countries/nepal.png"
+                    alt="Nepal"
+                  /><span>Nepal</span></a
+                >
+              </div>
+            </div>
+
+            <!-- Follow Us -->
+            <div class="col-3 px-0 mt-0">
+              <h3 class="footer-heading">Follow Us</h3>
+              <div class="footer-social">
+                <!-- facebook -->
+                <a href="#" class="social-link">
+                  <img
+                    src="../assets/footer/social/facebook.png"
+                    alt="Facebook"
+                  />
+                </a>
+                <!-- X/Twitter -->
+                <a href="#" class="social-link">
+                  <img src="../assets/footer/social/x.png" alt="X" />
+                </a>
+                <!-- Instagram -->
+                <a href="#" class="social-link">
+                  <img
+                    src="../assets/footer/social/instagram.png"
+                    alt="Instagram"
+                  />
+                </a>
+                <!-- YouTube -->
+                <a href="#" class="social-link">
+                  <img
+                    src="../assets/footer/social/youtube.png"
+                    alt="YouTube"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="col-3 px-0 mt-0 text-end">
+              <p class="footer-copyright">© Daraz 2026</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Side Navigator -->
+    <nav class="side-nav" id="side-nav">
+      <button
+        class="side-nav-item side-nav-top"
+        id="nav-top"
+        aria-label="Back to top"
+      >
+        <i class="bi bi-chevron-up"></i>
+      </button>
+      <button
+        class="side-nav-item"
+        data-section="flash-sale"
+        aria-label="Flash Sale"
+      >
+        <i class="bi bi-fire"></i>
+        <span class="side-nav-label">Flash Sale</span>
+      </button>
+      <button
+        class="side-nav-item"
+        data-section="categories"
+        aria-label="Categories"
+      >
+        <i class="bi bi-grid-3x3-gap-fill"></i>
+        <span class="side-nav-label">Categories</span>
+      </button>
+      <button
+        class="side-nav-item"
+        data-section="just-for-you"
+        aria-label="Just For You"
+      >
+        <i class="bi bi-person-check"></i>
+        <span class="side-nav-label">Just For You</span>
+      </button>
+    </nav>
+
+    <!-- Floating Messages Button -->
+    <a href="#" class="float-messages" aria-label="Messages">
+      <i class="bi bi-chat-left-fill"></i>
+      <span>Messages</span>
+    </a>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
