@@ -33,7 +33,6 @@
 
   <body>
     <!-- Header -->
-    <!-- Header -->
     <header>
       <!-- Top bar -->
       <nav class="top-bar">
@@ -91,6 +90,7 @@
         </div>
       </div>
     </header>
+
     <!-- Main -->
     <div class="product-main">
       <!-- Breadcrumb -->
@@ -205,7 +205,7 @@
               >
               <div class="pd-actions-row">
                 <button class="pd-action-btn" title="Share">
-                  <i class="bi bi-share"></i>
+                  <i class="bi bi-share-fill"></i>
                 </button>
                 <button class="pd-action-btn" title="Wishlist">
                   <i class="bi bi-heart"></i>
@@ -225,35 +225,9 @@
             <!-- Price -->
             <div class="pd-price-block">
               <span class="pd-price">Rs. 196</span>
-              <span class="pd-original">Rs. 599</span>
-              <span class="pd-discount-badge">-67%</span>
-            </div>
-
-            <!-- Color selector -->
-            <div class="pd-option-row">
-              <span class="pd-option-label">Color family</span>
-              <div class="pd-color-options">
-                <button class="pd-color-btn active">
-                  <span
-                    class="pd-color-swatch"
-                    style="background: #4caf50"
-                  ></span>
-                  Green
-                </button>
-                <button class="pd-color-btn">
-                  <span
-                    class="pd-color-swatch"
-                    style="background: #f44336"
-                  ></span>
-                  Red
-                </button>
-                <button class="pd-color-btn">
-                  <span
-                    class="pd-color-swatch"
-                    style="background: #2196f3"
-                  ></span>
-                  Blue
-                </button>
+              <div>
+                <span class="pd-original">Rs. 599</span>
+                <span class="pd-discount-badge">-67%</span>
               </div>
             </div>
 
@@ -274,9 +248,7 @@
             <!-- CTA buttons -->
             <div class="pd-cta-row">
               <button class="pd-btn-buy">Buy Now</button>
-              <button class="pd-btn-cart">
-                <i class="bi bi-cart-plus"></i> Add to Cart
-              </button>
+              <button class="pd-btn-cart">.pd-section-cardAdd to Cart</button>
             </div>
           </div>
 
@@ -289,13 +261,13 @@
                 <i class="bi bi-info-circle"></i>
               </div>
               <div class="pd-delivery-location">
-                <i class="bi bi-geo-alt-fill"></i>
+                <i class="bi bi-geo-alt"></i>
                 <span>Sindh, Karachi - Gulshan-e-Iqbal, Block 15</span>
                 <a href="#" class="pd-change-link">CHANGE</a>
               </div>
               <div class="pd-delivery-row">
                 <div class="pd-delivery-left">
-                  <i class="bi bi-truck"></i>
+                  <i class="bi bi-box-seam"></i>
                   <div>
                     <p class="pd-delivery-name">Standard Delivery</p>
                     <p class="pd-delivery-sub">Guaranteed by 2-4 Apr</p>
@@ -305,7 +277,7 @@
               </div>
               <div class="pd-delivery-row">
                 <div class="pd-delivery-left">
-                  <i class="bi bi-box-seam"></i>
+                  <i class="bi bi-truck"></i>
                   <div>
                     <p class="pd-delivery-name">Standard Collection Point</p>
                     <p class="pd-delivery-sub">Guaranteed by 2-4 Apr</p>
@@ -314,7 +286,7 @@
                 <span class="pd-delivery-price">Rs. 35</span>
               </div>
               <div class="pd-delivery-row">
-                <div class="pd-delivery-left">
+                <div class="pd-delivery-left d-flex align-items-baseline">
                   <i class="bi bi-cash-stack"></i>
                   <div>
                     <p class="pd-delivery-name">Cash on Delivery Available</p>
@@ -324,7 +296,7 @@
             </div>
 
             <!-- Return & Warranty -->
-            <div class="pd-card">
+            <div class="pd-card" style="padding-bottom: 0px">
               <div class="pd-card-header">
                 Return & Warranty
                 <i class="bi bi-info-circle"></i>
@@ -338,39 +310,45 @@
                 <span>14 days easy return</span>
               </div>
               <div class="pd-return-row">
-                <i class="bi bi-shield-x"></i>
+                <i class="bi bi-shield-slash"></i>
                 <span>Warranty not available</span>
               </div>
             </div>
 
             <!-- QR + App -->
-            <div class="pd-card pd-app-card">
-              <img src="assets/qr-code.png" alt="QR Code" class="pd-qr" />
-              <div class="pd-app-info">
-                <img
-                  src="assets/icons/app-logo.png"
-                  alt="Daraz App"
-                  class="pd-app-icon"
-                />
-                <p>Download app to enjoy<br />exclusive discounts!</p>
+            <div class="pd-card" style="padding-top: 10px">
+              <div class="pd-app-card">
+                <img src="assets/product-qr.png" alt="QR Code" class="pd-qr" />
+                <div class="pd-app-info">
+                  <img
+                    src="assets/daraz.png"
+                    alt="Daraz App"
+                    class="pd-app-icon"
+                  />
+                  <p>Download app to enjoy<br />exclusive discounts!</p>
+                </div>
               </div>
+              <p class="scn-wth-mob">
+                <i class="bi bi-phone"></i> Scan with mobile
+              </p>
             </div>
 
             <!-- Seller -->
-            <div class="pd-card">
+            <div class="pd-card" style="padding-top: 0; margin-top: 8px">
               <p class="pd-sold-by">Sold by</p>
               <div class="pd-seller-row">
                 <p class="pd-seller-name">NS Collection (Lahore)</p>
                 <a href="#" class="pd-chat-btn"
-                  ><i class="bi bi-chat-dots-fill"></i> Chat Now</a
+                  ><i class="bi bi-chat-left-fill"></i> Chat Now</a
                 >
               </div>
+
               <div class="pd-seller-stats">
-                <div class="pd-stat">
+                <div class="pd-stat" style="border-right: 1px solid #f0f0f0">
                   <p class="pd-stat-label">Positive Seller Ratings</p>
                   <p class="pd-stat-val">87%</p>
                 </div>
-                <div class="pd-stat">
+                <div class="pd-stat" style="border-right: 1px solid #f0f0f0">
                   <p class="pd-stat-label">Ship on Time</p>
                   <p class="pd-stat-val">94%</p>
                 </div>
@@ -389,9 +367,8 @@
       <div class="pd-container pd-lower">
         <div class="pd-lower-main">
           <!-- Product Details -->
+          <h2 class="pd-section-title px-24 m-0">Product details of</h2>
           <div class="pd-section-card" id="details">
-            <h2 class="pd-section-title">Product details of</h2>
-
             <!-- Bullet list always visible -->
             <ul class="pd-details-list">
               <li>
@@ -524,17 +501,18 @@
           </div>
 
           <!-- Ratings & Reviews -->
-          <div class="pd-section-card" id="reviews">
-            <h2 class="pd-section-title">
+          <div class="pd-section-card px-0" id="reviews">
+            <h2 class="pd-section-title px-24">
               Ratings & Reviews of Microwave Oven Cover – Dustproof Decorative
               Design with Four Side Pockets | Universal Size | Premium Non-Woven
               Fabric | Protective & Stylish Appliance Cover
             </h2>
 
-            <div class="pd-ratings-overview">
+            <div class="pd-ratings-overview px-24">
               <div class="pd-rating-big">
-                <span class="pd-rating-num">4.8</span>
-                <span class="pd-rating-denom">/5</span>
+                <span class="pd-rating-num"
+                  >4.8 <span class="pd-rating-denom">/5</span></span
+                >
                 <div class="pd-stars-big">
                   <i class="bi bi-star-fill"></i>
                   <i class="bi bi-star-fill"></i>
@@ -608,13 +586,18 @@
                 </div>
               </div>
             </div>
-
             <!-- Filter row -->
             <div class="pd-review-filter-row">
               <span>Product Reviews</span>
               <div class="pd-review-filters">
-                <button class="pd-filter-btn">
-                  <i class="bi bi-sort-down"></i> Sort: Relevance
+                <button
+                  class="pd-filter-btn"
+                  style="
+                    border-left: 1px solid #eff0f5;
+                    border-right: 1px solid #eff0f5;
+                  "
+                >
+                  <i class="bi bi-arrow-down-up"></i> Sort: Relevance
                 </button>
                 <button class="pd-filter-btn">
                   <i class="bi bi-funnel"></i> Filter: All star
@@ -623,7 +606,7 @@
             </div>
 
             <!-- Review cards -->
-            <div class="pd-review-list">
+            <div class="pd-review-list px-24">
               <div class="pd-review">
                 <div class="pd-review-header">
                   <div class="pd-review-stars">
@@ -656,9 +639,8 @@
                   />
                 </div>
                 <div class="pd-review-footer">
-                  <span>Color family: Green</span>
                   <button class="pd-like-btn">
-                    <i class="bi bi-hand-thumbs-up"></i> 6
+                    <i class="bi bi-hand-thumbs-up-fill"></i> 6
                   </button>
                 </div>
               </div>
@@ -692,9 +674,8 @@
                   />
                 </div>
                 <div class="pd-review-footer">
-                  <span>Color family: Green</span>
                   <button class="pd-like-btn">
-                    <i class="bi bi-hand-thumbs-up"></i> 6
+                    <i class="bi bi-hand-thumbs-up-fill"></i> 6
                   </button>
                 </div>
               </div>
@@ -729,9 +710,8 @@
                   />
                 </div>
                 <div class="pd-review-footer">
-                  <span>Color family: Green</span>
                   <button class="pd-like-btn">
-                    <i class="bi bi-hand-thumbs-up"></i>
+                    <i class="bi bi-hand-thumbs-up-fill"></i> 3
                   </button>
                 </div>
               </div>
@@ -756,57 +736,61 @@
 
           <!-- Questions -->
           <div class="pd-section-card" id="questions">
-            <h2 class="pd-section-title">Questions about this product (16)</h2>
-            <p class="pd-qa-login">
-              <a href="#" class="pd-brand-link">Login</a> or
-              <a href="#" class="pd-brand-link">Register</a> to ask questions
-            </p>
-            <p class="pd-qa-sub">
-              Other questions answered by NS Collection (Lahore) (16)
-            </p>
+            <h2 class="pd-section-title px-24">
+              Questions about this product (16)
+            </h2>
+            <div class="px-24">
+              <p class="pd-qa-login">
+                <a href="#" class="pd-brand-link">Login</a> or
+                <a href="#" class="pd-brand-link">Register</a> to ask questions
+              </p>
+              <p class="pd-qa-sub">
+                Other questions answered by NS Collection (Lahore) (16)
+              </p>
 
-            <div class="pd-qa-list">
-              <div class="pd-qa-item">
-                <div class="pd-qa-badge pd-qa-q">Q</div>
-                <div class="pd-qa-body">
-                  <p>
-                    Mai ne 3 orders diay hain. Mujhy 12 pots ehtiyaat sy bhijwa
-                    dena. Daraz pe aksar ziada order pe kum cheez bhaij dety
-                    hain. Plz becareful.
-                  </p>
-                  <p class="pd-qa-meta">Sofia Amjad - 06 Jan 2026</p>
+              <div class="pd-qa-list">
+                <div class="pd-qa-item">
+                  <div class="pd-qa-badge pd-qa-q">Q</div>
+                  <div class="pd-qa-body">
+                    <p>
+                      Mai ne 3 orders diay hain. Mujhy 12 pots ehtiyaat sy
+                      bhijwa dena. Daraz pe aksar ziada order pe kum cheez bhaij
+                      dety hain. Plz becareful.
+                    </p>
+                    <p class="pd-qa-meta">Sofia Amjad - 06 Jan 2026</p>
+                  </div>
                 </div>
-              </div>
-              <div class="pd-qa-item pd-qa-answer">
-                <div class="pd-qa-badge pd-qa-a">A</div>
-                <div class="pd-qa-body">
-                  <p>ok</p>
-                  <p class="pd-qa-meta">
-                    NS Collection (Lahore) - Answered within 6 days
-                  </p>
+                <div class="pd-qa-item pd-qa-answer">
+                  <div class="pd-qa-badge pd-qa-a">A</div>
+                  <div class="pd-qa-body">
+                    <p>ok</p>
+                    <p class="pd-qa-meta">
+                      NS Collection (Lahore) - Answered within 6 days
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="pd-qa-item">
-                <div class="pd-qa-badge pd-qa-q">Q</div>
-                <div class="pd-qa-body">
-                  <p>Size kya ha</p>
-                  <p class="pd-qa-meta">mozamalijutt007 - 11 Jan 2026</p>
+                <div class="pd-qa-item">
+                  <div class="pd-qa-badge pd-qa-q">Q</div>
+                  <div class="pd-qa-body">
+                    <p>Size kya ha</p>
+                    <p class="pd-qa-meta">mozamalijutt007 - 11 Jan 2026</p>
+                  </div>
                 </div>
-              </div>
-              <div class="pd-qa-item pd-qa-answer">
-                <div class="pd-qa-badge pd-qa-a">A</div>
-                <div class="pd-qa-body">
-                  <p>4 inch size</p>
-                  <p class="pd-qa-meta">
-                    NS Collection (Lahore) - Answered within 8 hours
-                  </p>
+                <div class="pd-qa-item pd-qa-answer">
+                  <div class="pd-qa-badge pd-qa-a">A</div>
+                  <div class="pd-qa-body">
+                    <p>4 inch size</p>
+                    <p class="pd-qa-meta">
+                      NS Collection (Lahore) - Answered within 8 hours
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="pd-qa-item">
-                <div class="pd-qa-badge pd-qa-q">Q</div>
-                <div class="pd-qa-body">
-                  <p>Safety k Saath milengy 4</p>
-                  <p class="pd-qa-meta">3***4 - 10 Dec 2025</p>
+                <div class="pd-qa-item">
+                  <div class="pd-qa-badge pd-qa-q">Q</div>
+                  <div class="pd-qa-body">
+                    <p>Safety k Saath milengy 4</p>
+                    <p class="pd-qa-meta">3***4 - 10 Dec 2025</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -831,23 +815,26 @@
       </div>
 
       <!-- You May Also Like -->
-      <div class="pd-container">
-        <div class="pd-section-card pd-also-like">
-          <h2 class="pd-section-title">You may also like</h2>
+      <div class="pd-container yml my-3">
+        <h2 class="pd-section-title">You may also like</h2>
+        <div class="yml-cards">
           <div class="pd-also-grid">
             <a href="#" class="pd-also-card">
               <img
                 src="assets/products/just-for-you/dustproof.png"
                 alt="product"
               />
-              <p class="pd-also-name">
-                Pack of 6 Mini Plant Artificial Decoration Piece with pot Be...
-              </p>
-              <p class="pd-also-price">Rs. 339</p>
-              <div class="pd-also-stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
+              <div class="yml-card-body">
+                <p class="pd-also-name">
+                  Pack of 6 Mini Plant Artificial Decoration Piece with pot
+                  Be...
+                </p>
+                <p class="pd-also-price">Rs. 339</p>
+                <div class="pd-also-stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-half"></i>
+                </div>
               </div>
             </a>
             <a href="#" class="pd-also-card">
@@ -855,14 +842,17 @@
                 src="assets/products/just-for-you/face-mask.png"
                 alt="product"
               />
-              <p class="pd-also-name">
-                Pack of 6 Mini Plant Artificial Decoration Piece with pot Be...
-              </p>
-              <p class="pd-also-price">Rs. 327</p>
-              <div class="pd-also-stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
+              <div class="yml-card-body">
+                <p class="pd-also-name">
+                  Pack of 6 Mini Plant Artificial Decoration Piece with pot
+                  Be...
+                </p>
+                <p class="pd-also-price">Rs. 327</p>
+                <div class="pd-also-stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-half"></i>
+                </div>
               </div>
             </a>
             <a href="#" class="pd-also-card">
@@ -870,14 +860,17 @@
                 src="assets/products/just-for-you/lipstick-pencil.png"
                 alt="product"
               />
-              <p class="pd-also-name">
-                Mini Artificial Flower Decoration Piece - Green Best for home...
-              </p>
-              <p class="pd-also-price">Rs. 99</p>
-              <div class="pd-also-stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
+              <div class="yml-card-body">
+                <p class="pd-also-name">
+                  Mini Artificial Flower Decoration Piece - Green Best for
+                  home...
+                </p>
+                <p class="pd-also-price">Rs. 99</p>
+                <div class="pd-also-stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-half"></i>
+                </div>
               </div>
             </a>
             <a href="#" class="pd-also-card">
@@ -885,14 +878,17 @@
                 src="assets/products/just-for-you/eyebrow-pen.png"
                 alt="product"
               />
-              <p class="pd-also-name">
-                Pack of 3, 5 Artificial Small Plants - 6 Inches High Quality...
-              </p>
-              <p class="pd-also-price">Rs. 349</p>
-              <div class="pd-also-stars">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
+              <div class="yml-card-body">
+                <p class="pd-also-name">
+                  Pack of 3, 5 Artificial Small Plants - 6 Inches High
+                  Quality...
+                </p>
+                <p class="pd-also-price">Rs. 349</p>
+                <div class="pd-also-stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-half"></i>
+                </div>
               </div>
             </a>
           </div>
@@ -900,8 +896,9 @@
       </div>
     </div>
 
-    <!-- Footer (same as index.html) -->
+    <!-- Footer -->
     <footer class="site-footer">
+      <!-- Row 1: Customer Care, Daraz links, App download -->
       <div class="footer-top">
         <div class="footer-inner">
           <div class="row">
@@ -910,24 +907,40 @@
               <ul class="footer-list">
                 <li><a href="#">Help Center</a></li>
                 <li><a href="#">How to Buy</a></li>
+                <li><a href="#">Corporate & Bulk Purchasing</a></li>
                 <li><a href="#">Returns & Refunds</a></li>
+                <li><a href="#">Daraz Shop</a></li>
                 <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Purchase Protection</a></li>
+                <li><a href="#">Daraz Pick up Points</a></li>
               </ul>
             </div>
+
             <div class="col-12 col-sm-6 col-lg-3">
               <h3 class="footer-heading">Daraz</h3>
               <ul class="footer-list">
                 <li><a href="#">About Us</a></li>
+                <li><a href="#">Digital Payments</a></li>
+                <li><a href="#">Daraz Donates</a></li>
+                <li><a href="#">Daraz Blog</a></li>
                 <li><a href="#">Terms & Conditions</a></li>
                 <li><a href="#">Privacy Policy</a></li>
+                <li><span>NTN Number : 4012118-6</span></li>
+                <li><span>STRN Number : 1700401211818</span></li>
+                <li><a href="#">Online Shopping App</a></li>
+                <li><a href="#">Online Grocery Shopping</a></li>
+                <li><a href="#">Daraz Exclusive</a></li>
+                <li><a href="#">Daraz University</a></li>
                 <li><a href="#">Sell on Daraz</a></li>
+                <li><a href="#">Join Daraz Affiliate Program</a></li>
               </ul>
             </div>
+
             <div class="col-12 col-sm-12 col-lg-6">
               <div class="footer-app-col">
                 <div class="footer-app-identity">
                   <img
-                    src="assets/icons/app-logo.png"
+                    src="assets/footer/top-footer/daraz.png"
                     alt="Daraz"
                     class="footer-app-logo"
                   />
@@ -939,13 +952,19 @@
                 <div class="footer-store-btns">
                   <a href="#"
                     ><img
-                      src="assets/icons/appstore.png"
+                      src="assets/footer/top-footer/available-on-store.png"
                       alt="App Store"
                       class="footer-store-img"
                   /></a>
                   <a href="#"
                     ><img
-                      src="assets/icons/playstore.png"
+                      src="assets/footer/top-footer/google-play.png"
+                      alt="Google Play"
+                      class="footer-store-img"
+                  /></a>
+                  <a href="#"
+                    ><img
+                      src="assets/footer/top-footer/app-gallery.png"
                       alt="Google Play"
                       class="footer-store-img"
                   /></a>
@@ -955,9 +974,51 @@
           </div>
         </div>
       </div>
+
+      <!-- Row 2: Payment methods + Verified by -->
+      <div class="footer-payments">
+        <div class="payment-container">
+          <div class="footer-width-32">
+            <h3 class="footer-heading">Payment Methods</h3>
+            <div class="footer-pay-icons">
+              <img
+                src="assets/footer/payment/cash-on-delivery.png"
+                alt="Cash on Delivery"
+              />
+              <img src="assets/footer/payment/visa.png" alt="Visa" />
+              <img
+                src="assets/footer/payment/master-card.png"
+                alt="Mastercard"
+              />
+              <img src="assets/footer/payment/easy-paisa.png" alt="Easypaisa" />
+              <img
+                src="assets/footer/payment/daraz-wallet.png"
+                alt="Daraz Wallet"
+              />
+              <img src="assets/footer/payment/jazz-cash.png" alt="JazzCash" />
+              <img src="assets/footer/payment/union-pay.png" alt="UnionPay" />
+              <img src="assets/footer/payment/hbl.png" alt="HBL" />
+              <img
+                src="assets/footer/payment/monthly-installments.png"
+                alt="Easy Monthly Installments"
+              />
+            </div>
+          </div>
+
+          <div class="footer-width-32">
+            <h3 class="footer-heading">Verified by</h3>
+            <div class="footer-verified-icons">
+              <img src="assets/footer/payment/pci-verified.png" alt="PCI DSS" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3: International presence, social links, copyright -->
       <div class="footer-bottom">
         <div class="footer-inner">
           <div class="row g-2">
+            <!-- International presence -->
             <div class="col-6 px-0 mt-0">
               <h3 class="footer-heading">Daraz International</h3>
               <div class="footer-countries">
@@ -979,24 +1040,54 @@
                     alt="Sri Lanka"
                   /><span>Sri Lanka</span></a
                 >
+                <a href="#"
+                  ><img
+                    src="assets/footer/countries/myanmar.png"
+                    alt="Myanmar"
+                  /><span>Myanmar</span></a
+                >
+                <a href="#"
+                  ><img
+                    src="assets/footer/countries/nepal.png"
+                    alt="Nepal"
+                  /><span>Nepal</span></a
+                >
               </div>
             </div>
+
+            <!-- Follow Us -->
             <div class="col-3 px-0 mt-0">
               <h3 class="footer-heading">Follow Us</h3>
               <div class="footer-social">
-                <a href="#" class="social-link"
-                  ><img src="assets/footer/social/facebook.png" alt="Facebook"
-                /></a>
-                <a href="#" class="social-link"
-                  ><img src="assets/footer/social/x.png" alt="X"
-                /></a>
-                <a href="#" class="social-link"
-                  ><img
+                <!-- facebook -->
+                <a href="https://www.facebook.com/darazpk" class="social-link">
+                  <img src="assets/footer/social/facebook.png" alt="Facebook" />
+                </a>
+                <!-- X/Twitter -->
+                <a href="https://x.com/darazpk" class="social-link">
+                  <img src="assets/footer/social/x.png" alt="X" />
+                </a>
+                <!-- Instagram -->
+                <a
+                  href="https://www.instagram.com/darazpk/"
+                  class="social-link"
+                >
+                  <img
                     src="assets/footer/social/instagram.png"
                     alt="Instagram"
-                /></a>
+                  />
+                </a>
+                <!-- YouTube -->
+                <a
+                  href="https://www.youtube.com/channel/UC2BZLVEe9yLof1ghc_YI0_A"
+                  class="social-link"
+                >
+                  <img src="assets/footer/social/youtube.png" alt="YouTube" />
+                </a>
               </div>
             </div>
+
+            <!-- Copyright -->
             <div class="col-3 px-0 mt-0 text-end">
               <p class="footer-copyright">© Daraz 2026</p>
             </div>
