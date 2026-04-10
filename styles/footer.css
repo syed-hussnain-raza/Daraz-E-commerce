@@ -16,6 +16,12 @@
   width: 1188px;
 }
 
+.inner-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
 .footer-width-25 {
   float: left;
   width: 25%;
@@ -67,46 +73,47 @@
 
 /* App download column */
 .footer-app-col {
-  padding-top: 20px;
+  padding-top: 25px;
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 0px;
 }
 
 .footer-app-identity {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: flex-start;
+  /* gap: 16px; */
 }
 
 .footer-app-logo {
-  width: 46px;
-  height: 46px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
   border-radius: 10px;
+  margin-right: 16px;
 }
 
 .footer-app-tagline {
-  width: 180px;
-  font-size: 15px;
+  width: 172px;
+  font-size: 16px;
   font-weight: 400;
   color: var(--text-primary);
   margin-bottom: 2px;
 }
 
 .footer-app-sub {
-  font-size: 12px;
+  font-size: 14px;
   color: #0f136d;
 }
 
 .footer-store-btns {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .footer-store-img {
-  width: 130px;
+  width: 126px;
   height: auto;
   object-fit: contain;
 }
@@ -114,15 +121,15 @@
 /* Row 2 — Payment methods + Verified by */
 .footer-payments {
   background: var(--white);
-  padding: 24px 0;
+  padding: 20px 0 25px;
 }
 
 .payment-container {
   width: 1188px;
   margin: 0 auto;
   overflow: hidden;
-  padding: 12px 0;
-  font-family: Arial;
+  padding: 10px 0;
+  font-family: var(--font);
 }
 
 .footer-width-32 {
@@ -138,23 +145,21 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 22px;
 }
 
 .footer-pay-icons {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 2px;
   align-items: center;
+  margin-right: 20px;
 }
 
 .footer-pay-icons img {
   height: 28px;
   width: 50px;
   object-fit: contain;
-  border-radius: 3px;
-  padding: 2px 4px;
-  background: #fff;
 }
 
 .footer-verified-icons img {
@@ -187,7 +192,7 @@
 .footer-about-body {
   font-size: 12px;
   color: #888;
-  line-height: 1.65;
+  line-height: 1.25;
   margin-bottom: 8px;
 }
 
@@ -200,7 +205,6 @@
   color: #606060;
   font-size: 12px;
   font-weight: 400;
-  list-style: 15px;
   margin: 0;
   text-transform: uppercase;
   margin-top: 12px;
@@ -210,7 +214,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  line-height: 1.9;
+  /* line-height: 1.9; */
 }
 
 .footer-tags a {
