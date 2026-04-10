@@ -39,9 +39,10 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 32px;
+  gap: 37px;
   height: 100%;
   width: 1188px;
+  font-family: var(--Roboto-Regular);
 }
 
 .top-bar-inner a {
@@ -98,7 +99,7 @@ header {
   font-size: 14px;
   border: none;
   outline: none;
-  font-family: var(--font);
+  font-family: var(--Roboto-Regular);
 }
 
 .search-bar input::placeholder {
