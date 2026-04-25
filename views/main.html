@@ -772,6 +772,117 @@
       <span>Messages</span>
     </a>
 
+    <!-- Login Modal -->
+    <div class="login-overlay" id="login-overlay">
+      <div class="login-modal" id="login-modal">
+        <!-- Tabs -->
+        <div class="login-tabs">
+          <button
+            class="login-tab login-tab--active"
+            id="tab-password"
+            data-tab="password"
+          >
+            Password
+          </button>
+          <div class="login-tab-divider"></div>
+          <button class="login-tab" id="tab-phon  e" data-tab="phone">
+            Phone Number
+          </button>
+          <button class="login-close" id="login-close" aria-label="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+
+        <!-- Password tab -->
+        <div class="login-panel" id="panel-password">
+          <input
+            class="login-input"
+            type="text"
+            placeholder="Please enter your Phone or Email"
+            id="login-email"
+          />
+          <div class="login-input-wrap">
+            <input
+              class="login-input"
+              type="password"
+              placeholder="Please enter your password"
+              id="login-pass"
+            />
+            <button
+              class="login-eye"
+              id="login-eye"
+              aria-label="Toggle password"
+            >
+              <i class="bi bi-eye-slash"></i>
+            </button>
+          </div>
+          <a href="#" class="login-forgot">Forgot password?</a>
+          <button class="login-btn">LOGIN</button>
+          <p class="login-signup-row">
+            Don't have an account?
+            <a href="#" class="login-signup-link">Sign up</a>
+          </p>
+          <div class="login-or">Or, login with</div>
+          <div class="login-social-row">
+            <button class="login-social-btn">
+              <img
+                src="https://www.google.com/favicon.ico"
+                alt="G"
+                width="18"
+              />
+              Google
+            </button>
+            <button class="login-social-btn">
+              <i
+                class="bi bi-facebook"
+                style="color: #1877f2; font-size: 18px"
+              ></i>
+              Facebook
+            </button>
+          </div>
+        </div>
+
+        <!-- Phone tab -->
+        <div class="login-panel login-panel--hidden" id="panel-phone">
+          <div class="login-phone-wrap">
+            <div class="login-phone-prefix">
+              <span><small>PK</small>+92</span>
+            </div>
+            <input
+              class="login-input login-input--phone"
+              type="tel"
+              placeholder="Please enter your phone number"
+            />
+          </div>
+          <button class="login-btn login-btn--whatsapp">
+            <i class="bi bi-whatsapp"></i> Send code via Whatsapp
+          </button>
+          <p class="login-signup-row">
+            Don't have an account?
+            <a href="#" class="login-signup-link">Sign up</a>
+          </p>
+          <div class="login-or">Or, login with</div>
+          <div class="login-social-row">
+            <button class="login-social-btn">
+              <img
+                src="https://www.google.com/favicon.ico"
+                alt="G"
+                width="18"
+              />
+              Google
+            </button>
+            <button class="login-social-btn">
+              <i
+                class="bi bi-facebook"
+                style="color: #1877f2; font-size: 18px"
+              ></i>
+              Facebook
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="../js/utils.js"></script>
     <script src="../js/main.js"></script>
   </body>
