@@ -22,13 +22,19 @@
       "src": "../assets/hero-banner/10-premium-appliance.png",
       "alt": "Premium Appliance"
     },
-    { "src": "../assets/hero-banner/11-lowest-price.png", "alt": "Lowest Price" },
+    {
+      "src": "../assets/hero-banner/11-lowest-price.png",
+      "alt": "Lowest Price"
+    },
     { "src": "../assets/hero-banner/12-must-buy.png", "alt": "Must Buy" },
     {
       "src": "../assets/hero-banner/13-unbeatable-deals.png",
       "alt": "Unbeatable Deals"
     },
-    { "src": "../assets/hero-banner/14-ramdan-bazar.png", "alt": "Ramzan Bazar" },
+    {
+      "src": "../assets/hero-banner/14-ramdan-bazar.png",
+      "alt": "Ramzan Bazar"
+    },
     { "src": "../assets/hero-banner/15-home-decor.png", "alt": "Home Decor" }
   ],
 
