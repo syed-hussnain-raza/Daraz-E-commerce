@@ -214,3 +214,76 @@ function initSideNav() {
     .querySelectorAll(".flash-sale, .categories, .just-for-you")
     .forEach((sec) => activeObserver.observe(sec));
 }
+
+// Login Modal
+function initLoginModal() {
+  const overlay = document.getElementById("login-overlay");
+  const closeBtn = document.getElementById("login-close");
+  const tabs = document.querySelectorAll(".login-tab");
+  const eyeBtn = document.getElementById("login-eye");
+  const passInput = document.getElementById("login-pass");
+
+  // Helper functions
+  function openModal() {
+    overlay.classList.add("login-overlay--open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    overlay.classList.remove("login-overlay--open");
+    document.body.style.overflow = "";
+  }
+
+  // Open on LOGIN or SIGN UP clicks in the top bar
+  document.querySelectorAll(".top-bar-inner a").forEach((link) => {
+    const text = link.textContent.trim().toUpperCase();
+    if (text === "LOGIN" || text === "SIGN UP") {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    }
+  });
+
+  // Close on X button
+  closeBtn.addEventListener("click", () => {
+    closeModal();
+  });
+
+  // Close on overlay backdrop click
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  // Close on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  // Tab switching
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => t.classList.remove("login-tab--active"));
+      tab.classList.add("login-tab--active");
+      document
+        .querySelectorAll(".login-panel")
+        .forEach((p) => p.classList.add("login-panel--hidden"));
+      document
+        .getElementById("panel-" + tab.dataset.tab)
+        .classList.remove("login-panel--hidden");
+    });
+  });
+
+  // Password eye toggle
+  if (eyeBtn && passInput) {
+    eyeBtn.addEventListener("click", () => {
+      const isHidden = passInput.type === "password";
+      passInput.type = isHidden ? "text" : "password";
+      eyeBtn.innerHTML = isHidden
+        ? '<i class="bi bi-eye"></i>'
+        : '<i class="bi bi-eye-slash"></i>';
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", initLoginModal);
