@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((res) => res.json())
     .then((data) => {
       renderHeader(data);
+      // pass categories to dropdown init
+      if (document.body.classList.contains("page-product")) {
+        setTimeout(() => initCategoriesDropdown(data.categories), 0);
+      }
       initLoginModal();
       initStickyHeader();
     })
@@ -63,10 +67,12 @@ function renderHeader(data) {
   const subNavHTML = isProductPage
     ? `<div class="sub-nav">
         <div class="sub-nav-inner">
-          <button class="categories-btn">
-            Categories <i class="bi bi-chevron-down"></i>
+          <button class="categories-btn" id="categories-btn">
+            Categories
+            <i class="bi bi-chevron-down cat-chevron" id="cat-chevron"></i>
           </button>
         </div>
+        <div class="cat-dropdown" id="cat-dropdown"></div>
       </div>`
     : `<div class="homepage-only-height"></div>`;
 
@@ -154,6 +160,10 @@ function renderHeader(data) {
       </div>
     </div>
   `;
+
+  if (isProductPage) {
+    setTimeout(initCategoriesDropdown, 0);
+  }
 }
 
 // Login Modal
@@ -228,4 +238,98 @@ function closeModal() {
     overlay.classList.remove("login-overlay--open");
     document.body.style.overflow = "";
   }
+}
+
+// Categories Mega Dropdown
+function initCategoriesDropdown(categories) {
+  const btn = document.getElementById("categories-btn");
+  const dropdown = document.getElementById("cat-dropdown");
+  const chevron = document.getElementById("cat-chevron");
+  if (!btn || !dropdown) return;
+
+  // Build root list HTML
+  dropdown.innerHTML = `
+    <div class="cat-dropdown-inner">
+      <ul class="cat-root-list" id="cat-root-list">
+        ${categories
+          .map(
+            (cat, i) => `
+          <li class="cat-root-item" data-index="${i}">
+            ${cat.label}
+            ${cat.subs.length ? `<i class="bi bi-chevron-right"></i>` : ""}
+          </li>`,
+          )
+          .join("")}
+      </ul>
+      <ul class="cat-sub-panel" id="cat-sub-panel"></ul>
+      <div class="cat-grand-panel" id="cat-grand-panel"></div>
+    </div>`;
+
+  const rootList = document.getElementById("cat-root-list");
+  const subPanel = document.getElementById("cat-sub-panel");
+  const grandPanel = document.getElementById("cat-grand-panel");
+
+  // Open on hover
+  const subNav = btn.closest(".sub-nav");
+  subNav.addEventListener("mouseenter", () => {
+    dropdown.classList.add("cat-dropdown--open");
+    chevron.style.transform = "rotate(180deg)";
+  });
+  subNav.addEventListener("mouseleave", () => {
+    dropdown.classList.remove("cat-dropdown--open");
+    chevron.style.transform = "";
+    subPanel.classList.remove("cat-sub-panel--visible");
+    grandPanel.classList.remove("cat-grand-panel--visible");
+  });
+
+  // Root hover → show subs
+  rootList.addEventListener("mouseover", (e) => {
+    const item = e.target.closest(".cat-root-item");
+    if (!item) return;
+    const idx = Number(item.dataset.index);
+    const cat = categories[idx];
+
+    rootList
+      .querySelectorAll(".cat-root-item")
+      .forEach((el) => el.classList.remove("cat-root-item--active"));
+    item.classList.add("cat-root-item--active");
+
+    subPanel.innerHTML = cat.subs
+      .map(
+        (sub, si) => `
+      <li class="cat-sub-item" data-index="${si}">
+        <a href="#">${sub.label}</a>
+        ${sub.grands.length ? `<i class="bi bi-chevron-right"></i>` : ""}
+      </li>`,
+      )
+      .join("");
+
+    subPanel.classList.add("cat-sub-panel--visible");
+    grandPanel.innerHTML = "";
+    grandPanel.classList.remove("cat-grand-panel--visible");
+
+    // Sub hover → show grands
+    subPanel.querySelectorAll(".cat-sub-item").forEach((subItem) => {
+      subItem.addEventListener("mouseenter", () => {
+        const si = Number(subItem.dataset.index);
+        const sub = cat.subs[si];
+
+        subPanel
+          .querySelectorAll(".cat-sub-item")
+          .forEach((el) => el.classList.remove("cat-sub-item--active"));
+        subItem.classList.add("cat-sub-item--active");
+
+        if (!sub.grands.length) {
+          grandPanel.innerHTML = "";
+          grandPanel.classList.remove("cat-grand-panel--visible");
+          return;
+        }
+
+        grandPanel.innerHTML = sub.grands
+          .map((g) => `<a href="#" class="cat-grand-item">${g}</a>`)
+          .join("");
+        grandPanel.classList.add("cat-grand-panel--visible");
+      });
+    });
+  });
 }
