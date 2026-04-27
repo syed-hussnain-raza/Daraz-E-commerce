@@ -1,0 +1,30 @@
+{
+  "topBar": [
+    { "label": "SAVE MORE ON APP", "href": "#" },
+    { "label": "SELL ON DARAZ", "href": "#" },
+    { "label": "HELP & SUPPORT", "href": "#" },
+    { "label": "LOGIN", "href": "#", "action": "login" },
+    { "label": "SIGN UP", "href": "#", "action": "login" },
+    { "label": "زبان تبدیل کریں", "href": "#" }
+  ],
+  "logo": {
+    "src": "../assets/images/logo.png",
+    "alt": "Daraz Logo",
+    "href": "../views/main.html"
+  },
+  "search": {
+    "placeholder": "Search in Daraz",
+    "iconSrc": "../assets/icons/search-icon.png"
+  },
+  "cart": {
+    "href": "#",
+    "icon": "bi bi-cart3"
+  },
+  "searchTags": [
+    { "label": "makeup", "href": "#" },
+    { "label": "watch for boys", "href": "#" },
+    { "label": "bags for girls", "href": "#" },
+    { "label": "airpods", "href": "#" },
+    { "label": "laptop for sale", "href": "#" }
+  ]
+}
