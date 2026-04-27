@@ -1,4 +1,9 @@
 //  main.js
+
+const JFY_PAGE_SIZE = 18; // cards per page
+let jfyAllProducts = [];
+let jfyPage = 0; // current page loaded
+
 document.addEventListener("DOMContentLoaded", () => {
   fetch("../data/main.json")
     .then((res) => res.json())
@@ -6,12 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
       renderCarousel(data.carousel);
       renderFlashSale(data.flashSale);
       renderCategories(data.categories);
-      renderJustForYou(data.justForYou);
+
+      jfyAllProducts = [
+        ...data.justForYou,
+        ...data.justForYou,
+        ...data.justForYou,
+      ];
+      jfyPage = 0;
+      renderJustForYou(false);
     })
     .catch((err) => console.error("Failed to load main.json:", err))
     .finally(() => {
       initCarousel();
     });
+
+  // Load More button
+  document.querySelector(".jfy-load-btn")?.addEventListener("click", () => {
+    renderJustForYou(true);
+  });
 });
 
 // Build the product page URL for a given product id.
@@ -70,10 +87,21 @@ function renderCategories(categories) {
 }
 
 // Render: Just For You cards
-function renderJustForYou(products) {
+function renderJustForYou(append) {
   const container = document.getElementById("jfy-cards");
-  if (!container || !products) return;
-  container.innerHTML = products
+  const loadBtn = document.querySelector(".jfy-load-btn");
+  if (!container) return;
+
+  // infinite load more button
+  if (jfyPage * JFY_PAGE_SIZE >= jfyAllProducts.length) {
+    jfyPage = 0;
+  }
+
+  const start = jfyPage * JFY_PAGE_SIZE;
+  const end = start + JFY_PAGE_SIZE;
+  const slice = jfyAllProducts.slice(start, end);
+
+  const html = slice
     .map(
       (p) => `
       <div class="col-6 col-sm-4 col-md-3 col-lg-2">
@@ -94,6 +122,19 @@ function renderJustForYou(products) {
       </div>`,
     )
     .join("");
+
+  if (append) {
+    const prevCount = container.children.length;
+    container.insertAdjacentHTML("beforeend", html);
+    const firstNew = container.children[prevCount];
+    if (firstNew) {
+      firstNew.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  } else {
+    container.innerHTML = html;
+  }
+
+  jfyPage++;
 }
 
 // Carousel
