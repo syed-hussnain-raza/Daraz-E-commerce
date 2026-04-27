@@ -26,5 +26,798 @@
     { "label": "bags for girls", "href": "#" },
     { "label": "airpods", "href": "#" },
     { "label": "laptop for sale", "href": "#" }
+  ],
+  "categories": [
+    {
+      "label": "Electronic Accessories",
+      "subs": [
+        {
+          "label": "Mobile Accessories",
+          "grands": [
+            "Tablet Accessories",
+            "Cables & Converters",
+            "Phone Cases",
+            "Car Mounts",
+            "Screen Protectors",
+            "Power Banks",
+            "Selfie Sticks",
+            "Car Chargers",
+            "Wall Chargers",
+            "Docks & Stands"
+          ]
+        },
+        {
+          "label": "Camera Accessories",
+          "grands": [
+            "Gimbals & Stabilizers",
+            "Action Camera Accessories",
+            "Lenses",
+            "Tripods & Monopods",
+            "Memory Cards",
+            "Batteries",
+            "Lighting & Studio Equipment",
+            "Camera Cases & Bags"
+          ]
+        },
+        {
+          "label": "Wearable",
+          "grands": ["Fitness & Activity Trackers", "Virtual Reality"]
+        },
+        {
+          "label": "Headphones & Headsets",
+          "grands": [
+            "Bluetooth Headsets",
+            "Wired Headsets",
+            "In-Ear Headphones",
+            "Over-The-Ear Headphones",
+            "Wireless Earbuds",
+            "Mono Headsets"
+          ]
+        },
+        {
+          "label": "Computer Components",
+          "grands": [
+            "Motherboards",
+            "Processors",
+            "Graphic Cards",
+            "Desktop Casings",
+            "Fans & Heatsinks"
+          ]
+        },
+        {
+          "label": "Gaming Accessories",
+          "grands": ["Gaming Mouse", "Gaming Keyboards", "Gaming Headsets"]
+        },
+        {
+          "label": "Storage",
+          "grands": [
+            "Internal Hard Drives",
+            "Flash Drives",
+            "OTG Drives",
+            "External Hard Drives"
+          ]
+        },
+        {
+          "label": "Computer Accessories",
+          "grands": [
+            "Mouse",
+            "Keyboards",
+            "Adapters & Cables",
+            "PC Audio",
+            "Mac Accessories"
+          ]
+        },
+        { "label": "Portable Speakers", "grands": [] },
+        { "label": "Monitors & Accessories", "grands": [] },
+        { "label": "Printers", "grands": ["Ink & Toners", "Fax Machines"] }
+      ]
+    },
+    {
+      "label": "TV & Home Appliances",
+      "subs": [
+        { "label": "Air Conditioner", "grands": [] },
+        { "label": "Washing Machine", "grands": [] },
+        { "label": "Refrigerators & Freezers", "grands": ["Freezers"] },
+        {
+          "label": "Kitchen Appliances",
+          "grands": [
+            "Microwave",
+            "Water Dispensers",
+            "Oven",
+            "Air & Deep Fryers",
+            "Blender, Mixer & Grinder",
+            "Electric Kettle",
+            "Rice Cooker",
+            "Pressure Cookers",
+            "Juicer & Fruit Extraction"
+          ]
+        },
+        {
+          "label": "Televisions",
+          "grands": ["LED Televisions", "Smart Televisions"]
+        },
+        {
+          "label": "Cooling & Heating",
+          "grands": [
+            "Air Cooler",
+            "Fan",
+            "Room Heater",
+            "Water Heater",
+            "Air Purifier",
+            "Humidifier"
+          ]
+        },
+        {
+          "label": "Home Audio & Theater",
+          "grands": [
+            "Soundbar Speakers",
+            "Home Theater Systems",
+            "Home Entertainment"
+          ]
+        },
+        {
+          "label": "Generator, UPS & Solar",
+          "grands": ["Solar Inverters", "Generators", "UPS"]
+        },
+        {
+          "label": "TV Accessories",
+          "grands": [
+            "Antennas",
+            "TV Receivers",
+            "Cables",
+            "TV Remote Controllers",
+            "Wall Mounts & Protectors"
+          ]
+        },
+        {
+          "label": "Vacuums & Floor Care",
+          "grands": [
+            "Vacuum Cleaner",
+            "Electric Brooms",
+            "Steam Mops",
+            "Floor Polisher"
+          ]
+        },
+        {
+          "label": "Irons & Garment Care",
+          "grands": ["Irons", "Garment Steamer", "Sewing Machine"]
+        },
+        {
+          "label": "Projectors & Players",
+          "grands": ["Projectors", "Blu Ray & DVD Players"]
+        }
+      ]
+    },
+    {
+      "label": "Health & Beauty",
+      "subs": [
+        {
+          "label": "Skin Care",
+          "grands": [
+            "Moisturizers and Cream",
+            "Sunscreen & Aftersun",
+            "Face Mask & Packs",
+            "Facial Cleansers",
+            "Toner & Mists",
+            "Serum & Essence",
+            "Eye Care"
+          ]
+        },
+        {
+          "label": "Makeup",
+          "grands": [
+            "Eyes",
+            "Lips",
+            "Nails",
+            "Face",
+            "Makeup Accessories",
+            "Makeup Removers",
+            "Makeup Palettes & Sets"
+          ]
+        },
+        {
+          "label": "Hair Care",
+          "grands": [
+            "Shampoo & Conditioner",
+            "Oil & Serums",
+            "Hair Treatments",
+            "Hair Styling",
+            "Hair Coloring",
+            "Hair Care Accessories"
+          ]
+        },
+        { "label": "Fragrances", "grands": ["Women", "Men", "Unisex"] },
+        {
+          "label": "Bath & Body",
+          "grands": [
+            "Body Soaps & Shower Gels",
+            "Body Moisturizers",
+            "Hand Care",
+            "Foot Care",
+            "Body Scrubs"
+          ]
+        },
+        {
+          "label": "Personal Care",
+          "grands": [
+            "Oral Care",
+            "Eye Care",
+            "Deodorants",
+            "Ear Care",
+            "Adult Diapers"
+          ]
+        },
+        {
+          "label": "Beauty Tools",
+          "grands": [
+            "Hair Styling Appliances",
+            "Hair Removal Appliances",
+            "Skin Care Tools",
+            "Slimming & Electric Massagers"
+          ]
+        },
+        {
+          "label": "Medical Supplies",
+          "grands": [
+            "Health Monitors & Tests",
+            "Surgical Masks",
+            "First Aid Supplies",
+            "Nebulizer & Aspirators"
+          ]
+        },
+        { "label": "Men's Care", "grands": ["Shaving & Grooming"] }
+      ]
+    },
+    {
+      "label": "Mother & Baby",
+      "subs": [
+        {
+          "label": "Baby & Toddler Toys",
+          "grands": [
+            "Building Blocks Toys",
+            "Bath Toys",
+            "Early Development Toys",
+            "Rattles",
+            "Push & Pull Toys"
+          ]
+        },
+        {
+          "label": "Toys & Games",
+          "grands": [
+            "Stuffed Toys",
+            "Puzzle & Boardgames",
+            "Pretend Play",
+            "Learning & Education",
+            "Dolls & Accessories",
+            "Action Figures"
+          ]
+        },
+        {
+          "label": "Diapering & Potty",
+          "grands": [
+            "Disposable diapers",
+            "Wipes & Holders",
+            "Diaper Bags",
+            "Potty Training"
+          ]
+        },
+        {
+          "label": "Baby Gear",
+          "grands": [
+            "Strollers",
+            "Car Seats",
+            "Walkers",
+            "Backpacks & Carriers",
+            "Baby Safety",
+            "Baby Monitor"
+          ]
+        },
+        {
+          "label": "Feeding",
+          "grands": [
+            "Bottle-Feeding",
+            "Breastfeeding",
+            "Pacifiers & Teethers",
+            "Utensils"
+          ]
+        },
+        {
+          "label": "Maternity Care",
+          "grands": [
+            "Breast Pumps",
+            "Maternity Wear",
+            "Pregnancy Pillows",
+            "Nursing Covers"
+          ]
+        },
+        {
+          "label": "Milk Formula & Baby Food",
+          "grands": [
+            "Infant Milk (0-6 Months)",
+            "Toddler Milk (1-3 yrs)",
+            "Baby & Toddler Foods"
+          ]
+        },
+        {
+          "label": "Baby Personal Care",
+          "grands": [
+            "Shampoo & Conditioners",
+            "Skin Care",
+            "Soaps & Bodywash",
+            "Grooming & Healthcare Kits"
+          ]
+        },
+        {
+          "label": "Nursery",
+          "grands": [
+            "Baby Furniture",
+            "Mattresses & Bedding",
+            "Nursery Decor",
+            "Storage & Organization"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Electronic Devices",
+      "subs": [
+        {
+          "label": "Smart Phones",
+          "grands": [
+            "Samsung Mobile Phones",
+            "Apple iPhones",
+            "Vivo Mobiles",
+            "Oppo Mobile Phones",
+            "Realme Mobiles",
+            "Redmi Mobiles",
+            "Honor Mobiles",
+            "Tecno Mobiles",
+            "Nokia Mobiles",
+            "Oneplus Mobiles"
+          ]
+        },
+        {
+          "label": "Laptops",
+          "grands": ["Traditional Laptops", "Refurbished Laptops"]
+        },
+        {
+          "label": "Cameras & Drones",
+          "grands": [
+            "DSLR",
+            "Point & Shoot",
+            "Drones",
+            "Instant Cameras",
+            "Video Camera"
+          ]
+        },
+        {
+          "label": "Gaming Consoles",
+          "grands": [
+            "PlayStation Consoles",
+            "Playstation Games",
+            "Playstation Controllers",
+            "Xbox Games",
+            "Nintendo Games"
+          ]
+        },
+        { "label": "Smart Watches", "grands": [] },
+        { "label": "Monitors", "grands": [] },
+        { "label": "Desktops", "grands": ["All-In-One"] },
+        { "label": "Security Cameras", "grands": ["IP Security Cameras"] },
+        { "label": "Feature Phones", "grands": [] },
+        {
+          "label": "Daraz Like New",
+          "grands": [
+            "Like New Phones",
+            "Like New Laptops",
+            "Like New Smartwatches",
+            "Like New Airbuds"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Groceries & Pets",
+      "subs": [
+        {
+          "label": "Food Staples",
+          "grands": [
+            "Rice",
+            "Oil",
+            "Noodles & Pasta",
+            "Canned Food",
+            "Cooking Ingredients",
+            "Grains, Beans & Pulses"
+          ]
+        },
+        {
+          "label": "Beverages",
+          "grands": [
+            "Soft Drinks",
+            "Water",
+            "Juices",
+            "Coffee",
+            "Tea",
+            "UHT, Milk & Milk Powder"
+          ]
+        },
+        {
+          "label": "Breakfast, Choco & Snacks",
+          "grands": [
+            "Chocolate & Candy",
+            "Biscuit & Cookies",
+            "Chips & Crisps",
+            "Breakfast Cereals",
+            "Nuts & Legumes"
+          ]
+        },
+        {
+          "label": "Dog",
+          "grands": [
+            "Food",
+            "Treats",
+            "Grooming",
+            "Toys",
+            "Beds, Mats & Houses",
+            "Leashes, Collars & Muzzles"
+          ]
+        },
+        {
+          "label": "Cat",
+          "grands": [
+            "Food",
+            "Cat Treats",
+            "Grooming",
+            "Toys",
+            "Litter & Toilet",
+            "Beds, Mats & Houses"
+          ]
+        },
+        {
+          "label": "Laundry & Household",
+          "grands": [
+            "Laundry",
+            "Cleaning",
+            "Tissue Paper",
+            "Pest Control",
+            "Dishwashing"
+          ]
+        },
+        {
+          "label": "Frozen Food",
+          "grands": ["Chicken", "Beef", "Other Frozen Food"]
+        }
+      ]
+    },
+    {
+      "label": "Home & Lifestyle",
+      "subs": [
+        {
+          "label": "Furniture",
+          "grands": [
+            "Living Room",
+            "Bedroom",
+            "Home Office",
+            "Kitchen Furniture",
+            "Gaming Furniture"
+          ]
+        },
+        {
+          "label": "Bedding",
+          "grands": [
+            "Bed Sheets",
+            "Comforters, Quilts & Duvets",
+            "Pillows & Bolsters",
+            "Blankets & Throws",
+            "Pillow Cases",
+            "Mattress Protectors"
+          ]
+        },
+        {
+          "label": "Decor",
+          "grands": [
+            "Cushions & Covers",
+            "Rugs & Carpets",
+            "Curtains",
+            "Mirrors",
+            "Clocks",
+            "Artificial Flowers & Plants",
+            "Wall Stickers & Decals"
+          ]
+        },
+        {
+          "label": "Lighting",
+          "grands": [
+            "Ceiling Lights",
+            "Table Lamps",
+            "Floor Lamps",
+            "Wall Lights & Sconces",
+            "Light Bulbs",
+            "Outdoor Lighting"
+          ]
+        },
+        {
+          "label": "Bath",
+          "grands": [
+            "Bath Towels",
+            "Bath Mats",
+            "Bathrobes",
+            "Bathroom Scales",
+            "Bathroom Shelving"
+          ]
+        },
+        {
+          "label": "Tools, DIY & Outdoor",
+          "grands": [
+            "Power Tools",
+            "Hand Tools",
+            "Lawn & Garden",
+            "Electrical",
+            "Security",
+            "Paints"
+          ]
+        },
+        {
+          "label": "Laundry & Cleaning",
+          "grands": [
+            "Brooms, Mops & Sweepers",
+            "Laundry Baskets & Hampers",
+            "Ironing Boards"
+          ]
+        },
+        {
+          "label": "Stationery & Craft",
+          "grands": [
+            "Art Supplies",
+            "Writing & Correction",
+            "Paper Products",
+            "School & Office Equipment",
+            "Gifts & Wrapping"
+          ]
+        },
+        {
+          "label": "Media, Music & Books",
+          "grands": ["Books", "eBooks", "Musical Instruments", "Magazines"]
+        }
+      ]
+    },
+    {
+      "label": "Women's Fashion",
+      "subs": [
+        {
+          "label": "Kurtas & Shalwar Kameez",
+          "grands": ["Shalwar Kameez", "Kurtis", "Trousers & Palazzos"]
+        },
+        {
+          "label": "Dresses & Skirts",
+          "grands": ["Skirts", "Formal Wear", "Ethnic Dresses"]
+        },
+        {
+          "label": "Pants, Jeans & Leggings",
+          "grands": ["Jeans", "Pants", "Leggings", "Jeggings", "Shorts"]
+        },
+        { "label": "Tops", "grands": ["Blouses & Shirts", "Tunics"] },
+        {
+          "label": "Winter Clothing",
+          "grands": ["Jackets & Coats", "Hoodies & Sweatshirts", "Shrugs"]
+        },
+        {
+          "label": "Bras, Panties & Lingerie",
+          "grands": ["Bras", "Panties", "Socks & Tights", "Lingerie Sets"]
+        },
+        {
+          "label": "Unstitched Fabric",
+          "grands": ["Branded Unstitched", "Sarees"]
+        },
+        {
+          "label": "Muslim Wear",
+          "grands": ["Abayas & Hijabs", "Scarves", "Dupattas, Stoles & Shawls"]
+        },
+        {
+          "label": "Sleepwear & Innerwear",
+          "grands": ["Nightwear", "Shapewear", "Tanks & Camisoles"]
+        }
+      ]
+    },
+    {
+      "label": "Men's Fashion",
+      "subs": [
+        {
+          "label": "Shirts & Polo",
+          "grands": ["Casual Shirts", "Formal Shirts", "Polos"]
+        },
+        { "label": "T-Shirts & Tanks", "grands": [] },
+        {
+          "label": "Kurtas & Shalwar Kameez",
+          "grands": ["Kurtas", "Shalwar", "Unstitched Fabric", "Shawls"]
+        },
+        { "label": "Pants & Jeans", "grands": ["Jeans", "Chinos", "Cargo"] },
+        {
+          "label": "Shorts, Joggers & Sweats",
+          "grands": ["Joggers & Sweats"]
+        },
+        {
+          "label": "Winter Clothing",
+          "grands": ["Jackets & Coats", "Hoodies & Sweatshirts"]
+        },
+        {
+          "label": "Shoes",
+          "grands": [
+            "Sneakers",
+            "Formal Shoes",
+            "Boots",
+            "Flip Flops & Sandals",
+            "Slip-Ons & Loafers"
+          ]
+        },
+        {
+          "label": "Inner Wear",
+          "grands": ["Briefs", "Trunk & Boxers", "Vests", "Socks", "Nightwear"]
+        },
+        {
+          "label": "Accessories",
+          "grands": [
+            "Belts",
+            "Hats & Caps",
+            "Sunglasses",
+            "Socks",
+            "Ties & Bows",
+            "Scarves"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Watches, Bags & Jewellery",
+      "subs": [
+        {
+          "label": "Men's Watches",
+          "grands": ["Analog", "Digital", "Chronograph", "Branded Watches"]
+        },
+        { "label": "Women's Watches", "grands": ["Analog", "Digital"] },
+        {
+          "label": "Womens Bags",
+          "grands": [
+            "Tote Bags",
+            "Cross Body & Shoulder Bags",
+            "Backpacks",
+            "Clutches",
+            "Wallets & Accessories"
+          ]
+        },
+        {
+          "label": "Mens Bags",
+          "grands": [
+            "Backpacks",
+            "Messenger Bags",
+            "Business Bags",
+            "Wallets & Cardholders"
+          ]
+        },
+        {
+          "label": "Womens Jewellery",
+          "grands": [
+            "Necklaces",
+            "Earrings",
+            "Bracelets",
+            "Rings",
+            "Jewellery Sets",
+            "Anklets"
+          ]
+        },
+        {
+          "label": "Mens Jewellery",
+          "grands": ["Chains", "Rings", "Bracelets", "Studs"]
+        },
+        {
+          "label": "Sunglasses & Eyewear",
+          "grands": [
+            "Men Sunglasses",
+            "Women Sunglasses",
+            "Unisex Sunglasses",
+            "Kids Sunglasses"
+          ]
+        },
+        {
+          "label": "Luggage & Suitcase",
+          "grands": ["Luggage", "Laptop Bags", "Travel Accessories"]
+        }
+      ]
+    },
+    {
+      "label": "Sports & Outdoor",
+      "subs": [
+        {
+          "label": "Exercise & Fitness",
+          "grands": [
+            "Treadmills",
+            "Exercise Bikes",
+            "Yoga",
+            "Weight",
+            "Strength Training",
+            "Exercise Bands",
+            "Fitness Accessories"
+          ]
+        },
+        {
+          "label": "Team Sports",
+          "grands": [
+            "Cricket",
+            "Football",
+            "Basket Ball",
+            "Volley balls",
+            "Hockey"
+          ]
+        },
+        {
+          "label": "Racket Sports",
+          "grands": ["Badminton", "Tennis", "Squash"]
+        },
+        {
+          "label": "Shoes & Clothing",
+          "grands": [
+            "Mens Shoes",
+            "Womens Shoes",
+            "Mens Clothing",
+            "Womens Clothing"
+          ]
+        },
+        {
+          "label": "Outdoor Recreation",
+          "grands": [
+            "Cycling",
+            "Camping / Hiking",
+            "Fishing",
+            "Water Sports",
+            "Skate Boards"
+          ]
+        },
+        {
+          "label": "Supplements",
+          "grands": [
+            "Proteins",
+            "Pre Workouts",
+            "Fat Burners",
+            "Post Workouts and Recovery"
+          ]
+        },
+        {
+          "label": "Sports Accessories",
+          "grands": ["Water Bottles", "Home Gym"]
+        }
+      ]
+    },
+    {
+      "label": "Automotive & Motorbike",
+      "subs": [
+        {
+          "label": "Automotive",
+          "grands": [
+            "Car Care",
+            "Car Electronics",
+            "Car Interior Accessories",
+            "Car Exterior Accessories",
+            "Car Parts & Spares",
+            "Car Tires & Wheels",
+            "Car Tools & Equipment"
+          ]
+        },
+        {
+          "label": "Motorcycle",
+          "grands": [
+            "Motorcycle Helmets",
+            "Riding Gear",
+            "Motorcycle Accessories",
+            "Motorcycle Parts & Spares",
+            "Electric Bikes",
+            "Sports Bikes"
+          ]
+        },
+        {
+          "label": "Loaders & Rickshaw",
+          "grands": ["Loaders", "Auto Rikshaw"]
+        }
+      ]
+    }
   ]
 }
