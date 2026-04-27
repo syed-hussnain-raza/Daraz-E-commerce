@@ -1,5 +1,4 @@
 //  main.js
-
 document.addEventListener("DOMContentLoaded", () => {
   fetch("../data/main.json")
     .then((res) => res.json())
@@ -9,13 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
       renderCategories(data.categories);
       renderJustForYou(data.justForYou);
     })
-    .catch((err) => console.error("Failed to load data.json:", err))
+    .catch((err) => console.error("Failed to load main.json:", err))
     .finally(() => {
       initCarousel();
-      initStickyHeader();
-      initSideNav();
     });
 });
+
+// Build the product page URL for a given product id.
+function productURL(id) {
+  return `../views/product.html?id=${id}`;
+}
 
 // Render: Carousel slides
 function renderCarousel(slides) {
@@ -37,7 +39,7 @@ function renderFlashSale(products) {
     .map(
       (p) => `
       <div class="col-6 col-sm-4 col-md-2">
-        <a href="${p.href}" class="product-card">
+        <a href="${productURL(p.id)}" class="product-card">
           <img src="${p.img}" alt="${p.alt}" />
           <p class="product-card-name">${p.name}</p>
           <p class="product-card-price">${p.price}</p>
@@ -75,7 +77,7 @@ function renderJustForYou(products) {
     .map(
       (p) => `
       <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-        <a href="${p.href}" class="jfy-card">
+        <a href="${productURL(p.id)}" class="jfy-card">
           <img src="${p.img}" alt="${p.alt}" />
           <div class="jfy-card-info">
             <p class="jfy-card-name">${p.name}</p>
@@ -107,17 +109,12 @@ function initCarousel() {
   const slides = track.querySelectorAll(".carousel-slide");
   totalSlides = slides.length;
 
-  const dotsHTML = Array.from(slides)
+  dots.innerHTML = Array.from(slides)
     .map(
       (_, i) =>
-        `<button
-        class="dot${i === 0 ? " dot--active" : ""}"
-        data-index="${i}"
-        aria-label="Go to slide ${i + 1}"
-      ></button>`,
+        `<button class="dot${i === 0 ? " dot--active" : ""}" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>`,
     )
     .join("");
-  dots.innerHTML = dotsHTML;
 
   dots.querySelectorAll(".dot").forEach((dot) => {
     dot.addEventListener("click", () => {
@@ -126,12 +123,12 @@ function initCarousel() {
     });
   });
 
-  document.getElementById("btn-prev").addEventListener("click", () => {
+  document.getElementById("btn-prev")?.addEventListener("click", () => {
     goTo((currentIndex - 1 + totalSlides) % totalSlides);
     resetAutoPlay();
   });
 
-  document.getElementById("btn-next").addEventListener("click", () => {
+  document.getElementById("btn-next")?.addEventListener("click", () => {
     goTo((currentIndex + 1) % totalSlides);
     resetAutoPlay();
   });
@@ -143,7 +140,7 @@ function initCarousel() {
 function goTo(index) {
   currentIndex = index;
   const track = document.getElementById("carousel-track");
-  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  if (track) track.style.transform = `translateX(-${currentIndex * 100}%)`;
   document.querySelectorAll(".dot").forEach((dot, i) => {
     dot.classList.toggle("dot--active", i === currentIndex);
   });
@@ -159,131 +156,3 @@ function resetAutoPlay() {
   clearInterval(autoTimer);
   startAutoPlay();
 }
-
-// Side navigator
-function initSideNav() {
-  const sideNav = document.getElementById("side-nav");
-  if (!sideNav) return;
-
-  const navTop = document.getElementById("nav-top");
-  const navItems = document.querySelectorAll(".side-nav-item[data-section]");
-  const sections = ["flash-sale", "categories", "just-for-you"];
-
-  navTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  navItems.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const section = document.querySelector("." + btn.dataset.section);
-      if (section) section.scrollIntoView({ behavior: "smooth" });
-    });
-  });
-
-  const flashSale = document.querySelector(".flash-sale");
-  if (!flashSale) return;
-
-  window.addEventListener("scroll", () => {
-    const flashTop = flashSale.getBoundingClientRect().top;
-    sideNav.classList.toggle(
-      "side-nav--visible",
-      flashTop < window.innerHeight,
-    );
-  });
-
-  const activeObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const sectionClass = sections.find((c) =>
-            entry.target.classList.contains(c),
-          );
-          navItems.forEach((btn) => {
-            btn.classList.toggle(
-              "nav--active",
-              btn.dataset.section === sectionClass,
-            );
-          });
-        }
-      });
-    },
-    { threshold: 0, rootMargin: "0px 0px -45% 0px" },
-  );
-
-  document
-    .querySelectorAll(".flash-sale, .categories, .just-for-you")
-    .forEach((sec) => activeObserver.observe(sec));
-}
-
-// Login Modal
-function initLoginModal() {
-  const overlay = document.getElementById("login-overlay");
-  const closeBtn = document.getElementById("login-close");
-  const tabs = document.querySelectorAll(".login-tab");
-  const eyeBtn = document.getElementById("login-eye");
-  const passInput = document.getElementById("login-pass");
-
-  // Helper functions
-  function openModal() {
-    overlay.classList.add("login-overlay--open");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeModal() {
-    overlay.classList.remove("login-overlay--open");
-    document.body.style.overflow = "";
-  }
-
-  // Open on LOGIN or SIGN UP clicks in the top bar
-  document.querySelectorAll(".top-bar-inner a").forEach((link) => {
-    const text = link.textContent.trim().toUpperCase();
-    if (text === "LOGIN" || text === "SIGN UP") {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        openModal();
-      });
-    }
-  });
-
-  // Close on X button
-  closeBtn.addEventListener("click", () => {
-    closeModal();
-  });
-
-  // Close on overlay backdrop click
-  overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) closeModal();
-  });
-
-  // Close on Escape key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeModal();
-  });
-
-  // Tab switching
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      tabs.forEach((t) => t.classList.remove("login-tab--active"));
-      tab.classList.add("login-tab--active");
-      document
-        .querySelectorAll(".login-panel")
-        .forEach((p) => p.classList.add("login-panel--hidden"));
-      document
-        .getElementById("panel-" + tab.dataset.tab)
-        .classList.remove("login-panel--hidden");
-    });
-  });
-
-  // Password eye toggle
-  if (eyeBtn && passInput) {
-    eyeBtn.addEventListener("click", () => {
-      const isHidden = passInput.type === "password";
-      passInput.type = isHidden ? "text" : "password";
-      eyeBtn.innerHTML = isHidden
-        ? '<i class="bi bi-eye"></i>'
-        : '<i class="bi bi-eye-slash"></i>';
-    });
-  }
-}
-
-document.addEventListener("DOMContentLoaded", initLoginModal);
