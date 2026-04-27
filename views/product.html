@@ -27,93 +27,19 @@
     <link rel="stylesheet" href="../styles/header.css" />
     <link rel="stylesheet" href="../styles/footer.css" />
     <link rel="stylesheet" href="../styles/product.css" />
-    <title>
-      Protect Your Microwave: Dustproof Fabric Microwave Oven Cover with Bonus
-      Storage Pockets
-    </title>
+    <title>Daraz.pk</title>
   </head>
 
-  <body>
+  <body class="page-product">
     <!-- Header -->
-    <header>
-      <!-- Top bar -->
-      <nav class="top-bar">
-        <div class="top-bar-inner">
-          <a href="#">SAVE MORE ON APP</a>
-          <a href="#">SELL ON DARAZ</a>
-          <a href="#">HELP & SUPPORT</a>
-          <a href="#">LOGIN</a>
-          <a href="#">SIGN UP</a>
-          <a href="#">زبان تبدیل کریں</a>
-        </div>
-      </nav>
-
-      <!-- Main header: logo, search bar, cart -->
-      <div class="main-header">
-        <div class="main-header-inner">
-          <a href="#" class="logo-link">
-            <img
-              src="../assets/images/logo.png"
-              alt="Daraz Logo"
-              class="logo-img"
-            />
-          </a>
-
-          <!-- Search bar + tags wrapped together -->
-          <div class="search-wrapper">
-            <div class="search-bar">
-              <input type="text" placeholder="Search in Daraz" />
-              <button class="search-btn" aria-label="Search">
-                <img src="../assets/icons/search-icon.png" alt="Search icon" />
-              </button>
-            </div>
-            <div class="search-tags">
-              <a href="#">makeup</a>
-              <span class="divider">|</span>
-              <a href="#">watch for boys</a>
-              <span class="divider">|</span>
-              <a href="#">bags for girls</a>
-              <span class="divider">|</span>
-              <a href="#">airpods</a>
-              <span class="divider">|</span>
-              <a href="#">laptop for sale</a>
-            </div>
-          </div>
-
-          <a href="#" class="cart-link" title="Cart">
-            <i class="bi bi-cart3"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Sub-nav: categories only -->
-      <div class="sub-nav">
-        <div class="sub-nav-inner">
-          <button class="categories-btn">
-            Categories
-            <i class="bi bi-chevron-down"></i>
-          </button>
-        </div>
-      </div>
-    </header>
+    <header></header>
 
     <!-- Main -->
     <div class="product-main">
-      <!-- Breadcrumb -->
+      <!-- Breadcrumb  -->
       <div class="breadcrumb-bar">
         <div class="pd-container">
-          <nav class="breadcrumb-nav">
-            <a href="#">Home Appliances</a>
-            <i class="bi bi-chevron-right"></i>
-            <a href="#">Appliances Parts & Accessories</a>
-            <i class="bi bi-chevron-right"></i>
-            <a href="#">Microwave Parts & Accessories</a>
-            <i class="bi bi-chevron-right"></i>
-            <span
-              >Protect Your Microwave: Dustproof Fabric Microwave Oven Cover
-              with Bonus Storage Pockets</span
-            >
-          </nav>
+          <nav class="breadcrumb-nav"></nav>
         </div>
       </div>
 
@@ -122,23 +48,22 @@
         <div class="pd-layout">
           <!-- LEFT: image gallery -->
           <div class="pd-gallery">
-            <!-- Magnifier wrapper: main image + zoom lens -->
+            <!-- Magnifier wrapper -->
             <div class="pd-main-image-wrap" id="pd-zoom-wrap">
               <img
                 src="../assets/products/just-for-you/dustproof.png"
-                alt="Microwave Oven Cover"
+                alt="Product image"
                 class="pd-main-image"
                 id="pd-main-img"
               />
-              <!-- Lens overlay shown while hovering -->
               <div class="pd-zoom-lens" id="pd-zoom-lens"></div>
             </div>
             <hr class="pd-divider" />
 
-            <!-- Zoom result panel  -->
+            <!-- Zoom result panel -->
             <div class="pd-zoom-result" id="pd-zoom-result"></div>
 
-            <!-- Thumb strip: hover previews, click locks -->
+            <!-- Thumb strip: populated by product.js -->
             <div class="pd-thumbs-wrap">
               <button
                 class="pd-thumb-nav pd-thumb-prev"
@@ -147,35 +72,7 @@
               >
                 <i class="bi bi-chevron-left"></i>
               </button>
-              <div class="pd-thumbs" id="pd-thumbs">
-                <button
-                  class="pd-thumb active"
-                  data-src="../assets/products/just-for-you/dustproof.png"
-                >
-                  <img
-                    src="../assets/products/just-for-you/dustproof.png"
-                    alt="thumb 1"
-                  />
-                </button>
-                <button
-                  class="pd-thumb"
-                  data-src="../assets/products/just-for-you/face-mask.png"
-                >
-                  <img
-                    src="../assets/products/just-for-you/face-mask.png"
-                    alt="thumb 2"
-                  />
-                </button>
-                <button
-                  class="pd-thumb"
-                  data-src="../assets/products/just-for-you/lipstick-pencil.png"
-                >
-                  <img
-                    src="../assets/products/just-for-you/lipstick-pencil.png"
-                    alt="thumb 3"
-                  />
-                </button>
-              </div>
+              <div class="pd-thumbs" id="pd-thumbs"></div>
               <button
                 class="pd-thumb-nav pd-thumb-next"
                 id="pd-thumb-next"
@@ -186,54 +83,22 @@
             </div>
           </div>
 
-          <!-- MIDDLE: product info -->
+          <!-- MIDDLE: product info  -->
           <div class="pd-info">
-            <!-- Title -->
-            <h1 class="pd-title">
-              Microwave Oven Cover – Dustproof Decorative Design with Four Side
-              Pockets | Universal Size | Premium Non-Woven Fabric | Protective &
-              Stylish Appliance Cover
-            </h1>
+            <h1 class="pd-title"></h1>
 
-            <!-- Rating row -->
-            <div class="pd-rating-row">
-              <div class="pd-stars">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
-              </div>
-              <a href="#reviews" class="pd-rating-link">Ratings 529</a>
-              <span class="pd-dot">|</span>
-              <a href="#questions" class="pd-rating-link"
-                >16 Answered Questions</a
-              >
-              <div class="pd-actions-row">
-                <button class="pd-action-btn" title="Share">
-                  <i class="bi bi-share-fill"></i>
-                </button>
-                <button class="pd-action-btn" title="Wishlist">
-                  <i class="bi bi-heart"></i>
-                </button>
-              </div>
-            </div>
+            <!-- Rating row  -->
+            <div class="pd-rating-row"></div>
 
-            <!-- Brand -->
-            <p class="pd-brand">
-              Brand: <a href="#" class="pd-brand-link">No Brand</a>
-              <span class="pd-dot">|</span>
-              <a href="#" class="pd-brand-link"
-                >More Home Decor from No Brand</a
-              >
-            </p>
+            <!-- Brand  -->
+            <p class="pd-brand"></p>
 
-            <!-- Price -->
+            <!-- Price block  -->
             <div class="pd-price-block">
-              <span class="pd-price">Rs. 196</span>
+              <span class="pd-price"></span>
               <div>
-                <span class="pd-original">Rs. 599</span>
-                <span class="pd-discount-badge">-67%</span>
+                <span class="pd-original"></span>
+                <span class="pd-discount-badge"></span>
               </div>
             </div>
 
@@ -258,71 +123,20 @@
             </div>
           </div>
 
-          <!-- RIGHT: delivery & seller card -->
+          <!-- RIGHT: delivery and seller cards -->
           <div class="pd-sidebar">
-            <!-- Delivery Options -->
-            <div class="pd-card">
-              <div class="pd-card-header">
-                Delivery Options
-                <i class="bi bi-info-circle"></i>
-              </div>
-              <div class="pd-delivery-location">
-                <i class="bi bi-geo-alt"></i>
-                <span>Sindh, Karachi - Gulshan-e-Iqbal, Block 15</span>
-                <a href="#" class="pd-change-link">CHANGE</a>
-              </div>
-              <div class="pd-delivery-row">
-                <div class="pd-delivery-left">
-                  <i class="bi bi-box-seam"></i>
-                  <div>
-                    <p class="pd-delivery-name">Standard Delivery</p>
-                    <p class="pd-delivery-sub">Guaranteed by 2-4 Apr</p>
-                  </div>
-                </div>
-                <span class="pd-delivery-price">Rs. 150</span>
-              </div>
-              <div class="pd-delivery-row">
-                <div class="pd-delivery-left">
-                  <i class="bi bi-truck"></i>
-                  <div>
-                    <p class="pd-delivery-name">Standard Collection Point</p>
-                    <p class="pd-delivery-sub">Guaranteed by 2-4 Apr</p>
-                  </div>
-                </div>
-                <span class="pd-delivery-price">Rs. 35</span>
-              </div>
-              <div class="pd-delivery-row">
-                <div class="pd-delivery-left d-flex align-items-baseline">
-                  <i class="bi bi-cash-stack"></i>
-                  <div>
-                    <p class="pd-delivery-name">Cash on Delivery Available</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!-- Delivery Options card -->
+            <div class="pd-card" id="pd-card-delivery"></div>
 
-            <!-- Return & Warranty -->
-            <div class="pd-card" style="padding-bottom: 0px">
-              <div class="pd-card-header">
-                Return & Warranty
-                <i class="bi bi-info-circle"></i>
-              </div>
-              <div class="pd-return-row">
-                <i class="bi bi-arrow-counterclockwise"></i>
-                <span>Change of Mind</span>
-              </div>
-              <div class="pd-return-row">
-                <i class="bi bi-clock-history"></i>
-                <span>14 days easy return</span>
-              </div>
-              <div class="pd-return-row">
-                <i class="bi bi-shield-slash"></i>
-                <span>Warranty not available</span>
-              </div>
-            </div>
+            <!-- Return & Warranty card -->
+            <div
+              class="pd-card"
+              id="pd-card-warranty"
+              style="padding-bottom: 0px"
+            ></div>
 
-            <!-- QR + App -->
-            <div class="pd-card" style="padding-top: 10px">
+            <!-- QR + App card -->
+            <div class="pd-card" id="pd-card-qr" style="padding-top: 10px">
               <div class="pd-app-card">
                 <img
                   src="../assets/images/product-qr.png"
@@ -343,162 +157,28 @@
               </p>
             </div>
 
-            <!-- Seller -->
-            <div class="pd-card" style="padding-top: 0; margin-top: 8px">
-              <p class="pd-sold-by">Sold by</p>
-              <div class="pd-seller-row">
-                <p class="pd-seller-name">NS Collection (Lahore)</p>
-                <a href="#" class="pd-chat-btn"
-                  ><i class="bi bi-chat-left-fill"></i> Chat Now</a
-                >
-              </div>
-
-              <div class="pd-seller-stats">
-                <div class="pd-stat" style="border-right: 1px solid #f0f0f0">
-                  <p class="pd-stat-label">Positive Seller Ratings</p>
-                  <p class="pd-stat-val">87%</p>
-                </div>
-                <div class="pd-stat" style="border-right: 1px solid #f0f0f0">
-                  <p class="pd-stat-label">Ship on Time</p>
-                  <p class="pd-stat-val">94%</p>
-                </div>
-                <div class="pd-stat">
-                  <p class="pd-stat-label">Chat Response Rate</p>
-                  <p class="pd-stat-val pd-stat-na">Not enough data</p>
-                </div>
-              </div>
-              <a href="#" class="pd-store-link">GO TO STORE</a>
-            </div>
+            <!-- Seller card -->
+            <div
+              class="pd-card"
+              id="pd-card-seller"
+              style="padding-top: 0; margin-top: 8px"
+            ></div>
           </div>
         </div>
       </div>
 
-      <!-- Product Details + Specs -->
+      <!-- Product Details + Specs  -->
       <div class="pd-container pd-lower">
         <div class="pd-lower-main">
           <!-- Product Details -->
           <h2 class="pd-section-title px-24 m-0">Product details of</h2>
           <div class="pd-section-card" id="details">
-            <!-- Bullet list always visible -->
-            <ul class="pd-details-list">
-              <li>
-                ✅ Premium Non-Woven Fabric: Made from eco-friendly, breathable,
-                and durable material that ensures long-lasting use.
-              </li>
-              <li>
-                ✅ Universal Size: Suitable for most standard-sized microwave
-                ovens (measure before purchase for the best fit).
-              </li>
-              <li>
-                ✅ Dustproof & Grease-Resistant: Shields your microwave from
-                kitchen grime, dust, and oil splatters.
-              </li>
-              <li>
-                ✅ Decorative Design: Adds a modern, tidy, and stylish touch to
-                your kitchen setup.
-              </li>
-              <li>
-                ✅ 4 Side Storage Pockets: Ideal for storing utensils, recipes,
-                gloves, or other small kitchen items.
-              </li>
-              <li>
-                ✅ Easy to Clean: Low maintenance — just wipe clean or hand wash
-                when needed.
-              </li>
-              <li>
-                ✅ Lightweight & Foldable: Easy to put on, remove, or store when
-                not in use.
-              </li>
-              <li>
-                ✅ Multipurpose Use: Can also be used to cover other small
-                kitchen appliances like toaster ovens, air fryers, etc.
-              </li>
-            </ul>
+            <!-- Bullet list  -->
+            <ul class="pd-details-list"></ul>
 
-            <!-- Long description — clipped until View More clicked -->
+            <!-- Long description -->
             <div class="pd-desc-wrap" id="pd-desc-wrap">
-              <div class="pd-desc-content" id="pd-desc-content">
-                <p>
-                  Keep your microwave oven looking fresh, clean, and stylish
-                  with this
-                  <strong>Dustproof Decorative Microwave Oven Cover</strong> —
-                  the perfect blend of function and fashion for your kitchen!
-                  Crafted from <strong>high-quality non-woven fabric</strong>,
-                  this cover is designed to protect your microwave from
-                  <strong>dust, stains, grease, and daily wear and tear</strong
-                  >, keeping it looking brand new for years. <br />
-
-                  This microwave cover features a
-                  <strong>universal size</strong> that fits most standard
-                  microwave ovens with ease. Whether your appliance is placed on
-                  the countertop or a kitchen shelf, this cover adds a
-                  <strong>touch of elegance and protection</strong> at the same
-                  time. <br />
-
-                  But functionality doesn't stop there — the cover is
-                  thoughtfully designed with
-                  <strong>four side storage pockets</strong> (two on each side),
-                  giving you
-                  <strong>convenient access to small kitchen essentials</strong>
-                  like oven mitts, spatulas, ladles, kitchen scissors, or even
-                  your favorite recipe cards! These
-                  <strong>multi-purpose pockets</strong> help reduce clutter
-                  while keeping everything organized and within reach. <br />
-
-                  The cover is not only
-                  <strong>lightweight and durable</strong>, but also easy to
-                  maintain. Simply wipe it with a damp cloth or hand wash it
-                  gently to keep it clean. The breathable non-woven fabric
-                  ensures that your appliance remains well-ventilated and safe
-                  from moisture buildup. <br />
-
-                  With its
-                  <strong>decorative patterns or neutral tones</strong>
-                  (depending on your selection), it also enhances the overall
-                  aesthetic of your kitchen, making it more welcoming and tidy.
-                </p>
-
-                <!-- Product image inside description -->
-                <div class="pd-desc-img-wrap">
-                  <img
-                    src="../assets/products/just-for-you/dustproof.png"
-                    alt="Product detail image"
-                    class="pd-desc-img"
-                  />
-                  <img
-                    src="../assets/products/just-for-you/dustproof.png"
-                    alt="Product detail image"
-                    class="pd-desc-img"
-                  />
-                </div>
-
-                <!-- Specifications -->
-                <div class="pd-specs-card" id="specs">
-                  <h2 class="pd-section-title">Specifications of</h2>
-
-                  <div class="pd-specs-grid">
-                    <div class="pd-spec-row">
-                      <span class="pd-spec-key">Brand</span>
-                      <span class="pd-spec-val">No Brand</span>
-                    </div>
-                    <div class="pd-spec-row">
-                      <span class="pd-spec-key">SKU</span>
-                      <span class="pd-spec-val">496678790_PK-2377159099</span>
-                    </div>
-                  </div>
-
-                  <div class="pd-box-row my-4">
-                    <span class="pd-spec-key">What's in the box</span>
-                    <div class="pd-box-val">
-                      1xMicrowave Oven Cover – Dustproof Decorative Design with
-                      Four Side Pockets | Universal Size | Premium Non-Woven
-                      Fabric | Protective & Stylish Appliance Cover
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Fade gradient shown before expand -->
+              <div class="pd-desc-content" id="pd-desc-content"></div>
               <div class="pd-desc-fade" id="pd-desc-fade"></div>
             </div>
 
@@ -510,29 +190,18 @@
             </div>
           </div>
 
-          <!-- Ratings & Reviews -->
+          <!-- Ratings & Reviews  -->
           <div class="pd-section-card px-0" id="reviews">
-            <h2 class="pd-section-title px-24">
-              Ratings & Reviews of Microwave Oven Cover – Dustproof Decorative
-              Design with Four Side Pockets | Universal Size | Premium Non-Woven
-              Fabric | Protective & Stylish Appliance Cover
-            </h2>
+            <h2 class="pd-section-title px-24"></h2>
 
             <div class="pd-ratings-overview px-24">
               <div class="pd-rating-big">
-                <span class="pd-rating-num"
-                  >4.8 <span class="pd-rating-denom">/5</span></span
-                >
-                <div class="pd-stars-big">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-half"></i>
-                </div>
-                <p class="pd-rating-count">529 Ratings</p>
+                <span class="pd-rating-num"></span>
+                <div class="pd-stars-big"></div>
+                <p class="pd-rating-count"></p>
               </div>
               <div class="pd-rating-bars">
+                <!-- Static bars -->
                 <div class="pd-bar-row">
                   <div class="pd-bar-stars">
                     <i class="bi bi-star-fill"></i
@@ -544,7 +213,7 @@
                   <div class="pd-bar-track">
                     <div class="pd-bar-fill" style="width: 92%"></div>
                   </div>
-                  <span class="pd-bar-count">487</span>
+                  <span class="pd-bar-count">5★</span>
                 </div>
                 <div class="pd-bar-row">
                   <div class="pd-bar-stars">
@@ -557,7 +226,7 @@
                   <div class="pd-bar-track">
                     <div class="pd-bar-fill" style="width: 5%"></div>
                   </div>
-                  <span class="pd-bar-count">11</span>
+                  <span class="pd-bar-count">4★</span>
                 </div>
                 <div class="pd-bar-row">
                   <div class="pd-bar-stars">
@@ -569,7 +238,7 @@
                   <div class="pd-bar-track">
                     <div class="pd-bar-fill" style="width: 3%"></div>
                   </div>
-                  <span class="pd-bar-count">17</span>
+                  <span class="pd-bar-count">3★</span>
                 </div>
                 <div class="pd-bar-row">
                   <div class="pd-bar-stars">
@@ -581,7 +250,7 @@
                   <div class="pd-bar-track">
                     <div class="pd-bar-fill" style="width: 1%"></div>
                   </div>
-                  <span class="pd-bar-count">4</span>
+                  <span class="pd-bar-count">2★</span>
                 </div>
                 <div class="pd-bar-row">
                   <div class="pd-bar-stars">
@@ -592,10 +261,11 @@
                   <div class="pd-bar-track">
                     <div class="pd-bar-fill" style="width: 2%"></div>
                   </div>
-                  <span class="pd-bar-count">10</span>
+                  <span class="pd-bar-count">1★</span>
                 </div>
               </div>
             </div>
+
             <!-- Filter row -->
             <div class="pd-review-filter-row">
               <span>Product Reviews</span>
@@ -617,117 +287,8 @@
               </div>
             </div>
 
-            <!-- Review cards -->
-            <div class="pd-review-list px-24">
-              <div class="pd-review">
-                <div class="pd-review-header">
-                  <div class="pd-review-stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <span class="pd-review-date">3 weeks ago</span>
-                </div>
-                <div class="pd-review-user">
-                  <span class="pd-reviewer">sadafkalsoom612</span>
-                  <span class="pd-verified"
-                    ><i class="bi bi-patch-check-fill"></i> Verified
-                    Purchase</span
-                  >
-                </div>
-                <p class="pd-review-text">
-                  Lifelikeness:7/10<br />Durability:8/10<br />Design:10/10
-                </p>
-                <div class="pd-review-images">
-                  <img
-                    src="../assets/products/just-for-you/dustproof.png"
-                    alt="review img"
-                  />
-                  <img
-                    src="../assets/products/just-for-you/face-mask.png"
-                    alt="review img"
-                  />
-                </div>
-                <div class="pd-review-footer">
-                  <button class="pd-like-btn">
-                    <i class="bi bi-hand-thumbs-up-fill"></i> 6
-                  </button>
-                </div>
-              </div>
-
-              <div class="pd-review">
-                <div class="pd-review-header">
-                  <div class="pd-review-stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <span class="pd-review-date">18 May 2025</span>
-                </div>
-                <div class="pd-review-user">
-                  <span class="pd-reviewer">momina</span>
-                  <span class="pd-verified"
-                    ><i class="bi bi-patch-check-fill"></i> Verified
-                    Purchase</span
-                  >
-                </div>
-                <p class="pd-review-text">
-                  Cute looking small pots its really good for side table or etc
-                  And the quality is also really good ❤️
-                </p>
-                <div class="pd-review-images">
-                  <img
-                    src="../assets/products/just-for-you/dustproof.png"
-                    alt="review img"
-                  />
-                </div>
-                <div class="pd-review-footer">
-                  <button class="pd-like-btn">
-                    <i class="bi bi-hand-thumbs-up-fill"></i> 6
-                  </button>
-                </div>
-              </div>
-
-              <div class="pd-review">
-                <div class="pd-review-header">
-                  <div class="pd-review-stars">
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i
-                    ><i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <span class="pd-review-date">16 Feb 2026</span>
-                </div>
-                <div class="pd-review-user">
-                  <span class="pd-reviewer">Amina</span>
-                  <span class="pd-verified"
-                    ><i class="bi bi-patch-check-fill"></i> Verified
-                    Purchase</span
-                  >
-                </div>
-                <p class="pd-review-text">
-                  These mini plants are adorable and added a touch of charm to
-                  my space. They were a great value for the price. Will buy
-                  again
-                </p>
-                <div class="pd-review-images">
-                  <img
-                    src="../assets/products/just-for-you/dustproof.png"
-                    alt="review img"
-                  />
-                </div>
-                <div class="pd-review-footer">
-                  <button class="pd-like-btn">
-                    <i class="bi bi-hand-thumbs-up-fill"></i> 3
-                  </button>
-                </div>
-              </div>
-            </div>
+            <!-- Review cards  -->
+            <div class="pd-review-list px-24"></div>
 
             <!-- Pagination -->
             <div class="pd-pagination">
@@ -737,77 +298,58 @@
               <button class="pd-page-btn pd-page-active">1</button>
               <button class="pd-page-btn">2</button>
               <button class="pd-page-btn">3</button>
-              <button class="pd-page-btn">4</button>
-              <span class="pd-page-ellipsis">...</span>
-              <button class="pd-page-btn">108</button>
               <button class="pd-page-btn pd-page-next">
                 <i class="bi bi-chevron-right"></i>
               </button>
             </div>
           </div>
 
-          <!-- Questions -->
+          <!-- Questions  -->
           <div class="pd-section-card" id="questions">
-            <h2 class="pd-section-title px-24">
-              Questions about this product (16)
-            </h2>
+            <h2 class="pd-section-title px-24"></h2>
             <div class="px-24">
               <p class="pd-qa-login">
                 <a href="#" class="pd-brand-link">Login</a> or
                 <a href="#" class="pd-brand-link">Register</a> to ask questions
               </p>
-              <p class="pd-qa-sub">
-                Other questions answered by NS Collection (Lahore) (16)
-              </p>
+              <p class="pd-qa-sub"></p>
 
+              <!-- Static Sample Q&A -->
               <div class="pd-qa-list">
                 <div class="pd-qa-item">
                   <div class="pd-qa-badge pd-qa-q">Q</div>
                   <div class="pd-qa-body">
+                    <p>Is this product original and of good quality?</p>
+                    <p class="pd-qa-meta">Customer - 10 Jan 2026</p>
+                  </div>
+                </div>
+                <div class="pd-qa-item pd-qa-answer">
+                  <div class="pd-qa-badge pd-qa-a">A</div>
+                  <div class="pd-qa-body">
+                    <p>Yes, 100% original product with quality guarantee.</p>
+                    <p class="pd-qa-meta">Seller - Answered within 2 hours</p>
+                  </div>
+                </div>
+                <div class="pd-qa-item">
+                  <div class="pd-qa-badge pd-qa-q">Q</div>
+                  <div class="pd-qa-body">
+                    <p>How long does delivery take?</p>
+                    <p class="pd-qa-meta">Customer - 15 Jan 2026</p>
+                  </div>
+                </div>
+                <div class="pd-qa-item pd-qa-answer">
+                  <div class="pd-qa-badge pd-qa-a">A</div>
+                  <div class="pd-qa-body">
                     <p>
-                      Mai ne 3 orders diay hain. Mujhy 12 pots ehtiyaat sy
-                      bhijwa dena. Daraz pe aksar ziada order pe kum cheez bhaij
-                      dety hain. Plz becareful.
+                      Delivery takes 2-5 business days depending on your
+                      location.
                     </p>
-                    <p class="pd-qa-meta">Sofia Amjad - 06 Jan 2026</p>
-                  </div>
-                </div>
-                <div class="pd-qa-item pd-qa-answer">
-                  <div class="pd-qa-badge pd-qa-a">A</div>
-                  <div class="pd-qa-body">
-                    <p>ok</p>
-                    <p class="pd-qa-meta">
-                      NS Collection (Lahore) - Answered within 6 days
-                    </p>
-                  </div>
-                </div>
-                <div class="pd-qa-item">
-                  <div class="pd-qa-badge pd-qa-q">Q</div>
-                  <div class="pd-qa-body">
-                    <p>Size kya ha</p>
-                    <p class="pd-qa-meta">mozamalijutt007 - 11 Jan 2026</p>
-                  </div>
-                </div>
-                <div class="pd-qa-item pd-qa-answer">
-                  <div class="pd-qa-badge pd-qa-a">A</div>
-                  <div class="pd-qa-body">
-                    <p>4 inch size</p>
-                    <p class="pd-qa-meta">
-                      NS Collection (Lahore) - Answered within 8 hours
-                    </p>
-                  </div>
-                </div>
-                <div class="pd-qa-item">
-                  <div class="pd-qa-badge pd-qa-q">Q</div>
-                  <div class="pd-qa-body">
-                    <p>Safety k Saath milengy 4</p>
-                    <p class="pd-qa-meta">3***4 - 10 Dec 2025</p>
+                    <p class="pd-qa-meta">Seller - Answered within 1 day</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Q pagination -->
             <div class="pd-pagination">
               <button class="pd-page-btn pd-page-prev" disabled>
                 <i class="bi bi-chevron-left"></i>
@@ -822,305 +364,17 @@
         </div>
       </div>
 
-      <!-- You May Also Like -->
+      <!-- You May Also Like  -->
       <div class="pd-container yml my-3">
         <h2 class="pd-section-title">You may also like</h2>
         <div class="yml-cards">
-          <div class="pd-also-grid">
-            <a href="#" class="pd-also-card">
-              <img
-                src="../assets/products/just-for-you/dustproof.png"
-                alt="product"
-              />
-              <div class="yml-card-body">
-                <p class="pd-also-name">
-                  Pack of 6 Mini Plant Artificial Decoration Piece with pot
-                  Be...
-                </p>
-                <p class="pd-also-price">Rs. 339</p>
-                <div class="pd-also-stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-half"></i>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="pd-also-card">
-              <img
-                src="../assets/products/just-for-you/face-mask.png"
-                alt="product"
-              />
-              <div class="yml-card-body">
-                <p class="pd-also-name">
-                  Pack of 6 Mini Plant Artificial Decoration Piece with pot
-                  Be...
-                </p>
-                <p class="pd-also-price">Rs. 327</p>
-                <div class="pd-also-stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-half"></i>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="pd-also-card">
-              <img
-                src="../assets/products/just-for-you/lipstick-pencil.png"
-                alt="product"
-              />
-              <div class="yml-card-body">
-                <p class="pd-also-name">
-                  Mini Artificial Flower Decoration Piece - Green Best for
-                  home...
-                </p>
-                <p class="pd-also-price">Rs. 99</p>
-                <div class="pd-also-stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-half"></i>
-                </div>
-              </div>
-            </a>
-            <a href="#" class="pd-also-card">
-              <img
-                src="../assets/products/just-for-you/eyebrow-pen.png"
-                alt="product"
-              />
-              <div class="yml-card-body">
-                <p class="pd-also-name">
-                  Pack of 3, 5 Artificial Small Plants - 6 Inches High
-                  Quality...
-                </p>
-                <p class="pd-also-price">Rs. 349</p>
-                <div class="pd-also-stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-half"></i>
-                </div>
-              </div>
-            </a>
-          </div>
+          <div class="pd-also-grid"></div>
         </div>
       </div>
     </div>
 
     <!-- Footer -->
-    <footer class="site-footer">
-      <!-- Row 1: Customer Care, Daraz links, App download -->
-      <div class="footer-top">
-        <div class="footer-inner">
-          <div class="row">
-            <div class="col-12 col-sm-6 col-lg-3">
-              <h3 class="footer-heading">Customer Care</h3>
-              <ul class="footer-list">
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">How to Buy</a></li>
-                <li><a href="#">Corporate & Bulk Purchasing</a></li>
-                <li><a href="#">Returns & Refunds</a></li>
-                <li><a href="#">Daraz Shop</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Purchase Protection</a></li>
-                <li><a href="#">Daraz Pick up Points</a></li>
-              </ul>
-            </div>
-
-            <div class="col-12 col-sm-6 col-lg-3">
-              <h3 class="footer-heading">Daraz</h3>
-              <ul class="footer-list">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Digital Payments</a></li>
-                <li><a href="#">Daraz Donates</a></li>
-                <li><a href="#">Daraz Blog</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><span>NTN Number : 4012118-6</span></li>
-                <li><span>STRN Number : 1700401211818</span></li>
-                <li><a href="#">Online Shopping App</a></li>
-                <li><a href="#">Online Grocery Shopping</a></li>
-                <li><a href="#">Daraz Exclusive</a></li>
-                <li><a href="#">Daraz University</a></li>
-                <li><a href="#">Sell on Daraz</a></li>
-                <li><a href="#">Join Daraz Affiliate Program</a></li>
-              </ul>
-            </div>
-
-            <div class="col-12 col-sm-12 col-lg-6">
-              <div class="footer-app-col">
-                <div class="footer-app-identity">
-                  <img
-                    src="../assets/footer/top-footer/daraz.png"
-                    alt="Daraz"
-                    class="footer-app-logo"
-                  />
-                  <div>
-                    <p class="footer-app-tagline">Happy Shopping</p>
-                    <p class="footer-app-sub">Download App</p>
-                  </div>
-                </div>
-                <div class="footer-store-btns">
-                  <a href="#"
-                    ><img
-                      src="../assets/footer/top-footer/available-on-store.png"
-                      alt="App Store"
-                      class="footer-store-img"
-                  /></a>
-                  <a href="#"
-                    ><img
-                      src="../assets/footer/top-footer/google-play.png"
-                      alt="Google Play"
-                      class="footer-store-img"
-                  /></a>
-                  <a href="#"
-                    ><img
-                      src="../assets/footer/top-footer/app-gallery.png"
-                      alt="Google Play"
-                      class="footer-store-img"
-                  /></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Row 2: Payment methods + Verified by -->
-      <div class="footer-payments">
-        <div class="payment-container">
-          <div class="footer-width-32">
-            <h3 class="footer-heading">Payment Methods</h3>
-            <div class="footer-pay-icons">
-              <img
-                src="../assets/footer/payment/cash-on-delivery.png"
-                alt="Cash on Delivery"
-              />
-              <img src="../assets/footer/payment/visa.png" alt="Visa" />
-              <img
-                src="../assets/footer/payment/master-card.png"
-                alt="Mastercard"
-              />
-              <img
-                src="../assets/footer/payment/easy-paisa.png"
-                alt="Easypaisa"
-              />
-              <img
-                src="../assets/footer/payment/daraz-wallet.png"
-                alt="Daraz Wallet"
-              />
-              <img
-                src="../assets/footer/payment/jazz-cash.png"
-                alt="JazzCash"
-              />
-              <img
-                src="../assets/footer/payment/union-pay.png"
-                alt="UnionPay"
-              />
-              <img src="../assets/footer/payment/hbl.png" alt="HBL" />
-              <img
-                src="../assets/footer/payment/monthly-installments.png"
-                alt="Easy Monthly Installments"
-              />
-            </div>
-          </div>
-
-          <div class="footer-width-32">
-            <h3 class="footer-heading">Verified by</h3>
-            <div class="footer-verified-icons">
-              <img
-                src="../assets/footer/payment/pci-verified.png"
-                alt="PCI DSS"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Row 3: International presence, social links, copyright -->
-      <div class="footer-bottom">
-        <div class="footer-inner">
-          <div class="row g-2">
-            <!-- International presence -->
-            <div class="col-6 px-0 mt-0">
-              <h3 class="footer-heading">Daraz International</h3>
-              <div class="footer-countries">
-                <a href="#"
-                  ><img
-                    src="../assets/footer/countries/pakistan.png"
-                    alt="Pakistan"
-                  /><span>Pakistan</span></a
-                >
-                <a href="#"
-                  ><img
-                    src="../assets/footer/countries/bengal.png"
-                    alt="Bangladesh"
-                  /><span>Bangladesh</span></a
-                >
-                <a href="#"
-                  ><img
-                    src="../assets/footer/countries/srilanka.png"
-                    alt="Sri Lanka"
-                  /><span>Sri Lanka</span></a
-                >
-                <a href="#"
-                  ><img
-                    src="../assets/footer/countries/myanmar.png"
-                    alt="Myanmar"
-                  /><span>Myanmar</span></a
-                >
-                <a href="#"
-                  ><img
-                    src="../assets/footer/countries/nepal.png"
-                    alt="Nepal"
-                  /><span>Nepal</span></a
-                >
-              </div>
-            </div>
-
-            <!-- Follow Us -->
-            <div class="col-3 px-0 mt-0">
-              <h3 class="footer-heading">Follow Us</h3>
-              <div class="footer-social">
-                <!-- facebook -->
-                <a href="https://www.facebook.com/darazpk" class="social-link">
-                  <img
-                    src="../assets/footer/social/facebook.png"
-                    alt="Facebook"
-                  />
-                </a>
-                <!-- X/Twitter -->
-                <a href="https://x.com/darazpk" class="social-link">
-                  <img src="../assets/footer/social/x.png" alt="X" />
-                </a>
-                <!-- Instagram -->
-                <a
-                  href="https://www.instagram.com/darazpk/"
-                  class="social-link"
-                >
-                  <img
-                    src="../assets/footer/social/instagram.png"
-                    alt="Instagram"
-                  />
-                </a>
-                <!-- YouTube -->
-                <a
-                  href="https://www.youtube.com/channel/UC2BZLVEe9yLof1ghc_YI0_A"
-                  class="social-link"
-                >
-                  <img
-                    src="../assets/footer/social/youtube.png"
-                    alt="YouTube"
-                  />
-                </a>
-              </div>
-            </div>
-
-            <!-- Copyright -->
-            <div class="col-3 px-0 mt-0 text-end">
-              <p class="footer-copyright">© Daraz 2026</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <footer class="site-footer"></footer>
 
     <!-- Floating Messages Button -->
     <a href="#" class="float-messages" aria-label="Messages">
@@ -1128,7 +382,10 @@
       <span>Messages</span>
     </a>
 
+    <!-- Scripts: utils, header, footer, product -->
     <script src="../js/utils.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
     <script src="../js/product.js"></script>
   </body>
 </html>
