@@ -1,16 +1,16 @@
-// header.js: renders header dynamically + handles login modal
+// header.js: renders header dynamically + handles login modal + mobile drawer
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch("../data/header.json")
     .then((res) => res.json())
     .then((data) => {
       renderHeader(data);
-      // pass categories to dropdown init
       if (document.body.classList.contains("page-product")) {
         setTimeout(() => initCategoriesDropdown(data.categories), 0);
       }
       initLoginModal();
       initStickyHeader();
+      initMobileDrawer();
     })
     .catch((err) => console.error("Failed to load header.json:", err));
 });
@@ -20,24 +20,21 @@ function renderHeader(data) {
   const header = document.querySelector("header");
   if (!header) return;
 
-  // Detect if we are on product page
   const isProductPage = document.body.classList.contains("page-product");
 
-  // Build search tags HTML (product page only)
   const searchTagsHTML =
     isProductPage && data.searchTags
       ? `<div class="search-tags">
-        ${data.searchTags
-          .map(
-            (t, i) =>
-              (i > 0 ? '<span class="divider">|</span>' : "") +
-              `<a href="${t.href}">${t.label}</a>`,
-          )
-          .join("")}
-      </div>`
+          ${data.searchTags
+            .map(
+              (t, i) =>
+                (i > 0 ? '<span class="divider">|</span>' : "") +
+                `<a href="${t.href}">${t.label}</a>`,
+            )
+            .join("")}
+        </div>`
       : "";
 
-  // Build search wrapper: product page wraps bar+tags and main page just has bar
   const searchHTML = isProductPage
     ? `<div class="search-wrapper">
         <div class="search-bar">
@@ -55,7 +52,6 @@ function renderHeader(data) {
         </button>
       </div>`;
 
-  // Build top-bar links
   const topBarLinks = data.topBar
     .map(
       (link) =>
@@ -63,7 +59,6 @@ function renderHeader(data) {
     )
     .join("");
 
-  // Build sub-nav (product page only)
   const subNavHTML = isProductPage
     ? `<div class="sub-nav">
         <div class="sub-nav-inner">
@@ -76,6 +71,42 @@ function renderHeader(data) {
       </div>`
     : `<div class="homepage-only-height"></div>`;
 
+  // Mobile drawer for main and product page
+  const drawerTopBarItems = data.topBar
+    .map((link) => {
+      const icon = resolveDrawerIcon(link.label);
+      return `<a href="${link.href}" ${link.action ? `data-action="${link.action}"` : ""}>
+        <i class="bi ${icon}"></i>${link.label}
+      </a>`;
+    })
+    .join("");
+
+  const drawerCategoriesSection =
+    isProductPage && data.categories
+      ? `<div class="drawer-section-title">Categories</div>
+       ${data.categories
+         .map((cat) => `<a href="#"><i class="bi bi-tag"></i>${cat.label}</a>`)
+         .join("")}`
+      : "";
+
+  const mobileDrawerHTML = `
+    <div class="mobile-drawer" id="mobile-drawer">
+      <div class="mobile-drawer-overlay" id="drawer-overlay"></div>
+      <div class="mobile-drawer-panel">
+        <div class="drawer-header">
+          <img src="${data.logo.src}" alt="${data.logo.alt}" class="drawer-logo" />
+          <button class="drawer-close" id="drawer-close" aria-label="Close menu">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <nav class="drawer-nav">
+          ${drawerCategoriesSection}
+          <div class="drawer-section-title">Account</div>
+          ${drawerTopBarItems}
+        </nav>
+      </div>
+    </div>`;
+
   header.innerHTML = `
     <!-- Top bar -->
     <nav class="top-bar">
@@ -84,7 +115,7 @@ function renderHeader(data) {
       </div>
     </nav>
 
-    <!-- Main header: logo, search, cart -->
+    <!-- Main header: logo, search, cart, hamburger -->
     <div class="main-header">
       <div class="main-header-inner">
         <a href="${data.logo.href}" class="logo-link">
@@ -94,6 +125,12 @@ function renderHeader(data) {
         <a href="${data.cart.href}" class="cart-link" title="Cart">
           <i class="${data.cart.icon}"></i>
         </a>
+        <!-- Hamburger shown on mobile/tablet via CSS -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
     ${subNavHTML}
@@ -161,15 +198,104 @@ function renderHeader(data) {
     </div>
   `;
 
+  // Inject drawer into body
+  const existing = document.getElementById("mobile-drawer");
+  if (!existing) {
+    document.body.insertAdjacentHTML("beforeend", mobileDrawerHTML);
+  }
+
   if (isProductPage) {
     setTimeout(initCategoriesDropdown, 0);
   }
 }
 
+// Map link label to Bootstrap icon
+function resolveDrawerIcon(label) {
+  const map = {
+    login: "bi-person",
+    "sign up": "bi-person-plus",
+    signup: "bi-person-plus",
+    register: "bi-person-plus",
+    help: "bi-question-circle",
+    "help center": "bi-question-circle",
+    sell: "bi-shop",
+    seller: "bi-shop",
+    "become a seller": "bi-shop",
+    "download app": "bi-phone",
+    app: "bi-phone",
+    "track order": "bi-box-seam",
+    orders: "bi-bag",
+    account: "bi-person-circle",
+    notifications: "bi-bell",
+  };
+  const key = label.toLowerCase();
+  for (const [k, v] of Object.entries(map)) {
+    if (key.includes(k)) return v;
+  }
+  return "bi-chevron-right"; // fallback
+}
+
+// Mobile Drawer
+function initMobileDrawer() {
+  const hamburgerBtn = document.getElementById("hamburger-btn");
+  if (!hamburgerBtn) return;
+
+  function openDrawer() {
+    const drawer = document.getElementById("mobile-drawer");
+    const btn = document.getElementById("hamburger-btn");
+    if (!drawer) return;
+    drawer.classList.add("is-open");
+    btn?.classList.add("is-open");
+    btn?.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeDrawer() {
+    const drawer = document.getElementById("mobile-drawer");
+    const btn = document.getElementById("hamburger-btn");
+    if (!drawer) return;
+    drawer.classList.remove("is-open");
+    btn?.classList.remove("is-open");
+    btn?.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  hamburgerBtn.addEventListener("click", () => {
+    const drawer = document.getElementById("mobile-drawer");
+    if (drawer?.classList.contains("is-open")) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
+  });
+
+  // Close on overlay click
+  document.addEventListener("click", (e) => {
+    if (e.target.id === "drawer-overlay") closeDrawer();
+    if (e.target.closest("#drawer-close")) closeDrawer();
+  });
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeDrawer();
+  });
+
+  // Close drawer when a nav link is tapped
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest(".drawer-nav a");
+    if (link && !link.dataset.action) {
+      closeDrawer();
+    }
+    // login links: open modal then close drawer
+    if (link && link.dataset.action === "login") {
+      closeDrawer();
+    }
+  });
+}
+
 // Login Modal
 function initLoginModal() {
   document.addEventListener("click", (e) => {
-    // Open on Login / Sign Up
     const link = e.target.closest("[data-action='login']");
     if (link) {
       e.preventDefault();
@@ -177,20 +303,17 @@ function initLoginModal() {
       return;
     }
 
-    // Close on X button
     if (e.target.closest("#login-close")) {
       closeModal();
       return;
     }
 
-    // Close on backdrop
     const overlay = document.getElementById("login-overlay");
     if (overlay && e.target === overlay) {
       closeModal();
       return;
     }
 
-    // Tab switching
     const tab = e.target.closest(".login-tab");
     if (tab && tab.dataset.tab) {
       document
@@ -205,7 +328,6 @@ function initLoginModal() {
       return;
     }
 
-    // Password eye toggle
     if (e.target.closest("#login-eye")) {
       const passInput = document.getElementById("login-pass");
       const eyeBtn = document.getElementById("login-eye");
@@ -240,14 +362,13 @@ function closeModal() {
   }
 }
 
-// Categories Mega Dropdown
+// Categories Mega Dropdown (product page only)
 function initCategoriesDropdown(categories) {
   const btn = document.getElementById("categories-btn");
   const dropdown = document.getElementById("cat-dropdown");
   const chevron = document.getElementById("cat-chevron");
   if (!btn || !dropdown) return;
 
-  // Build root list HTML
   dropdown.innerHTML = `
     <div class="cat-dropdown-inner">
       <ul class="cat-root-list" id="cat-root-list">
@@ -269,7 +390,6 @@ function initCategoriesDropdown(categories) {
   const subPanel = document.getElementById("cat-sub-panel");
   const grandPanel = document.getElementById("cat-grand-panel");
 
-  // Open on hover
   const subNav = btn.closest(".sub-nav");
   subNav.addEventListener("mouseenter", () => {
     dropdown.classList.add("cat-dropdown--open");
@@ -282,7 +402,6 @@ function initCategoriesDropdown(categories) {
     grandPanel.classList.remove("cat-grand-panel--visible");
   });
 
-  // Root hover → show subs
   rootList.addEventListener("mouseover", (e) => {
     const item = e.target.closest(".cat-root-item");
     if (!item) return;
@@ -308,7 +427,6 @@ function initCategoriesDropdown(categories) {
     grandPanel.innerHTML = "";
     grandPanel.classList.remove("cat-grand-panel--visible");
 
-    // Sub hover → show grands
     subPanel.querySelectorAll(".cat-sub-item").forEach((subItem) => {
       subItem.addEventListener("mouseenter", () => {
         const si = Number(subItem.dataset.index);
