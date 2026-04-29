@@ -1,5 +1,5 @@
 /*
-  MAIN — index page content styles only
+  MAIN — main page content styles only
 */
 
 /*
@@ -9,8 +9,6 @@ main {
   flex-shrink: 0;
   margin-top: 118px;
   padding-top: 0;
-  overflow-y: scroll;
-  height: 2320px;
   margin-bottom: 16px;
 }
 
@@ -19,7 +17,10 @@ main {
 */
 .hero-section {
   margin: 0 auto;
-  width: 1188px;
+  max-width: 1188px;
+  width: 100%;
+  /* padding: 0 16px; */
+  box-sizing: border-box;
 }
 
 .hero-inner {
@@ -258,10 +259,14 @@ main {
 .flash-sale,
 .categories,
 .just-for-you {
-  width: 1188px;
+  max-width: 1188px;
+  width: 100%;
   margin: 0 auto;
   border-radius: 4px;
   padding-top: 24px;
+  /* padding-left: 16px;
+  padding-right: 16px; */
+  box-sizing: border-box;
 }
 
 .section-title {
@@ -520,16 +525,191 @@ main {
 }
 
 /*
-  RESPONSIVE OVERRIDES
+   Responsiveness
 */
-@media (max-width: 960px) {
+
+/* Tablet (≤ 1199px) */
+@media (max-width: 1199px) {
+  /* Reduce top margin since header may shrink */
+  main {
+    margin-top: 100px;
+  }
+
+  .hero-section,
+  .flash-sale,
+  .categories,
+  .just-for-you {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .carousel-slide img {
+    height: 280px;
+  }
+
+  .category-col {
+    width: 16.666%;
+    flex: 0 0 16.666%;
+  }
+
+  .jfy-load-btn {
+    width: 300px;
+  }
+}
+
+/* Small tablet (≤ 959px) */
+@media (max-width: 959px) {
   .app-card {
+    display: none;
+  }
+
+  .carousel-slide img {
+    height: 240px;
+  }
+
+  .category-col {
+    width: 25%;
+    flex: 0 0 25%;
+  }
+
+  .flash-sale-btn {
+    font-size: 12px;
+    padding: 0 8px;
+  }
+}
+
+/* Mobile (≤ 767px) */
+@media (max-width: 767px) {
+  main {
+    margin-top: 70px;
+  }
+
+  .hero-section {
+    padding: 0;
+  }
+
+  /* Carousel */
+  .carousel-slide img {
+    height: 200px;
+  }
+
+  /* Always show carousel buttons on mobile (no hover) */
+  .carousel-btn {
+    opacity: 1;
+  }
+
+  /* Section padding reduced */
+  .flash-sale,
+  .categories,
+  .just-for-you {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 16px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .flash-sale-subrow {
+    height: auto;
+    padding: 10px 8px;
+    gap: 8px;
+  }
+
+  .flash-sale-tab {
+    margin-left: 0;
+  }
+
+  .product-card img {
+    height: 130px;
+  }
+
+  .category-col {
+    width: 25%;
+    flex: 0 0 25%;
+  }
+
+  .category-item {
+    height: 120px;
+    font-size: 12px;
+    padding: 8px 4px;
+  }
+
+  .category-item img {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* JFY card */
+  .jfy-card-price {
+    font-size: 15px;
+  }
+
+  /* Load more */
+  .jfy-load-btn {
+    width: 90%;
+  }
+
+  /* Side nav: hide labels, show only icons */
+  .side-nav-label {
+    display: none;
+  }
+
+  .side-nav-item:hover {
+    width: 40px;
+  }
+
+  /* Float messages becomes smaller */
+  .float-messages {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    right: 12px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .float-messages span {
     display: none;
   }
 }
 
-@media (max-width: 600px) {
+/* Small mobile (≤ 479px) */
+@media (max-width: 479px) {
   .carousel-slide img {
-    height: 200px;
+    height: 160px;
+  }
+
+  .category-col {
+    width: 33.333%;
+    flex: 0 0 33.333%;
+  }
+
+  .category-item {
+    height: 100px;
+    font-size: 11px;
+  }
+
+  .category-item img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .product-card img {
+    height: 110px;
+  }
+
+  /* Flash sale: stack label and button */
+  .flash-sale-subrow {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 10px 8px;
+  }
+
+  .flash-sale-btn {
+    width: 100%;
+    margin-right: 0;
   }
 }
