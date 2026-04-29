@@ -6,14 +6,16 @@
   font-weight: 200;
   margin: 0px;
   padding: 0px;
-  min-width: 1188px;
   width: 100%;
 }
 
 .footer-inner {
   margin: 0 auto;
   overflow: hidden;
-  width: 1188px;
+  max-width: 1188px;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 .inner-row {
@@ -23,13 +25,11 @@
 }
 
 .footer-width-25 {
-  float: left;
   width: 25%;
   overflow: hidden;
 }
 
 .footer-width-50 {
-  float: left;
   width: 50%;
   overflow: hidden;
 }
@@ -82,7 +82,6 @@
 .footer-app-identity {
   display: flex;
   align-items: flex-start;
-  /* gap: 16px; */
 }
 
 .footer-app-logo {
@@ -125,15 +124,18 @@
 }
 
 .payment-container {
-  width: 1188px;
+  max-width: 1188px;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  padding: 10px 0;
+  padding: 10px 16px;
+  box-sizing: border-box;
   font-family: var(--font);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .footer-width-32 {
-  float: left;
   width: 32%;
   overflow: hidden;
   display: flex;
@@ -177,7 +179,9 @@
 .footer-about-row .footer-inner {
   margin: 0 auto;
   overflow: hidden;
-  width: 1188px;
+  max-width: 1188px;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 .footer-about-h1,
@@ -214,7 +218,6 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  /* line-height: 1.9; */
 }
 
 .footer-tags a {
@@ -259,6 +262,8 @@
 .footer-bottom .footer-inner {
   margin: 0 auto;
   max-width: 1188px;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 .footer-countries {
@@ -394,7 +399,6 @@
   position: fixed;
   right: 50px;
   transform-origin: right bottom;
-
   display: flex;
   align-items: center;
   gap: 8px;
@@ -408,9 +412,182 @@
   color: #003e52;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+/* 
+   Responsiveness
+*/
+
+/* Tablet (≤ 1199px) */
+@media (max-width: 1199px) {
+  .footer-inner,
+  .footer-bottom .footer-inner,
+  .footer-about-row .footer-inner {
+    padding: 0 16px;
+  }
+  .payment-container {
+    padding: 10px 16px;
+  }
+
+  .footer-app-col {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-app-tagline {
+    width: auto;
+  }
+
+  .footer-countries {
+    flex-wrap: wrap;
+  }
+
+  .footer-about-row .pe-5 {
+    padding-right: 30px !important;
+  }
+}
+
+/* Small tablet (≤ 959px) */
+@media (max-width: 959px) {
+  .footer-width-25 {
+    width: 50%;
+  }
+
+  .footer-width-50 {
+    width: 100%;
+  }
+
+  .footer-width-32 {
+    width: 50%;
+    margin-bottom: 16px;
+  }
+
+  .footer-about-row .pe-5 {
+    padding-right: 20px !important;
+  }
+
+  .footer-bottom .row {
+    flex-wrap: wrap;
+  }
+
   .footer-copyright {
+    float: none;
+  }
+}
+
+/* Mobile (≤ 767px) */
+@media (max-width: 767px) {
+  /* All footer columns gets full width */
+  .footer-width-25,
+  .footer-width-50,
+  .footer-width-32 {
+    width: 100%;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+  }
+
+  .footer-top .footer-inner {
+    gap: 8px;
+  }
+
+  /* App col now stack vertically */
+  .footer-app-col {
+    flex-direction: column;
+    padding-top: 0;
+  }
+
+  .footer-app-identity {
+    align-items: center;
+  }
+
+  /* Store buttons: side by side */
+  .footer-store-btns {
+    flex-direction: row;
+  }
+
+  .footer-about-row {
+    padding: 30px 0 20px;
+  }
+
+  .footer-about-row .pe-5 {
+    padding-right: 0 !important;
+  }
+
+  /* Footer bottom: stack all */
+  .footer-bottom {
+    padding: 20px 0;
+  }
+
+  .footer-bottom .row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-bottom .col-6,
+  .footer-bottom .col-3 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .footer-copyright {
+    float: none;
     text-align: left;
+    line-height: 1.5;
+  }
+
+  .footer-countries {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .side-nav {
+    display: none !important;
+  }
+
+  /* Side nav: icons only */
+  .side-nav-item:hover {
+    width: 40px;
+  }
+
+  .side-nav-label {
+    display: none;
+  }
+
+  /* Float messages: icon only circle */
+  .float-messages {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    right: 12px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .float-messages span {
+    display: none;
+  }
+}
+
+/* Small mobile (≤ 479px) */
+@media (max-width: 479px) {
+  .footer-top {
+    padding: 16px 0 16px;
+  }
+
+  .footer-store-img {
+    width: 100px;
+  }
+
+  /* Payment icons smaller */
+  .footer-pay-icons img {
+    height: 22px;
+    width: 40px;
+  }
+
+  .footer-verified-icons img {
+    height: 28px;
+  }
+
+  .footer-bottom {
+    padding: 16px 0;
   }
 }
