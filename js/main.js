@@ -27,7 +27,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load More button
   document.querySelector(".jfy-load-btn")?.addEventListener("click", () => {
-    renderJustForYou(true);
+    const btn = document.querySelector(".jfy-load-btn");
+    const loader = document.querySelector(".jfy-loader");
+
+    btn.style.display = "none";
+    loader.style.display = "block";
+
+    setTimeout(() => {
+      renderJustForYou(true);
+      loader.style.display = "none";
+      btn.style.display = "block";
+    }, 800);
   });
 });
 
