@@ -102,7 +102,7 @@ header {
 
 .search-bar input {
   flex: 1;
-  padding: 0 14px;
+  padding: 0 16px;
   font-size: 14px;
   border: none;
   outline: none;
@@ -311,6 +311,7 @@ header {
   z-index: 1000;
   align-items: center;
   justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .login-overlay--open {
@@ -323,12 +324,12 @@ header {
   min-height: 445px;
   width: 445px;
   max-width: 95vw;
-  padding: 0 0 28px;
+  padding: 0 0 24px;
   position: absolute;
   top: 50.9%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: var(--Roboto-Regular);
+  /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 /* Tabs row */
@@ -344,14 +345,14 @@ header {
 
 .login-tab {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
-  color: var(--text-muted);
+  color: #858b9c;
   background: none;
   border: none;
   cursor: pointer;
   margin-left: 16px;
-  font-family: var(--font);
+  /* font-family: var(--font); */
 }
 
 .login-tab--active {
@@ -370,15 +371,11 @@ header {
   top: 20%;
   transform: translateY(-50%);
   font-size: 20px;
-  color: var(--text-muted);
+  color: #858b9c;
   background: none;
   border: none;
   cursor: pointer;
   line-height: 1;
-}
-
-.login-close:hover {
-  color: var(--text-dark);
 }
 
 /* Panel */
@@ -388,7 +385,12 @@ header {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 20px; */
+}
+
+.login-panel#panel-phone {
+  margin-top: 72px;
+  padding: 0 24px;
 }
 
 .login-panel--hidden {
@@ -402,7 +404,7 @@ header {
   border: 1px solid var(--border);
   padding: 0 14px;
   font-size: 14px;
-  font-family: var(--Roboto-Regular);
+  /* font-family: var(--Roboto-Regular); */
   outline: none;
   transition: border-color 0.15s;
   border-radius: 6px;
@@ -413,6 +415,7 @@ header {
 }
 
 .login-input-wrap {
+  margin-top: 18px;
   position: relative;
 }
 
@@ -428,8 +431,8 @@ header {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--text-muted);
-  font-size: 16px;
+  color: #858b9c;
+  font-size: 24px;
   padding: 0;
 }
 
@@ -437,7 +440,7 @@ header {
 .login-forgot {
   font-size: 14px;
   color: #858b9c;
-  margin-top: -14px;
+  margin-top: 8px;
   text-align: right;
 }
 
@@ -454,6 +457,7 @@ header {
   border-radius: 6px;
   cursor: pointer;
   transition: opacity 0.15s;
+  margin-top: 24px;
 }
 
 .login-btn:hover {
@@ -466,7 +470,7 @@ header {
   color: #858b9c;
   text-align: center;
   margin: 0;
-  margin-top: -8px;
+  margin-top: 12px;
 }
 
 .login-signup-link {
@@ -480,7 +484,12 @@ header {
   color: #858b9c;
   text-align: center;
   position: relative;
-  margin: 2px 0;
+  margin-top: 40px;
+  margin-bottom: 2px;
+}
+
+#panel-phone .login-or {
+  margin-top: 72px;
 }
 
 .login-or::before,
@@ -503,16 +512,17 @@ header {
 .login-social-row {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  /* gap: 24px; */
+  margin-top: 14px;
 }
 
 .login-social-btn {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 20px;
+  padding: 8px 20px 0;
   font-size: 14px;
-  font-family: var(--Roboto-Regular);
+  /* font-family: var(--Roboto-Regular); */
   cursor: pointer;
   color: #858b9c;
 }
@@ -523,6 +533,7 @@ header {
   align-items: center;
   height: 44px;
   overflow: hidden;
+  gap: 6px;
 }
 
 .login-phone-prefix {
@@ -552,6 +563,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  margin-top: 49px;
 }
 
 .login-btn--whatsapp:hover {
