@@ -460,10 +460,22 @@ function initThumbs() {
   });
 
   const strip = document.getElementById("pd-thumbs");
+
   document.getElementById("pd-thumb-prev")?.addEventListener("click", () => {
+    const thumbs = document.querySelectorAll(".pd-thumb");
+    const active = document.querySelector(".pd-thumb.active");
+    const idx = [...thumbs].indexOf(active);
+    const prev = idx > 0 ? idx - 1 : thumbs.length - 1;
+    thumbs[prev].click();
     strip.scrollBy({ left: -80, behavior: "smooth" });
   });
+
   document.getElementById("pd-thumb-next")?.addEventListener("click", () => {
+    const thumbs = document.querySelectorAll(".pd-thumb");
+    const active = document.querySelector(".pd-thumb.active");
+    const idx = [...thumbs].indexOf(active);
+    const next = idx < thumbs.length - 1 ? idx + 1 : 0;
+    thumbs[next].click();
     strip.scrollBy({ left: 80, behavior: "smooth" });
   });
 }
