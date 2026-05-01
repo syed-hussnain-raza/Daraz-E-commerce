@@ -44,13 +44,7 @@
 .search-tags a {
   color: var(--white);
   white-space: nowrap;
-  font-family:
-    Roboto-Regular,
-    Helvetica Neue,
-    Helvetica,
-    Tahoma,
-    Arial,
-    Sans-serif;
+  font-family: var(--Roboto-Regular);
   font-weight: 400;
   font-size: 12px;
   line-height: 13px;
@@ -102,6 +96,10 @@
   color: #0f136d;
   font-size: 12px;
   margin-left: 16px;
+  font-weight: 600 !important;
+}
+
+.cat-chevron::before {
   font-weight: bold !important;
 }
 
@@ -136,7 +134,8 @@
    Breadcrumb
  */
 .breadcrumb-bar {
-  height: 49px;
+  height: auto;
+  padding: 8px 0;
   vertical-align: middle;
   font-family: Roboto-Regular, Helvetica, Arial, sans-serif;
 }
@@ -154,7 +153,8 @@
   font-size: 14px;
   color: #757575;
   flex-wrap: wrap;
-  max-height: 17px;
+  max-height: none;
+  padding: 8px 0;
 }
 
 .breadcrumb-nav a {
@@ -316,6 +316,7 @@
   display: flex;
   flex-direction: column;
   padding: 0 8px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Flash Sale badge */
@@ -463,13 +464,6 @@
 .pd-price {
   font-size: 30px;
   font-weight: 500;
-  font-family:
-    Roboto,
-    -apple-system,
-    BlinkMacSystemFont,
-    Helvetica Neue,
-    Helvetica,
-    sans-serif !important;
   color: #f57224;
 }
 
@@ -643,6 +637,7 @@
   padding: 20px 16px 10px;
   font-size: 13px;
   border-bottom: 1px solid #f0f0f0;
+  font-family: Arial;
 }
 
 .pd-card-header {
@@ -833,9 +828,10 @@
   gap: 5px;
   color: #136cff;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
+  font-family: Roboto-Medium;
 }
 
 .pd-seller-stats {
@@ -880,9 +876,10 @@
   display: block;
   text-align: center;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   color: #136cff;
   padding-bottom: 10px;
+  font-family: Roboto-Medium;
 }
 
 .pd-store-link:hover {
@@ -908,6 +905,7 @@
   padding-left: 24px;
   padding-right: 14px;
   width: 100%;
+  font-family: Arial;
 }
 
 .pd-section-title {
@@ -915,7 +913,7 @@
   height: 52px;
   line-height: 52px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   color: #212121;
   background-color: #fafafa;
 }
@@ -1572,8 +1570,9 @@
   border: 1px solid var(--border);
   border-top: none;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  min-height: 400px;
-  max-height: 480px;
+  min-height: unset;
+  overflow: visible;
+  font-family: var(--Roboto-Regular);
 }
 
 .cat-root-list {
@@ -1582,14 +1581,14 @@
   border-right: 1px solid var(--border);
   list-style: none;
   padding: 6px 0;
-  overflow-y: auto;
-  max-height: 350px;
+  overflow-y: visible;
+  max-height: none;
 }
 
 .cat-root-item {
-  padding: 6px 14px;
+  padding: 4px 8px;
   font-size: 13px;
-  color: var(--text-dark);
+  color: #757575;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1599,12 +1598,12 @@
 
 .cat-root-item:hover,
 .cat-root-item--active {
-  background: #fff5f0;
+  background: rgba(117, 117, 117, 0.1);
   color: var(--text-primary);
 }
 
 .cat-root-item i {
-  font-size: 10px;
+  font-size: 14px;
   color: var(--text-primary);
   visibility: hidden;
 }
@@ -1620,9 +1619,9 @@
   border-right: 1px solid var(--border);
   list-style: none;
   padding: 6px 0;
-  overflow-y: auto;
+  overflow-y: visible;
   display: none;
-  max-height: 350px;
+  max-height: none;
 }
 
 .cat-sub-panel--visible {
@@ -1630,9 +1629,9 @@
 }
 
 .cat-sub-item {
-  padding: 6px 14px;
+  padding: 4px 8px;
   font-size: 13px;
-  color: var(--text-dark);
+  color: #757575;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1648,7 +1647,7 @@
 
 .cat-sub-item:hover,
 .cat-sub-item--active {
-  background: #fff5f0;
+  background: rgba(117, 117, 117, 0.1);
   color: var(--text-primary);
 }
 
@@ -1676,8 +1675,8 @@
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 0;
-  overflow-y: auto;
-  max-height: 350px;
+  overflow-y: visible;
+  max-height: none;
 }
 
 .cat-grand-panel--visible {
@@ -1686,9 +1685,9 @@
 
 .cat-grand-item {
   width: 100%;
-  padding: 7px 8px;
+  padding: 4px 8px;
   font-size: 13px;
-  color: var(--text-dark);
+  color: #757575;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1723,8 +1722,21 @@
   }
 
   .pd-layout {
-    grid-template-columns: 280px 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .pd-gallery {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  .pd-info {
+    padding: 16px;
+    box-sizing: border-box;
   }
 
   /* Sidebar spans both columns */
