@@ -65,12 +65,12 @@ header {
 /* Main header */
 .main-header {
   height: 75px;
-  padding-top: 7px;
+  padding-top: 0px;
 }
 
 .main-header-inner {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   height: 60px;
   max-width: 1188px;
   width: 100%;
@@ -133,6 +133,8 @@ header {
   flex-shrink: 0;
   color: var(--white);
   font-size: 26px;
+  display: flex;
+  align-items: flex-end;
 }
 
 .homepage-only-height {
@@ -311,7 +313,7 @@ header {
   z-index: 1000;
   align-items: center;
   justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font);
 }
 
 .login-overlay--open {
@@ -324,12 +326,12 @@ header {
   min-height: 445px;
   width: 445px;
   max-width: 95vw;
-  padding: 0 0 24px;
+  padding: 0;
   position: absolute;
   top: 50.9%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: var(--font);
 }
 
 /* Tabs row */
@@ -343,16 +345,23 @@ header {
   position: relative;
 }
 
+.login-eye svg {
+  width: 24px;
+  height: 24px;
+  stroke: #858b9c;
+  stroke-width: 2;
+}
+
 .login-tab {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   text-align: center;
   color: #858b9c;
   background: none;
   border: none;
   cursor: pointer;
   margin-left: 16px;
-  /* font-family: var(--font); */
+  font-family: var(--font);
 }
 
 .login-tab--active {
@@ -361,8 +370,8 @@ header {
 
 .login-tab-divider {
   width: 1px;
-  height: 16px;
-  background: var(--border);
+  height: 18px;
+  background: #e3e7f1;
 }
 
 .login-close {
@@ -401,13 +410,17 @@ header {
 .login-input {
   width: 100%;
   height: 48px;
-  border: 1px solid var(--border);
-  padding: 0 14px;
+  border: 1px solid #cbced5;
+  padding: 0 18px;
   font-size: 14px;
-  /* font-family: var(--Roboto-Regular); */
+  /* font-family: var(--font); */
   outline: none;
   transition: border-color 0.15s;
   border-radius: 6px;
+}
+
+.login-input::placeholder {
+  color: #858b9c;
 }
 
 .login-input:focus {
@@ -440,24 +453,25 @@ header {
 .login-forgot {
   font-size: 14px;
   color: #858b9c;
-  margin-top: 8px;
+  margin-top: 6px;
   text-align: right;
 }
 
 /* Login button */
 .login-btn {
   width: 100%;
-  height: 44px;
+  height: 40px;
   background: #f57224;
   color: var(--white);
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.5px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: opacity 0.15s;
   margin-top: 24px;
+  font-family: var(--font);
 }
 
 .login-btn:hover {
@@ -480,16 +494,15 @@ header {
 
 /* Or divider */
 .login-or {
-  font-size: 13px;
+  font-size: 14px;
   color: #858b9c;
   text-align: center;
   position: relative;
-  margin-top: 40px;
-  margin-bottom: 2px;
+  margin-top: 52px;
 }
 
 #panel-phone .login-or {
-  margin-top: 72px;
+  margin-top: 76px;
 }
 
 .login-or::before,
@@ -508,21 +521,27 @@ header {
   right: 0;
 }
 
+.login-error {
+  color: #d20b0b;
+  font-size: 14px;
+  margin-top: 6px;
+  font-family: var(--font);
+}
+
 /* Social buttons */
 .login-social-row {
   display: flex;
   justify-content: center;
-  /* gap: 24px; */
   margin-top: 14px;
 }
 
 .login-social-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 20px 0;
+  gap: 4px;
+  padding: 0px 16px 0;
   font-size: 14px;
-  /* font-family: var(--Roboto-Regular); */
+  font-family: var(--font);
   cursor: pointer;
   color: #858b9c;
 }
@@ -531,7 +550,7 @@ header {
 .login-phone-wrap {
   display: flex;
   align-items: center;
-  height: 44px;
+  height: 48px;
   overflow: hidden;
   gap: 6px;
 }
@@ -540,19 +559,20 @@ header {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 0 12px;
-  font-size: 13px;
-  border: 1px solid var(--border);
+  padding: 12px 22px;
+  font-size: 14px;
+  border: 1px solid #cbced5;
   border-radius: 6px;
   height: 100%;
   white-space: nowrap;
   flex-shrink: 0;
+  font-family: Arial, "Segoe UI Emoji";
 }
 
 .login-input--phone {
   height: 100%;
   flex: 1;
-  border: 1px solid var(--border);
+  border: 1px solid #cbced5;
   border-radius: 6px;
 }
 
@@ -561,18 +581,20 @@ header {
   background: #f57224;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
+  max-height: 40px;
+  gap: 76px;
   margin-top: 49px;
+  padding: 0 18px;
+  letter-spacing: normal;
 }
 
 .login-btn--whatsapp:hover {
   opacity: 0.9;
 }
 
-.login-btn--whatsapp i {
-  font-size: 18px;
-  color: #25d366;
+.whatsapp-icon {
+  height: 22px;
+  width: 22px;
 }
 /*
    Responsiveness
@@ -721,4 +743,9 @@ header {
   .top-bar {
     display: none;
   }
+}
+
+.fb-fwc {
+  color: #1877f2;
+  font-size: 22px;
 }
