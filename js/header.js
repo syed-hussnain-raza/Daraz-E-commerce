@@ -123,7 +123,11 @@ function renderHeader(data) {
         </a>
         ${searchHTML}
         <a href="${data.cart.href}" class="cart-link" title="Cart">
-          <i class="${data.cart.icon}"></i>
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.51345 5H1.33325V3H6.15306L7.21972 8.33333H30.5315L27.5012 25H8.51345L4.51345 5ZM7.61972 10.3333L10.1531 23H25.832L28.135 10.3333H7.61972Z" fill="white"/>
+            <path d="M11.9999 28C11.9999 28.7364 11.403 29.3333 10.6666 29.3333C9.93021 29.3333 9.33325 28.7364 9.33325 28C9.33325 27.2636 9.93021 26.6667 10.6666 26.6667C11.403 26.6667 11.9999 27.2636 11.9999 28Z" fill="white"/>
+            <path d="M25.3333 29.3333C26.0696 29.3333 26.6666 28.7364 26.6666 28C26.6666 27.2636 26.0696 26.6667 25.3333 26.6667C24.5969 26.6667 23.9999 27.2636 23.9999 28C23.9999 28.7364 24.5969 29.3333 25.3333 29.3333Z" fill="white"/>
+          </svg>
         </a>
         <!-- Hamburger shown on mobile/tablet via CSS -->
         <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
@@ -149,11 +153,11 @@ function renderHeader(data) {
 
         <!-- Password panel -->
         <div class="login-panel" id="panel-password">
-          <input class="login-input" type="text" placeholder="Please enter your Phone or Email" id="login-email" />
+          <input class="login-input" type="text" placeholder="Please enter your Phone or Email" id="login-email" required/>
           <div class="login-input-wrap">
             <input class="login-input" type="password" placeholder="Please enter your password" id="login-pass" />
             <button class="login-eye" id="login-eye" aria-label="Toggle password">
-              <i class="bi bi-eye-slash"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36" width="18" height="18" style="display:block"><path d="M32.711 11c-3.166 4.841-8.573 8.03-14.71 8.03-6.139 0-11.546-3.189-14.712-8.03M9.79 17.5l-3 5m8.5-3-1 5.5m12.5-7.5 3 5m-8.5-3 1 5.5"></path></svg>
             </button>
           </div>
           <a href="#" class="login-forgot">Forgot password?</a>
@@ -164,10 +168,10 @@ function renderHeader(data) {
           <div class="login-or">Or, login with</div>
           <div class="login-social-row">
             <button class="login-social-btn">
-              <img src="https://www.google.com/favicon.ico" alt="G" width="18" /> Google
+              <img src="https://www.google.com/favicon.ico" alt="G" width="22" /> Google
             </button>
             <button class="login-social-btn">
-              <i class="bi bi-facebook" style="color:#1877f2;font-size:18px"></i> Facebook
+              <i class="bi bi-facebook fb-fwc"></i> Facebook
             </button>
           </div>
         </div>
@@ -175,11 +179,11 @@ function renderHeader(data) {
         <!-- Phone panel -->
         <div class="login-panel login-panel--hidden" id="panel-phone">
           <div class="login-phone-wrap">
-            <div class="login-phone-prefix"><span><small>PK</small>+92</span></div>
+            <div class="login-phone-prefix"><span><span style=font-size:10px>PK</span>+92</span></div>
             <input class="login-input login-input--phone" type="tel" placeholder="Please enter your phone number" />
           </div>
           <button class="login-btn login-btn--whatsapp">
-            <i class="bi bi-whatsapp"></i> Send code via Whatsapp
+            <img src="../assets/icons/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon"> Send code via Whatsapp
           </button>
           <p class="login-signup-row">
             Don't have an account? <a href="#" class="login-signup-link">Sign up</a>
@@ -187,10 +191,10 @@ function renderHeader(data) {
           <div class="login-or">Or, login with</div>
           <div class="login-social-row">
             <button class="login-social-btn">
-              <img src="https://www.google.com/favicon.ico" alt="G" width="18" /> Google
+              <img src="https://www.google.com/favicon.ico" alt="G" width="22" /> Google
             </button>
             <button class="login-social-btn">
-              <i class="bi bi-facebook" style="color:#1877f2;font-size:18px"></i> Facebook
+              <i class="bi bi-facebook fb-fwc"></i> Facebook
             </button>
           </div>
         </div>
@@ -335,14 +339,36 @@ function initLoginModal() {
         const isHidden = passInput.type === "password";
         passInput.type = isHidden ? "text" : "password";
         eyeBtn.innerHTML = isHidden
-          ? '<i class="bi bi-eye"></i>'
-          : '<i class="bi bi-eye-slash"></i>';
+          ? `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36" width="18" height="18" style="display:block"><circle cx="18" cy="17.5" r="4"></circle><path d="M3.284 18.47a1.77 1.77 0 0 1 0-1.94c3.167-4.84 8.573-8.03 14.711-8.03s11.545 3.19 14.711 8.03a1.77 1.77 0 0 1 0 1.94c-3.166 4.84-8.573 8.03-14.71 8.03-6.139 0-11.545-3.19-14.712-8.03"></path></svg>`
+          : '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36" width="18" height="18" style="display:block"><path d="M32.711 11c-3.166 4.841-8.573 8.03-14.71 8.03-6.139 0-11.546-3.189-14.712-8.03M9.79 17.5l-3 5m8.5-3-1 5.5m12.5-7.5 3 5m-8.5-3 1 5.5"></path></svg>';
       }
     }
   });
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeModal();
+  });
+
+  // Validation
+  const inputs = document.querySelectorAll("#panel-password .login-input");
+  inputs.forEach((input) => {
+    input.addEventListener("blur", () => {
+      if (!input.value.trim()) {
+        let msg = input.nextElementSibling;
+        if (!msg || !msg.classList.contains("login-error")) {
+          msg = document.createElement("p");
+          msg.className = "login-error";
+          msg.textContent = "You can't leave this empty.";
+          input.parentNode.insertBefore(msg, input.nextSibling);
+        }
+      }
+    });
+
+    input.addEventListener("focus", () => {
+      input.style.borderColor = "";
+      const msg = input.parentNode.querySelector(".login-error");
+      if (msg) msg.remove();
+    });
   });
 }
 
