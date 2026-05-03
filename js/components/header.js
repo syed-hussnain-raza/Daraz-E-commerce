@@ -1,26 +1,10 @@
-// header.js: renders header dynamically + handles login modal + mobile drawer
+// components/header.js
 
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("../data/header.json")
-    .then((res) => res.json())
-    .then((data) => {
-      renderHeader(data);
-      if (document.body.classList.contains("page-product")) {
-        setTimeout(() => initCategoriesDropdown(data.categories), 0);
-      }
-      initLoginModal();
-      initStickyHeader();
-      initMobileDrawer();
-    })
-    .catch((err) => console.error("Failed to load header.json:", err));
-});
-
-// Render Header
-function renderHeader(data) {
+function renderHeader(data, config = {}) {
   const header = document.querySelector("header");
   if (!header) return;
 
-  const isProductPage = document.body.classList.contains("page-product");
+  const isProductPage = config.isProductPage || false;
 
   const searchTagsHTML =
     isProductPage && data.searchTags
@@ -71,7 +55,6 @@ function renderHeader(data) {
       </div>`
     : `<div class="homepage-only-height"></div>`;
 
-  // Mobile drawer for main and product page
   const drawerTopBarItems = data.topBar
     .map((link) => {
       const icon = resolveDrawerIcon(link.label);
@@ -108,14 +91,9 @@ function renderHeader(data) {
     </div>`;
 
   header.innerHTML = `
-    <!-- Top bar -->
     <nav class="top-bar">
-      <div class="top-bar-inner">
-        ${topBarLinks}
-      </div>
+      <div class="top-bar-inner">${topBarLinks}</div>
     </nav>
-
-    <!-- Main header: logo, search, cart, hamburger -->
     <div class="main-header">
       <div class="main-header-inner">
         <a href="${data.logo.href}" class="logo-link">
@@ -129,17 +107,12 @@ function renderHeader(data) {
             <path d="M25.3333 29.3333C26.0696 29.3333 26.6666 28.7364 26.6666 28C26.6666 27.2636 26.0696 26.6667 25.3333 26.6667C24.5969 26.6667 23.9999 27.2636 23.9999 28C23.9999 28.7364 24.5969 29.3333 25.3333 29.3333Z" fill="white"/>
           </svg>
         </a>
-        <!-- Hamburger shown on mobile/tablet via CSS -->
         <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
     ${subNavHTML}
-
-    <!-- Login Modal -->
     <div class="login-overlay" id="login-overlay">
       <div class="login-modal" id="login-modal">
         <div class="login-tabs">
@@ -150,8 +123,6 @@ function renderHeader(data) {
             <i class="bi bi-x-lg"></i>
           </button>
         </div>
-
-        <!-- Password panel -->
         <div class="login-panel" id="panel-password">
           <input class="login-input" type="text" placeholder="Please enter your Phone or Email" id="login-email" required/>
           <div class="login-input-wrap">
@@ -162,9 +133,7 @@ function renderHeader(data) {
           </div>
           <a href="#" class="login-forgot">Forgot password?</a>
           <button class="login-btn">LOGIN</button>
-          <p class="login-signup-row">
-            Don't have an account? <a href="#" class="login-signup-link">Sign up</a>
-          </p>
+          <p class="login-signup-row">Don't have an account? <a href="#" class="login-signup-link">Sign up</a></p>
           <div class="login-or">Or, login with</div>
           <div class="login-social-row">
             <button class="login-social-btn">
@@ -175,19 +144,15 @@ function renderHeader(data) {
             </button>
           </div>
         </div>
-
-        <!-- Phone panel -->
         <div class="login-panel login-panel--hidden" id="panel-phone">
           <div class="login-phone-wrap">
-            <div class="login-phone-prefix"><span><span style=font-size:10px>PK</span>+92</span></div>
+            <div class="login-phone-prefix"><span><span style="font-size:10px">PK</span>+92</span></div>
             <input class="login-input login-input--phone" type="tel" placeholder="Please enter your phone number" />
           </div>
           <button class="login-btn login-btn--whatsapp">
             <img src="../assets/icons/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon"> Send code via Whatsapp
           </button>
-          <p class="login-signup-row">
-            Don't have an account? <a href="#" class="login-signup-link">Sign up</a>
-          </p>
+          <p class="login-signup-row">Don't have an account? <a href="#" class="login-signup-link">Sign up</a></p>
           <div class="login-or">Or, login with</div>
           <div class="login-social-row">
             <button class="login-social-btn">
@@ -202,18 +167,11 @@ function renderHeader(data) {
     </div>
   `;
 
-  // Inject drawer into body
-  const existing = document.getElementById("mobile-drawer");
-  if (!existing) {
+  if (!document.getElementById("mobile-drawer")) {
     document.body.insertAdjacentHTML("beforeend", mobileDrawerHTML);
-  }
-
-  if (isProductPage) {
-    setTimeout(initCategoriesDropdown, 0);
   }
 }
 
-// Map link label to Bootstrap icon
 function resolveDrawerIcon(label) {
   const map = {
     login: "bi-person",
@@ -236,10 +194,25 @@ function resolveDrawerIcon(label) {
   for (const [k, v] of Object.entries(map)) {
     if (key.includes(k)) return v;
   }
-  return "bi-chevron-right"; // fallback
+  return "bi-chevron-right";
 }
 
-// Mobile Drawer
+function openModal() {
+  const overlay = document.getElementById("login-overlay");
+  if (overlay) {
+    overlay.classList.add("login-overlay--open");
+    document.body.style.overflow = "hidden";
+  }
+}
+
+function closeModal() {
+  const overlay = document.getElementById("login-overlay");
+  if (overlay) {
+    overlay.classList.remove("login-overlay--open");
+    document.body.style.overflow = "";
+  }
+}
+
 function initMobileDrawer() {
   const hamburgerBtn = document.getElementById("hamburger-btn");
   if (!hamburgerBtn) return;
@@ -266,129 +239,25 @@ function initMobileDrawer() {
 
   hamburgerBtn.addEventListener("click", () => {
     const drawer = document.getElementById("mobile-drawer");
-    if (drawer?.classList.contains("is-open")) {
-      closeDrawer();
-    } else {
-      openDrawer();
-    }
+    drawer?.classList.contains("is-open") ? closeDrawer() : openDrawer();
   });
 
-  // Close on overlay click
   document.addEventListener("click", (e) => {
     if (e.target.id === "drawer-overlay") closeDrawer();
     if (e.target.closest("#drawer-close")) closeDrawer();
   });
 
-  // Close on Escape
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeDrawer();
   });
 
-  // Close drawer when a nav link is tapped
   document.addEventListener("click", (e) => {
     const link = e.target.closest(".drawer-nav a");
-    if (link && !link.dataset.action) {
-      closeDrawer();
-    }
-    // login links: open modal then close drawer
-    if (link && link.dataset.action === "login") {
-      closeDrawer();
-    }
+    if (link && !link.dataset.action) closeDrawer();
+    if (link && link.dataset.action === "login") closeDrawer();
   });
 }
 
-// Login Modal
-function initLoginModal() {
-  document.addEventListener("click", (e) => {
-    const link = e.target.closest("[data-action='login']");
-    if (link) {
-      e.preventDefault();
-      openModal();
-      return;
-    }
-
-    if (e.target.closest("#login-close")) {
-      closeModal();
-      return;
-    }
-
-    const overlay = document.getElementById("login-overlay");
-    if (overlay && e.target === overlay) {
-      closeModal();
-      return;
-    }
-
-    const tab = e.target.closest(".login-tab");
-    if (tab && tab.dataset.tab) {
-      document
-        .querySelectorAll(".login-tab")
-        .forEach((t) => t.classList.remove("login-tab--active"));
-      tab.classList.add("login-tab--active");
-      document
-        .querySelectorAll(".login-panel")
-        .forEach((p) => p.classList.add("login-panel--hidden"));
-      const panel = document.getElementById("panel-" + tab.dataset.tab);
-      if (panel) panel.classList.remove("login-panel--hidden");
-      return;
-    }
-
-    if (e.target.closest("#login-eye")) {
-      const passInput = document.getElementById("login-pass");
-      const eyeBtn = document.getElementById("login-eye");
-      if (passInput && eyeBtn) {
-        const isHidden = passInput.type === "password";
-        passInput.type = isHidden ? "text" : "password";
-        eyeBtn.innerHTML = isHidden
-          ? `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36" width="18" height="18" style="display:block"><circle cx="18" cy="17.5" r="4"></circle><path d="M3.284 18.47a1.77 1.77 0 0 1 0-1.94c3.167-4.84 8.573-8.03 14.711-8.03s11.545 3.19 14.711 8.03a1.77 1.77 0 0 1 0 1.94c-3.166 4.84-8.573 8.03-14.71 8.03-6.139 0-11.545-3.19-14.712-8.03"></path></svg>`
-          : '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36" width="18" height="18" style="display:block"><path d="M32.711 11c-3.166 4.841-8.573 8.03-14.71 8.03-6.139 0-11.546-3.189-14.712-8.03M9.79 17.5l-3 5m8.5-3-1 5.5m12.5-7.5 3 5m-8.5-3 1 5.5"></path></svg>';
-      }
-    }
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeModal();
-  });
-
-  // Validation
-  const inputs = document.querySelectorAll("#panel-password .login-input");
-  inputs.forEach((input) => {
-    input.addEventListener("blur", () => {
-      if (!input.value.trim()) {
-        let msg = input.nextElementSibling;
-        if (!msg || !msg.classList.contains("login-error")) {
-          msg = document.createElement("p");
-          msg.className = "login-error";
-          msg.textContent = "You can't leave this empty.";
-          input.parentNode.insertBefore(msg, input.nextSibling);
-        }
-      }
-    });
-
-    input.addEventListener("focus", () => {
-      input.style.borderColor = "";
-      const msg = input.parentNode.querySelector(".login-error");
-      if (msg) msg.remove();
-    });
-  });
-}
-
-function openModal() {
-  const overlay = document.getElementById("login-overlay");
-  if (overlay) {
-    overlay.classList.add("login-overlay--open");
-    document.body.style.overflow = "hidden";
-  }
-}
-
-function closeModal() {
-  const overlay = document.getElementById("login-overlay");
-  if (overlay) {
-    overlay.classList.remove("login-overlay--open");
-    document.body.style.overflow = "";
-  }
-}
-
-// Categories Mega Dropdown (product page only)
 function initCategoriesDropdown(categories) {
   const btn = document.getElementById("categories-btn");
   const dropdown = document.getElementById("cat-dropdown");
@@ -415,8 +284,8 @@ function initCategoriesDropdown(categories) {
   const rootList = document.getElementById("cat-root-list");
   const subPanel = document.getElementById("cat-sub-panel");
   const grandPanel = document.getElementById("cat-grand-panel");
-
   const subNav = btn.closest(".sub-nav");
+
   subNav.addEventListener("mouseenter", () => {
     dropdown.classList.add("cat-dropdown--open");
     chevron.style.transform = "rotate(180deg)";
@@ -457,18 +326,15 @@ function initCategoriesDropdown(categories) {
       subItem.addEventListener("mouseenter", () => {
         const si = Number(subItem.dataset.index);
         const sub = cat.subs[si];
-
         subPanel
           .querySelectorAll(".cat-sub-item")
           .forEach((el) => el.classList.remove("cat-sub-item--active"));
         subItem.classList.add("cat-sub-item--active");
-
         if (!sub.grands.length) {
           grandPanel.innerHTML = "";
           grandPanel.classList.remove("cat-grand-panel--visible");
           return;
         }
-
         grandPanel.innerHTML = sub.grands
           .map((g) => `<a href="#" class="cat-grand-item">${g}</a>`)
           .join("");

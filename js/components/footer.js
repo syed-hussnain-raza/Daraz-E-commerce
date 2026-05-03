@@ -1,18 +1,5 @@
-// footer.js: renders footer dynamically + side nav (main page)
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("../data/footer.json")
-    .then((res) => res.json())
-    .then((data) => {
-      renderFooter(data);
-      // Side nav only exists on main page
-      if (document.getElementById("side-nav")) {
-        initSideNav();
-      }
-    })
-    .catch((err) => console.error("Failed to load footer.json:", err));
-});
+// components/footer.js
 
-// Render Footer
 function renderFooter(data) {
   const footer = document.querySelector("footer.site-footer");
   if (!footer) return;
@@ -20,20 +7,15 @@ function renderFooter(data) {
   const isMainPage = !!document.querySelector(".flash-sale");
 
   footer.innerHTML = `
-    <!-- Row 1: Customer Care, Daraz links, App download -->
     <div class="footer-top">
       <div class="footer-inner">
         <div class="inner-row">
-
-          <!-- Customer Care -->
           <div class="col-12 col-sm-6 col-lg-3">
             <h3 class="footer-heading">${data.customerCare.heading}</h3>
             <ul class="footer-list">
               ${data.customerCare.links.map((l) => `<li><a href="${l.href}">${l.label}</a></li>`).join("")}
             </ul>
           </div>
-
-          <!-- Daraz Links -->
           <div class="col-12 col-sm-6 col-lg-3">
             <h3 class="footer-heading">${data.darazLinks.heading}</h3>
             <ul class="footer-list">
@@ -46,8 +28,6 @@ function renderFooter(data) {
                 .join("")}
             </ul>
           </div>
-
-          <!-- App Download -->
           <div class="col-12 col-sm-12 col-lg-6">
             <div class="footer-app-col">
               <div class="footer-app-identity">
@@ -67,28 +47,22 @@ function renderFooter(data) {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
 
-    <!-- Row 2: Payment methods + Verified by -->
     <div class="footer-payments">
       <div class="payment-container">
         <div class="footer-width-32">
           <h3 class="footer-heading">${data.paymentMethods.heading}</h3>
           <div class="footer-pay-icons">
-            ${data.paymentMethods.icons
-              .map((i) => `<img src="${i.src}" alt="${i.alt}" />`)
-              .join("")}
+            ${data.paymentMethods.icons.map((i) => `<img src="${i.src}" alt="${i.alt}" />`).join("")}
           </div>
         </div>
         <div class="footer-width-32">
           <h3 class="footer-heading">${data.verifiedBy.heading}</h3>
           <div class="footer-verified-icons">
-            ${data.verifiedBy.icons
-              .map((i) => `<img src="${i.src}" alt="${i.alt}" />`)
-              .join("")}
+            ${data.verifiedBy.icons.map((i) => `<img src="${i.src}" alt="${i.alt}" />`).join("")}
           </div>
         </div>
       </div>
@@ -96,7 +70,6 @@ function renderFooter(data) {
 
     ${isMainPage ? renderAboutSection(data) : ""}
 
-    <!-- Row 4: International, Follow Us, Copyright -->
     <div class="footer-bottom">
       <div class="footer-inner">
         <div class="row g-2">
@@ -131,11 +104,9 @@ function renderFooter(data) {
   `;
 }
 
-// About + Tags (main page only)
 function renderAboutSection(data) {
   const { about, tags } = data;
 
-  // Build left about column
   const leftAbout = `
     <h1 class="footer-about-h1">${about.sections[0].heading}</h1>
     <p class="footer-about-body">${about.sections[0].body}</p>
@@ -148,17 +119,13 @@ function renderAboutSection(data) {
       .join("")}
   `;
 
-  // Build right about column
   const rightAbout = `
     <p class="footer-about-body">
       ${about.continuedText}
-      ${about.moreSections
-        .map((s) => `<br /><strong>${s.bold}</strong><br />${s.text}`)
-        .join("")}
+      ${about.moreSections.map((s) => `<br /><strong>${s.bold}</strong><br />${s.text}`).join("")}
     </p>
   `;
 
-  // Split tag groups into two columns
   const leftGroups = tags.groups.slice(0, 7);
   const rightGroups = tags.groups.slice(7);
 
@@ -188,60 +155,4 @@ function renderAboutSection(data) {
       </div>
     </div>
   `;
-}
-
-// Side Navigator (main page only)
-
-function initSideNav() {
-  const sideNav = document.getElementById("side-nav");
-  if (!sideNav) return;
-
-  const navTop = document.getElementById("nav-top");
-  const navItems = document.querySelectorAll(".side-nav-item[data-section]");
-  const sections = ["flash-sale", "categories", "just-for-you"];
-
-  navTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  navItems.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const section = document.querySelector("." + btn.dataset.section);
-      if (section) section.scrollIntoView({ behavior: "smooth" });
-    });
-  });
-
-  const flashSale = document.querySelector(".flash-sale");
-  if (!flashSale) return;
-
-  window.addEventListener("scroll", () => {
-    const flashTop = flashSale.getBoundingClientRect().top;
-    sideNav.classList.toggle(
-      "side-nav--visible",
-      flashTop < window.innerHeight,
-    );
-  });
-
-  const activeObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const sectionClass = sections.find((c) =>
-            entry.target.classList.contains(c),
-          );
-          navItems.forEach((btn) => {
-            btn.classList.toggle(
-              "nav--active",
-              btn.dataset.section === sectionClass,
-            );
-          });
-        }
-      });
-    },
-    { threshold: 0, rootMargin: "0px 0px -45% 0px" },
-  );
-
-  document
-    .querySelectorAll(".flash-sale, .categories, .just-for-you")
-    .forEach((sec) => activeObserver.observe(sec));
 }
