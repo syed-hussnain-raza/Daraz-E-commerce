@@ -26,3 +26,21 @@ function initStickyHeader() {
   window.addEventListener("scroll", update, { passive: true });
   update();
 }
+
+function starsHTML(rating) {
+  let html = "";
+  for (let i = 1; i <= 5; i++) {
+    if (rating >= i) {
+      html += `<i class="bi bi-star-fill"></i>`;
+    } else if (rating >= i - 0.5) {
+      html += `<i class="bi bi-star-half"></i>`;
+    } else {
+      html += `<i class="bi bi-star"></i>`;
+    }
+  }
+  return html;
+}
+
+function getQueryParam(key) {
+  return new URLSearchParams(window.location.search).get(key);
+}
