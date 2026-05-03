@@ -1,0 +1,65 @@
+/* 
+   BASE — CSS variables, font face, global reset
+   Loaded by every page.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+:root {
+  --color-primary: #f85606;
+  --text-primary: #f57224;
+  --peach: #ffe1d2;
+  --white: #ffffff;
+  --text-dark: #333333;
+  --text-muted: #888888;
+  --border: #d5d5d5;
+  --Roboto-Regular: "Roboto", Helvetica, Arial, sans-serif;
+
+  --font:
+    NotoSans-Regular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue,
+    Helvetica, Tahoma, Arial, PingFang SC, Microsoft YaHei, sans-serif;
+}
+
+@font-face {
+  font-family: "NotoSans-Regular";
+  src: url(//g.lazcdn.com/g/lzd/assets/1.2.13/font/EuclidCircularA-Regular.woff2)
+    format("woff2");
+  font-display: fallback;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text-dark);
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}

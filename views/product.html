@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../assets/icons/favicon-product.jpeg"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Grid only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles/base.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/loginModal.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/product.css" />
+    <title>Daraz.pk</title>
+  </head>
+
+  <body class="page-product">
+    <!-- Header -->
+    <header></header>
+
+    <!-- Main -->
+    <div class="product-main">
+      <!-- Breadcrumb  -->
+      <div class="breadcrumb-bar">
+        <div class="pd-container">
+          <nav class="breadcrumb-nav"></nav>
+        </div>
+      </div>
+
+      <!-- Product Section -->
+      <div class="pd-container">
+        <div class="pd-layout">
+          <!-- LEFT: image gallery -->
+          <div class="pd-gallery">
+            <!-- Magnifier wrapper -->
+            <div class="pd-main-image-wrap" id="pd-zoom-wrap">
+              <img
+                src="../assets/products/just-for-you/dustproof.png"
+                alt="Product image"
+                class="pd-main-image"
+                id="pd-main-img"
+              />
+              <div class="pd-zoom-lens" id="pd-zoom-lens"></div>
+            </div>
+            <hr class="pd-divider" />
+
+            <!-- Zoom result panel -->
+            <div class="pd-zoom-result" id="pd-zoom-result"></div>
+
+            <!-- Thumb strip: populated by product.js -->
+            <div class="pd-thumbs-wrap">
+              <button
+                class="pd-thumb-nav pd-thumb-prev"
+                id="pd-thumb-prev"
+                aria-label="Previous"
+              >
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <div class="pd-thumbs" id="pd-thumbs"></div>
+              <button
+                class="pd-thumb-nav pd-thumb-next"
+                id="pd-thumb-next"
+                aria-label="Next"
+              >
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- MIDDLE: product info  -->
+          <div class="pd-info">
+            <h1 class="pd-title"></h1>
+
+            <!-- Rating row  -->
+            <div class="pd-rating-row"></div>
+
+            <!-- Brand  -->
+            <p class="pd-brand"></p>
+
+            <!-- Price block  -->
+            <div class="pd-price-block">
+              <span class="pd-price"></span>
+              <div>
+                <span class="pd-original"></span>
+                <span class="pd-discount-badge"></span>
+              </div>
+            </div>
+
+            <!-- Quantity -->
+            <div class="pd-option-row">
+              <span class="pd-option-label">Quantity</span>
+              <div class="pd-qty-row">
+                <button class="pd-qty-btn" id="qty-minus">
+                  <i class="bi bi-dash"></i>
+                </button>
+                <span class="pd-qty-val" id="qty-val">1</span>
+                <button class="pd-qty-btn" id="qty-plus">
+                  <i class="bi bi-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- CTA buttons -->
+            <div class="pd-cta-row">
+              <button class="pd-btn-buy">Buy Now</button>
+              <button class="pd-btn-cart">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- RIGHT: delivery and seller cards -->
+          <div class="pd-sidebar">
+            <!-- Delivery Options card -->
+            <div class="pd-card" id="pd-card-delivery"></div>
+
+            <!-- Return & Warranty card -->
+            <div class="pd-card pb-0" id="pd-card-warranty"></div>
+
+            <!-- QR + App card -->
+            <div class="pd-card pt-10" id="pd-card-qr">
+              <div class="pd-app-card">
+                <img
+                  src="../assets/images/product-qr.png"
+                  alt="QR Code"
+                  class="pd-qr"
+                />
+                <div class="pd-app-info">
+                  <img
+                    src="../assets/images/daraz.png"
+                    alt="Daraz App"
+                    class="pd-app-icon"
+                  />
+                  <p>Download app to enjoy<br />exclusive discounts!</p>
+                </div>
+              </div>
+              <p class="scn-wth-mob">
+                <i class="bi bi-phone"></i> Scan with mobile
+              </p>
+            </div>
+
+            <!-- Seller card -->
+            <div class="pd-card pt-0 mt-8" id="pd-card-seller"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Details + Specs  -->
+      <div class="pd-container pd-lower">
+        <div class="pd-lower-main">
+          <!-- Product Details -->
+          <h2 class="pd-section-title px-24 m-0">Product details of</h2>
+          <div class="pd-section-card" id="details">
+            <!-- Bullet list  -->
+            <ul class="pd-details-list"></ul>
+
+            <!-- Long description -->
+            <div class="pd-desc-wrap" id="pd-desc-wrap">
+              <div class="pd-desc-content" id="pd-desc-content"></div>
+              <div class="pd-desc-fade" id="pd-desc-fade"></div>
+            </div>
+
+            <!-- View More button -->
+            <div class="pd-view-more-wrap" id="pd-view-more-wrap">
+              <button class="pd-view-more-btn" id="pd-view-more-btn">
+                VIEW MORE
+              </button>
+            </div>
+          </div>
+
+          <!-- Ratings & Reviews  -->
+          <div class="pd-section-card px-0" id="reviews">
+            <h2 class="pd-section-title px-24"></h2>
+
+            <div class="pd-ratings-overview px-24">
+              <div class="pd-rating-big">
+                <span class="pd-rating-num"></span>
+                <div class="pd-stars-big"></div>
+                <p class="pd-rating-count"></p>
+              </div>
+              <div class="pd-rating-bars">
+                <!-- Static bars -->
+                <div class="pd-bar-row">
+                  <div class="pd-bar-stars">
+                    <i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <div class="pd-bar-track">
+                    <div class="pd-bar-fill w-92"></div>
+                  </div>
+                  <span class="pd-bar-count">5★</span>
+                </div>
+                <div class="pd-bar-row">
+                  <div class="pd-bar-stars">
+                    <i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <div class="pd-bar-track">
+                    <div class="pd-bar-fill w-5"></div>
+                  </div>
+                  <span class="pd-bar-count">4★</span>
+                </div>
+                <div class="pd-bar-row">
+                  <div class="pd-bar-stars">
+                    <i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <div class="pd-bar-track">
+                    <div class="pd-bar-fill w-3"></div>
+                  </div>
+                  <span class="pd-bar-count">3★</span>
+                </div>
+                <div class="pd-bar-row">
+                  <div class="pd-bar-stars">
+                    <i class="bi bi-star-fill"></i
+                    ><i class="bi bi-star-fill"></i> <i class="bi bi-star"></i
+                    ><i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <div class="pd-bar-track">
+                    <div class="pd-bar-fill w-1"></div>
+                  </div>
+                  <span class="pd-bar-count">2★</span>
+                </div>
+                <div class="pd-bar-row">
+                  <div class="pd-bar-stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i><i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <div class="pd-bar-track">
+                    <div class="pd-bar-fill w-2"></div>
+                  </div>
+                  <span class="pd-bar-count">1★</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Filter row -->
+            <div class="pd-review-filter-row">
+              <span>Product Reviews</span>
+              <div class="pd-review-filters">
+                <button class="pd-filter-btn">
+                  <i class="bi bi-arrow-down-up"></i>
+                  <span class="col-757">Sort</span>: Relevance
+                </button>
+                <button class="pd-filter-btn">
+                  <i class="bi bi-funnel"></i>
+                  <span class="col-757">Filter</span>: All star
+                </button>
+              </div>
+            </div>
+
+            <!-- Review cards  -->
+            <div class="pd-review-list px-24"></div>
+
+            <!-- Pagination -->
+            <div class="pd-pagination">
+              <button class="pd-page-btn pd-page-prev" disabled>
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <button class="pd-page-btn pd-page-active">1</button>
+              <button class="pd-page-btn">2</button>
+              <button class="pd-page-btn">3</button>
+              <button class="pd-page-btn pd-page-next">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Questions  -->
+          <div class="pd-section-card" id="questions">
+            <h2 class="pd-section-title px-24"></h2>
+            <div class="px-24">
+              <p class="pd-qa-login">
+                <a href="#" class="pd-brand-link">Login</a> or
+                <a href="#" class="pd-brand-link">Register</a> to ask questions
+              </p>
+              <p class="pd-qa-sub"></p>
+
+              <!-- Static Sample Q&A -->
+              <div class="pd-qa-list">
+                <div class="pd-qa-item">
+                  <div class="pd-qa-badge pd-qa-q">Q</div>
+                  <div class="pd-qa-body">
+                    <p>Is this product original and of good quality?</p>
+                    <p class="pd-qa-meta">Customer - 10 Jan 2026</p>
+                  </div>
+                </div>
+                <div class="pd-qa-item pd-qa-answer">
+                  <div class="pd-qa-badge pd-qa-a">A</div>
+                  <div class="pd-qa-body">
+                    <p>Yes, 100% original product with quality guarantee.</p>
+                    <p class="pd-qa-meta">Seller - Answered within 2 hours</p>
+                  </div>
+                </div>
+                <div class="pd-qa-item">
+                  <div class="pd-qa-badge pd-qa-q">Q</div>
+                  <div class="pd-qa-body">
+                    <p>How long does delivery take?</p>
+                    <p class="pd-qa-meta">Customer - 15 Jan 2026</p>
+                  </div>
+                </div>
+                <div class="pd-qa-item pd-qa-answer">
+                  <div class="pd-qa-badge pd-qa-a">A</div>
+                  <div class="pd-qa-body">
+                    <p>
+                      Delivery takes 2-5 business days depending on your
+                      location.
+                    </p>
+                    <p class="pd-qa-meta">Seller - Answered within 1 day</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pd-pagination">
+              <button class="pd-page-btn pd-page-prev" disabled>
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <button class="pd-page-btn pd-page-active">1</button>
+              <button class="pd-page-btn">2</button>
+              <button class="pd-page-btn pd-page-next">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- You May Also Like  -->
+      <div class="pd-container yml my-3">
+        <h2 class="pd-section-title">You may also like</h2>
+        <div class="yml-cards">
+          <div class="pd-also-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer"></footer>
+
+    <!-- Floating Messages Button -->
+    <a href="#" class="float-messages" aria-label="Messages">
+      <i class="bi bi-chat-left-fill"></i>
+      <span>Messages</span>
+    </a>
+
+    <!-- Script files required -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/services/headerService.js"></script>
+    <script src="../js/services/footerService.js"></script>
+    <script src="../js/services/productService.js"></script>
+    <script src="../js/components/footer.js"></script>
+    <script src="../js/components/header.js"></script>
+    <script src="../js/components/deliveryCard.js"></script>
+    <script src="../js/components/productGallery.js"></script>
+    <script src="../js/components/reviewList.js"></script>
+    <script src="../js/pages/product.js"></script>
+    <script src="../js/components/loginModal.js"></script>
+  </body>
+</html>

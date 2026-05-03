@@ -1,0 +1,319 @@
+/*
+   Login Modal
+*/
+.login-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font);
+}
+
+.login-overlay--open {
+  display: flex;
+}
+
+.login-modal {
+  background: var(--white);
+  border-radius: 6px;
+  min-height: 445px;
+  width: 445px;
+  max-width: 95vw;
+  padding: 0;
+  position: absolute;
+  top: 50.9%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font);
+}
+
+/* Tabs row */
+.login-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 36px;
+  margin-top: 26px;
+  width: 100%;
+  position: relative;
+}
+
+.login-eye svg {
+  width: 24px;
+  height: 24px;
+  stroke: #858b9c;
+  stroke-width: 2;
+}
+
+.login-tab {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #858b9c;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 16px;
+  font-family: var(--font);
+}
+
+.login-tab--active {
+  color: #2e3346;
+}
+
+.login-tab-divider {
+  width: 1px;
+  height: 18px;
+  background: #e3e7f1;
+}
+
+.login-close {
+  position: absolute;
+  right: 26px;
+  top: 20%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #858b9c;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Panel */
+.login-panel {
+  margin-top: 36px;
+  padding: 0 36px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* gap: 20px; */
+}
+
+.login-panel#panel-phone {
+  margin-top: 72px;
+  padding: 0 24px;
+}
+
+.login-panel--hidden {
+  display: none;
+}
+
+/* Inputs */
+.login-input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #cbced5;
+  padding: 0 18px;
+  font-size: 14px;
+  /* font-family: var(--font); */
+  outline: none;
+  transition: border-color 0.15s;
+  border-radius: 6px;
+}
+
+.login-input::placeholder {
+  color: #858b9c;
+}
+
+.login-input:focus {
+  border-color: rgb(30, 113, 255);
+}
+
+.login-input-wrap {
+  margin-top: 18px;
+  position: relative;
+}
+
+.login-input-wrap .login-input {
+  padding-right: 44px;
+}
+
+.login-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #858b9c;
+  font-size: 24px;
+  padding: 0;
+}
+
+/* Forgot */
+.login-forgot {
+  font-size: 14px;
+  color: #858b9c;
+  margin-top: 6px;
+  text-align: right;
+}
+
+/* Login button */
+.login-btn {
+  width: 100%;
+  height: 40px;
+  background: #f57224;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  margin-top: 24px;
+  font-family: var(--font);
+}
+
+.login-btn:hover {
+  opacity: 0.9;
+}
+
+/* Sign up row */
+.login-signup-row {
+  font-size: 14px;
+  color: #858b9c;
+  text-align: center;
+  margin: 0;
+  margin-top: 12px;
+}
+
+.login-signup-link {
+  color: #1e71ff;
+  font-weight: 500;
+}
+
+/* Or divider */
+.login-or {
+  font-size: 14px;
+  color: #858b9c;
+  text-align: center;
+  position: relative;
+  margin-top: 52px;
+}
+
+#panel-phone .login-or {
+  margin-top: 76px;
+}
+
+.login-or::before,
+.login-or::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 28%;
+  height: 1px;
+}
+
+.login-or::before {
+  left: 0;
+}
+.login-or::after {
+  right: 0;
+}
+
+.login-error {
+  color: #d20b0b;
+  font-size: 14px;
+  margin-top: 6px;
+  font-family: var(--font);
+}
+
+/* Social buttons */
+.login-social-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.login-social-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0px 16px 0;
+  font-size: 14px;
+  font-family: var(--font);
+  cursor: pointer;
+  color: #858b9c;
+}
+
+/* Phone tab input */
+.login-phone-wrap {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  overflow: hidden;
+  gap: 6px;
+}
+
+.login-phone-prefix {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 22px;
+  font-size: 14px;
+  border: 1px solid #cbced5;
+  border-radius: 6px;
+  height: 100%;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: Arial, "Segoe UI Emoji";
+}
+
+.login-input--phone {
+  height: 100%;
+  flex: 1;
+  border: 1px solid #cbced5;
+  border-radius: 6px;
+}
+
+/* WhatsApp button */
+.login-btn--whatsapp {
+  background: #f57224;
+  display: flex;
+  align-items: center;
+  max-height: 40px;
+  gap: 76px;
+  margin-top: 49px;
+  padding: 0 18px;
+  letter-spacing: normal;
+}
+
+.login-btn--whatsapp:hover {
+  opacity: 0.9;
+}
+
+.whatsapp-icon {
+  height: 22px;
+  width: 22px;
+}
+
+.fb-fwc {
+  color: #1877f2;
+  font-size: 22px;
+}
+
+@media (max-width: 959px) {
+  .login-modal {
+    width: 100%;
+    max-width: 100vw;
+    min-height: unset;
+    border-radius: 12px 12px 0 0;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    position: fixed;
+    padding-bottom: 32px;
+  }
+
+  .login-overlay {
+    align-items: flex-end;
+  }
+}
