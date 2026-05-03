@@ -1,5 +1,5 @@
 async function fetchFooterData() {
-  const res = await fetch("../data/footer.json");
-  if (!res.ok) throw new Error("Failed to load footer.json");
+  const res = await fetch("http://localhost:3000/api/footer");
+  if (!res.ok) throw new Error("Failed to load footer");
   return res.json();
 }

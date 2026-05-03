@@ -1,0 +1,30 @@
+{
+  "name": "daraz-e-commerce",
+  "version": "1.0.0",
+  "description": "Daraz Clone - Part of training at Hazelsoft",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syed-hussnain-raza/Daraz-E-commerce.git"
+  },
+  "keywords": [],
+  "author": "Syed Muhammad Hussnain Raza",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/syed-hussnain-raza/Daraz-E-commerce/issues"
+  },
+  "homepage": "https://github.com/syed-hussnain-raza/Daraz-E-commerce#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
