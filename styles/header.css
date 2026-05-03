@@ -70,12 +70,12 @@ header {
 
 .main-header-inner {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   height: 60px;
   max-width: 1188px;
   width: 100%;
   margin: 0 auto;
-  /* padding: 0 16px; */
+  padding-top: 14px;
   box-sizing: border-box;
 }
 
