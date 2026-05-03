@@ -29,6 +29,7 @@
 
     <link rel="stylesheet" href="../styles/base.css" />
     <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/loginModal.css" />
     <link rel="stylesheet" href="../styles/footer.css" />
     <link rel="stylesheet" href="../styles/product.css" />
     <title>Daraz.pk</title>
@@ -266,9 +267,7 @@
             <div class="pd-review-filter-row">
               <span>Product Reviews</span>
               <div class="pd-review-filters">
-                <button
-                  class="pd-filter-btn"
-                >
+                <button class="pd-filter-btn">
                   <i class="bi bi-arrow-down-up"></i>
                   <span class="col-757">Sort</span>: Relevance
                 </button>
@@ -374,10 +373,17 @@
       <span>Messages</span>
     </a>
 
-    <!-- Scripts: utils, header, footer, product -->
+    <!-- Script files required -->
     <script src="../js/utils.js"></script>
-    <script src="../js/header.js"></script>
-    <script src="../js/footer.js"></script>
-    <script src="../js/product.js"></script>
+    <script src="../js/services/headerService.js"></script>
+    <script src="../js/services/footerService.js"></script>
+    <script src="../js/services/productService.js"></script>
+    <script src="../js/components/footer.js"></script>
+    <script src="../js/components/header.js"></script>
+    <script src="../js/components/deliveryCard.js"></script>
+    <script src="../js/components/productGallery.js"></script>
+    <script src="../js/components/reviewList.js"></script>
+    <script src="../js/pages/product.js"></script>
+    <script src="../js/components/loginModal.js"></script>
   </body>
 </html>
