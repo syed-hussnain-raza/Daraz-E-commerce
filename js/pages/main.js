@@ -6,6 +6,7 @@ let jfyPage = 0;
 
 document.addEventListener("DOMContentLoaded", async () => {
   const data = await fetchMainData();
+  const TIMEOUT = 800;
 
   renderCarousel(data.carousel);
   renderFlashSale(data.flashSale);
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderJustForYou(true);
       loader.style.display = "none";
       btn.style.display = "block";
-    }, 800);
+    }, TIMEOUT);
   });
 });
 

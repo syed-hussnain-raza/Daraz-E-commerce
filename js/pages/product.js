@@ -77,7 +77,7 @@ function populatePage(p) {
   initZoom();
   initQty();
   initColorSelect();
-  initFlashTimer();
+  // initFlashTimer();
   initViewMore();
 }
 
@@ -212,22 +212,22 @@ function initColorSelect() {
   });
 }
 
-function initFlashTimer() {
-  const el = document.getElementById("flash-timer");
-  if (!el) return;
-  let total = 10 * 3600 + 1 * 60 + 55;
-  setInterval(() => {
-    if (total <= 0) {
-      el.textContent = "00:00:00";
-      return;
-    }
-    total--;
-    const h = String(Math.floor(total / 3600)).padStart(2, "0");
-    const m = String(Math.floor((total % 3600) / 60)).padStart(2, "0");
-    const s = String(total % 60).padStart(2, "0");
-    el.textContent = `${h}:${m}:${s}`;
-  }, 1000);
-}
+// function initFlashTimer() {
+//   const el = document.getElementById("flash-timer");
+//   if (!el) return;
+//   let total = 10 * 3600 + 1 * 60 + 55;
+//   setInterval(() => {
+//     if (total <= 0) {
+//       el.textContent = "00:00:00";
+//       return;
+//     }
+//     total--;
+//     const h = String(Math.floor(total / 3600)).padStart(2, "0");
+//     const m = String(Math.floor((total % 3600) / 60)).padStart(2, "0");
+//     const s = String(total % 60).padStart(2, "0");
+//     el.textContent = `${h}:${m}:${s}`;
+//   }, 1000);
+// }
 
 function initViewMore() {
   const btn = document.getElementById("pd-view-more-btn");

@@ -5,6 +5,9 @@ function initThumbs() {
   const mainImg = document.getElementById("pd-main-img");
   if (!thumbs.length || !mainImg) return;
 
+  const LEFT = 80; // scroll amount for thumb strip
+  const TIMEOUT = 120; // transition timeout
+
   let lockedSrc = mainImg.src;
 
   thumbs.forEach((thumb) => {
@@ -16,7 +19,7 @@ function initThumbs() {
         mainImg.src = src;
         mainImg.style.opacity = "1";
         if (window.updateZoomBg) window.updateZoomBg(src);
-      }, 120);
+      }, TIMEOUT);
     });
 
     thumb.addEventListener("mouseleave", () => {
@@ -25,7 +28,7 @@ function initThumbs() {
         mainImg.src = lockedSrc;
         mainImg.style.opacity = "1";
         if (window.updateZoomBg) window.updateZoomBg(lockedSrc);
-      }, 120);
+      }, TIMEOUT);
     });
 
     thumb.addEventListener("click", () => {
@@ -37,7 +40,7 @@ function initThumbs() {
         mainImg.src = src;
         mainImg.style.opacity = "1";
         if (window.updateZoomBg) window.updateZoomBg(src);
-      }, 120);
+      }, TIMEOUT);
     });
   });
 
@@ -49,7 +52,7 @@ function initThumbs() {
     const idx = [...thumbs].indexOf(active);
     const prev = idx > 0 ? idx - 1 : thumbs.length - 1;
     thumbs[prev].click();
-    strip.scrollBy({ left: -80, behavior: "smooth" });
+    strip.scrollBy({ left: -LEFT, behavior: "smooth" });
   });
 
   document.getElementById("pd-thumb-next")?.addEventListener("click", () => {
@@ -58,7 +61,7 @@ function initThumbs() {
     const idx = [...thumbs].indexOf(active);
     const next = idx < thumbs.length - 1 ? idx + 1 : 0;
     thumbs[next].click();
-    strip.scrollBy({ left: 80, behavior: "smooth" });
+    strip.scrollBy({ left: LEFT, behavior: "smooth" });
   });
 }
 
@@ -85,12 +88,15 @@ function initZoom() {
     const gallery = document.querySelector(".pd-gallery");
     if (!layout || !gallery) return;
 
+    const WIDTH = 200;
+    const HEIGHT = 300;
+
     const layoutRect = layout.getBoundingClientRect();
     const galleryRect = gallery.getBoundingClientRect();
     const wrapRect = wrap.getBoundingClientRect();
 
-    const panelW = Math.max(layoutRect.right - galleryRect.right - 20, 200);
-    const panelH = Math.max(wrapRect.width * 1.5, 300);
+    const panelW = Math.max(layoutRect.right - galleryRect.right - 20, WIDTH);
+    const panelH = Math.max(wrapRect.width * 1.5, HEIGHT);
 
     result.style.width = panelW + "px";
     result.style.height = panelH + "px";

@@ -3,6 +3,7 @@
 let currentIndex = 0;
 let totalSlides = 0;
 let autoTimer = null;
+const AUTOPLAYTIME = 5000; // 5 seconds
 
 function renderCarousel(slides) {
   const track = document.getElementById("carousel-track");
@@ -63,7 +64,7 @@ function goTo(index) {
 function startAutoPlay() {
   autoTimer = setInterval(() => {
     goTo((currentIndex + 1) % totalSlides);
-  }, 5000);
+  }, AUTOPLAYTIME);
 }
 
 function resetAutoPlay() {
