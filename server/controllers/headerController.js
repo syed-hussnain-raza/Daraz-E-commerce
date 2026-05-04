@@ -1,3 +1,24 @@
+// Header controller
 const data = require("../data/header.json");
-const getHeader = (req, res) => res.json(data);
+
+// Get header data
+const getHeader = (req, res) => {
+  const { id } = req.query;
+
+  // BAD REQUEST (400)
+  if (id && typeof id !== "string") {
+    return res.status(400).json({
+      success: false,
+      message: "Bad Request: invalid 'id' format",
+    });
+  }
+
+  // SUCCESS (200)
+  return res.status(200).json({
+    success: true,
+    data: data,
+  });
+};
+
+// Export controller
 module.exports = { getHeader };
