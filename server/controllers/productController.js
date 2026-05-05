@@ -1,42 +1,25 @@
-// Product controller
+// controllers/productController.js
 const data = require("../data/products.json");
 
-// Get all products
+// Import the response handler utility for consistent API responses
+const { handleResponse } = require("../utils/responseHandler");
+
+// GET /products
 const getProducts = (req, res) => {
-  return res.status(200).json({
-    success: true,
-    data: data.products,
-  });
+  return handleResponse(res, data.products);
 };
 
-// Get product by ID
+// GET /products/:id
 const getProductById = (req, res) => {
   const { id } = req.params;
-
-  // BAD REQUEST (400)
-  if (!id) {
-    return res.status(400).json({
-      success: false,
-      message: "Bad Request: product id is required",
-    });
-  }
-
   const product = data.products.find((p) => p.id === id);
 
-  // NOT FOUND (404)
-  if (!product) {
-    return res.status(404).json({
-      success: false,
-      message: "Product not found",
-    });
-  }
-
-  // SUCCESS (200)
-  return res.status(200).json({
-    success: true,
-    data: product,
+  // Use the response handler to manage required params and not found cases
+  return handleResponse(res, product, {
+    required: { id },
+    notFoundMsg: "Product not found",
   });
 };
 
-// Export controllers
+// export the controller functions to be used in route definitions
 module.exports = { getProducts, getProductById };

@@ -1,24 +1,19 @@
-// Footer controller
+// Controller for footer-related endpoints
+
+// In a real application, this would likely interact with a database or another data source.
 const data = require("../data/footer.json");
 
-// Get footer data
+// Import the response handler utility for consistent API responses
+const { handleResponse } = require("../utils/responseHandler");
+
+// GET /footer?id=123
 const getFooter = (req, res) => {
+  // Extract 'id' from query parameters and validate it as a string
   const { id } = req.query;
-
-  // BAD REQUEST (400)
-  if (id && typeof id !== "string") {
-    return res.status(400).json({
-      success: false,
-      message: "Bad Request: invalid 'id' format",
-    });
-  }
-
-  // SUCCESS (200)
-  return res.status(200).json({
-    success: true,
-    data: data,
+  return handleResponse(res, data, {
+    rules: { id: { value: id, type: "string" } },
   });
 };
 
-// Export the controller functions
+// export the controller functions to be used in route definitions
 module.exports = { getFooter };

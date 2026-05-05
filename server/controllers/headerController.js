@@ -1,24 +1,17 @@
-// Header controller
+// Controller for header-related endpoints
 const data = require("../data/header.json");
 
-// Get header data
+// Import the response handler utility for consistent API responses
+const { handleResponse } = require("../utils/responseHandler");
+
+// GET /header?id=123
 const getHeader = (req, res) => {
+  // Extract 'id' from query parameters and validate it as a string
   const { id } = req.query;
-
-  // BAD REQUEST (400)
-  if (id && typeof id !== "string") {
-    return res.status(400).json({
-      success: false,
-      message: "Bad Request: invalid 'id' format",
-    });
-  }
-
-  // SUCCESS (200)
-  return res.status(200).json({
-    success: true,
-    data: data,
+  return handleResponse(res, data, {
+    rules: { id: { value: id, type: "string" } },
   });
 };
 
-// Export controller
+// export the controller functions to be used in route definitions
 module.exports = { getHeader };
