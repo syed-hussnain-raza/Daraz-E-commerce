@@ -2,33 +2,65 @@
   "customerCare": {
     "heading": "Customer Care",
     "links": [
-      { "label": "Help Center", "href": "#" },
-      { "label": "How to Buy", "href": "#" },
-      { "label": "Corporate & Bulk Purchasing", "href": "#" },
-      { "label": "Returns & Refunds", "href": "#" },
-      { "label": "Daraz Shop", "href": "#" },
-      { "label": "Contact Us", "href": "#" },
-      { "label": "Purchase Protection", "href": "#" },
-      { "label": "Daraz Pick up Points", "href": "#" }
+      { "label": "Help Center", "href": "#", "id": "help-center" },
+      { "label": "How to Buy", "href": "#", "id": "how-to-buy" },
+      {
+        "label": "Corporate & Bulk Purchasing",
+        "href": "#",
+        "id": "corporate-bulk-purchasing"
+      },
+      { "label": "Returns & Refunds", "href": "#", "id": "returns-refunds" },
+      { "label": "Daraz Shop", "href": "#", "id": "daraz-shop" },
+      { "label": "Contact Us", "href": "#", "id": "contact-us" },
+      {
+        "label": "Purchase Protection",
+        "href": "#",
+        "id": "purchase-protection"
+      },
+      {
+        "label": "Daraz Pick up Points",
+        "href": "#",
+        "id": "daraz-pick-up-points"
+      }
     ]
   },
   "darazLinks": {
     "heading": "Daraz",
     "links": [
-      { "label": "About Us", "href": "#" },
-      { "label": "Digital Payments", "href": "#" },
-      { "label": "Daraz Donates", "href": "#" },
-      { "label": "Daraz Blog", "href": "#" },
-      { "label": "Terms & Conditions", "href": "#" },
-      { "label": "Privacy Policy", "href": "#" },
-      { "label": "NTN Number : 4012118-6", "href": null },
-      { "label": "STRN Number : 1700401211818", "href": null },
-      { "label": "Online Shopping App", "href": "#" },
-      { "label": "Online Grocery Shopping", "href": "#" },
-      { "label": "Daraz Exclusive", "href": "#" },
-      { "label": "Daraz University", "href": "#" },
-      { "label": "Sell on Daraz", "href": "#" },
-      { "label": "Join Daraz Affiliate Program", "href": "#" }
+      { "label": "About Us", "href": "#", "id": "about-us" },
+      { "label": "Digital Payments", "href": "#", "id": "digital-payments" },
+      { "label": "Daraz Donates", "href": "#", "id": "daraz-donates" },
+      { "label": "Daraz Blog", "href": "#", "id": "daraz-blog" },
+      { "label": "Terms & Conditions", "href": "#", "id": "terms-conditions" },
+      { "label": "Privacy Policy", "href": "#", "id": "privacy-policy" },
+      {
+        "label": "NTN Number : 4012118-6",
+        "href": null,
+        "id": "ntn-number-4012118-6"
+      },
+      {
+        "label": "STRN Number : 1700401211818",
+        "href": null,
+        "id": "strn-number-1700401211818"
+      },
+      {
+        "label": "Online Shopping App",
+        "href": "#",
+        "id": "online-shopping-app"
+      },
+      {
+        "label": "Online Grocery Shopping",
+        "href": "#",
+        "id": "online-grocery-shopping"
+      },
+      { "label": "Daraz Exclusive", "href": "#", "id": "daraz-exclusive" },
+      { "label": "Daraz University", "href": "#", "id": "daraz-university" },
+      { "label": "Sell on Daraz", "href": "#", "id": "sell-on-daraz" },
+      {
+        "label": "Join Daraz Affiliate Program",
+        "href": "#",
+        "id": "join-daraz-affiliate-program"
+      }
     ]
   },
   "app": {
@@ -39,17 +71,20 @@
       {
         "src": "../assets/footer/top-footer/available-on-store.png",
         "alt": "App Store",
-        "href": "#"
+        "href": "#",
+        "id": "app-store"
       },
       {
         "src": "../assets/footer/top-footer/google-play.png",
         "alt": "Google Play",
-        "href": "#"
+        "href": "#",
+        "id": "google-play"
       },
       {
         "src": "../assets/footer/top-footer/app-gallery.png",
         "alt": "App Gallery",
-        "href": "#"
+        "href": "#",
+        "id": "app-gallery"
       }
     ]
   },
@@ -58,31 +93,55 @@
     "icons": [
       {
         "src": "../assets/footer/payment/cash-on-delivery.png",
-        "alt": "Cash on Delivery"
+        "alt": "Cash on Delivery",
+        "id": "cash-on-delivery"
       },
-      { "src": "../assets/footer/payment/visa.png", "alt": "Visa" },
+      {
+        "src": "../assets/footer/payment/visa.png",
+        "alt": "Visa",
+        "id": "visa"
+      },
       {
         "src": "../assets/footer/payment/master-card.png",
-        "alt": "Mastercard"
+        "alt": "Mastercard",
+        "id": "mastercard"
       },
-      { "src": "../assets/footer/payment/easy-paisa.png", "alt": "Easypaisa" },
+      {
+        "src": "../assets/footer/payment/easy-paisa.png",
+        "alt": "Easypaisa",
+        "id": "easypaisa"
+      },
       {
         "src": "../assets/footer/payment/daraz-wallet.png",
-        "alt": "Daraz Wallet"
+        "alt": "Daraz Wallet",
+        "id": "daraz-wallet"
       },
-      { "src": "../assets/footer/payment/jazz-cash.png", "alt": "JazzCash" },
-      { "src": "../assets/footer/payment/union-pay.png", "alt": "UnionPay" },
-      { "src": "../assets/footer/payment/hbl.png", "alt": "HBL" },
+      {
+        "src": "../assets/footer/payment/jazz-cash.png",
+        "alt": "JazzCash",
+        "id": "jazzcash"
+      },
+      {
+        "src": "../assets/footer/payment/union-pay.png",
+        "alt": "UnionPay",
+        "id": "unionpay"
+      },
+      { "src": "../assets/footer/payment/hbl.png", "alt": "HBL", "id": "hbl" },
       {
         "src": "../assets/footer/payment/monthly-installments.png",
-        "alt": "Easy Monthly Installments"
+        "alt": "Easy Monthly Installments",
+        "id": "easy-monthly-installments"
       }
     ]
   },
   "verifiedBy": {
     "heading": "Verified by",
     "icons": [
-      { "src": "../assets/footer/payment/pci-verified.png", "alt": "PCI DSS" }
+      {
+        "src": "../assets/footer/payment/pci-verified.png",
+        "alt": "PCI DSS",
+        "id": "pci-dss"
+      }
     ]
   },
   "about": {
@@ -398,27 +457,32 @@
       {
         "label": "Pakistan",
         "href": "#",
-        "flag": "../assets/footer/countries/pakistan.png"
+        "flag": "../assets/footer/countries/pakistan.png",
+        "id": "pakistan"
       },
       {
         "label": "Bangladesh",
         "href": "#",
-        "flag": "../assets/footer/countries/bengal.png"
+        "flag": "../assets/footer/countries/bengal.png",
+        "id": "bangladesh"
       },
       {
         "label": "Sri Lanka",
         "href": "#",
-        "flag": "../assets/footer/countries/srilanka.png"
+        "flag": "../assets/footer/countries/srilanka.png",
+        "id": "sri-lanka"
       },
       {
         "label": "Myanmar",
         "href": "#",
-        "flag": "../assets/footer/countries/myanmar.png"
+        "flag": "../assets/footer/countries/myanmar.png",
+        "id": "myanmar"
       },
       {
         "label": "Nepal",
         "href": "#",
-        "flag": "../assets/footer/countries/nepal.png"
+        "flag": "../assets/footer/countries/nepal.png",
+        "id": "nepal"
       }
     ]
   },
@@ -428,22 +492,26 @@
       {
         "href": "https://www.facebook.com/darazpk",
         "icon": "../assets/footer/social/facebook.png",
-        "alt": "Facebook"
+        "alt": "Facebook",
+        "id": "facebook"
       },
       {
         "href": "https://x.com/darazpk",
         "icon": "../assets/footer/social/x.png",
-        "alt": "X"
+        "alt": "X",
+        "id": "x"
       },
       {
         "href": "https://www.instagram.com/darazpk/",
         "icon": "../assets/footer/social/instagram.png",
-        "alt": "Instagram"
+        "alt": "Instagram",
+        "id": "instagram"
       },
       {
         "href": "https://www.youtube.com/channel/UC2BZLVEe9yLof1ghc_YI0_A",
         "icon": "../assets/footer/social/youtube.png",
-        "alt": "YouTube"
+        "alt": "YouTube",
+        "id": "youtube"
       }
     ]
   },

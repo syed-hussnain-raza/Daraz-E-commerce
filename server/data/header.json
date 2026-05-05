@@ -1,34 +1,56 @@
 {
+  "id": "header",
   "topBar": [
-    { "label": "SAVE MORE ON APP", "href": "#" },
-    { "label": "SELL ON DARAZ", "href": "#" },
-    { "label": "HELP & SUPPORT", "href": "#" },
-    { "label": "LOGIN", "href": "#", "action": "login" },
-    { "label": "SIGN UP", "href": "#", "action": "login" },
-    { "label": "زبان تبدیل کریں", "href": "#" }
+    { "id": "topbar-save-more", "label": "SAVE MORE ON APP", "href": "#" },
+    { "id": "topbar-sell", "label": "SELL ON DARAZ", "href": "#" },
+    { "id": "topbar-help", "label": "HELP & SUPPORT", "href": "#" },
+    { "id": "topbar-login", "label": "LOGIN", "href": "#", "action": "login" },
+    {
+      "id": "topbar-signup",
+      "label": "SIGN UP",
+      "href": "#",
+      "action": "login"
+    },
+    { "id": "topbar-lang", "label": "زبان تبدیل کریں", "href": "#" }
   ],
   "logo": {
+    "id": "logo",
     "src": "../assets/images/logo.png",
     "alt": "Daraz Logo",
     "href": "../views/main.html"
   },
   "search": {
+    "id": "search",
     "placeholder": "Search in Daraz",
     "iconSrc": "../assets/icons/search-icon.png"
   },
   "cart": {
+    "id": "cart",
     "href": "#",
     "icon": "bi bi-cart3"
   },
   "searchTags": [
-    { "label": "makeup", "href": "#" },
-    { "label": "watch for boys", "href": "#" },
-    { "label": "bags for girls", "href": "#" },
-    { "label": "airpods", "href": "#" },
-    { "label": "laptop for sale", "href": "#" }
+    { "id": "searchtag-makeup", "label": "makeup", "href": "#" },
+    {
+      "id": "searchtag-watch-for-boys",
+      "label": "watch for boys",
+      "href": "#"
+    },
+    {
+      "id": "searchtag-bags-for-girls",
+      "label": "bags for girls",
+      "href": "#"
+    },
+    { "id": "searchtag-airpods", "label": "airpods", "href": "#" },
+    {
+      "id": "searchtag-laptop-for-sale",
+      "label": "laptop for sale",
+      "href": "#"
+    }
   ],
   "categories": [
     {
+      "id": "category-electronic-accessories",
       "label": "Electronic Accessories",
       "subs": [
         {
@@ -113,6 +135,7 @@
       ]
     },
     {
+      "id": "category-tv-home-appliances",
       "label": "TV & Home Appliances",
       "subs": [
         { "label": "Air Conditioner", "grands": [] },
@@ -189,6 +212,7 @@
       ]
     },
     {
+      "id": "category-health-beauty",
       "label": "Health & Beauty",
       "subs": [
         {
@@ -269,6 +293,7 @@
       ]
     },
     {
+      "id": "category-mother-baby",
       "label": "Mother & Baby",
       "subs": [
         {
@@ -359,6 +384,7 @@
       ]
     },
     {
+      "id": "category-electronic-devices",
       "label": "Electronic Devices",
       "subs": [
         {
@@ -417,6 +443,7 @@
       ]
     },
     {
+      "id": "category-groceries-pets",
       "label": "Groceries & Pets",
       "subs": [
         {
@@ -490,6 +517,7 @@
       ]
     },
     {
+      "id": "category-home-lifestyle",
       "label": "Home & Lifestyle",
       "subs": [
         {
@@ -582,6 +610,7 @@
       ]
     },
     {
+      "id": "category-womens-fashion",
       "label": "Women's Fashion",
       "subs": [
         {
@@ -620,6 +649,7 @@
       ]
     },
     {
+      "id": "category-mens-fashion",
       "label": "Men's Fashion",
       "subs": [
         {
@@ -668,6 +698,7 @@
       ]
     },
     {
+      "id": "category-watches-bags-jewellery",
       "label": "Watches, Bags & Jewellery",
       "subs": [
         {
@@ -725,6 +756,7 @@
       ]
     },
     {
+      "id": "category-sports-outdoor",
       "label": "Sports & Outdoor",
       "subs": [
         {
@@ -788,6 +820,7 @@
       ]
     },
     {
+      "id": "category-automotive-motorbike",
       "label": "Automotive & Motorbike",
       "subs": [
         {
